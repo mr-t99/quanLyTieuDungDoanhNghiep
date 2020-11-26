@@ -27,7 +27,23 @@ namespace quanLyTieuDungDn.views
         {
             login lg = new login(txtUsername.Text, txtPassword.Text);
             lg.checkLogin();
-            MessageBox.Show("xin chào " + lg.User.T_ndung);
+            if(lg.User.T_ndung == null)
+            {
+                MessageBox.Show("Tên tài khoản hoặc mật khẩu không chính xác");
+            }
+            else
+            {
+                if(lg.User.C_vu== "Nhân viên")
+                {
+                    nhanvien nv = new nhanvien();
+
+                    nv.infor(lg.User.Id, lg.User.T_ndung);
+                    nv.Show();
+                    this.Hide();
+                }
+            }
+            //MessageBox.Show("xin chào " + lg.User.T_ndung);
+
         }
 
         private void button2_Click(object sender, EventArgs e)

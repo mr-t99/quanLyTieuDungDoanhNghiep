@@ -8,3 +8,7 @@ D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieu
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.csproj.CoreCompileInputs.cache
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.exe
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.pdb
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.ketoan.resources
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.quanly.resources
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.nhanvien.resources
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.userControll.thongke.resources

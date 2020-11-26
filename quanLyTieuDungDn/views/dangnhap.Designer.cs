@@ -52,7 +52,7 @@
             // txtUsername
             // 
             this.txtUsername.Location = new System.Drawing.Point(204, 122);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(187, 22);
             this.txtUsername.TabIndex = 1;
@@ -60,7 +60,7 @@
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(204, 176);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(187, 22);
             this.txtPassword.TabIndex = 2;
@@ -68,7 +68,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(140, 260);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 3;
@@ -79,7 +79,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(304, 260);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
             this.button2.TabIndex = 4;
@@ -121,7 +121,7 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "dangnhap";
             this.Text = "dangnhap";
             this.Load += new System.EventHandler(this.dangnhap_Load);

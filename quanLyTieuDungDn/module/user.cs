@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace quanLyTieuDungDn.module
 {
-    class user
+    class User
     {
         private int id, id_phong;
         private string t_ndung, c_vu;
