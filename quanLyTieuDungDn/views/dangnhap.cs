@@ -16,5 +16,10 @@ namespace quanLyTieuDungDn.views
         {
             InitializeComponent();
         }
+
+        private void dangnhap_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
