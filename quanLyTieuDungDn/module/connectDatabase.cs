@@ -20,7 +20,6 @@ namespace quanLyTieuDungDn.module
         {
             try
             {
-                user a = new user();
                 conn = new SqlConnection(sqlConnect);
                 conn.Open();
                 cmd = new SqlCommand(sql, conn);
