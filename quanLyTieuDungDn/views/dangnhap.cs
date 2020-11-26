@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using quanLyTieuDungDn.controller;
 
 namespace quanLyTieuDungDn.views
 {
@@ -20,6 +21,23 @@ namespace quanLyTieuDungDn.views
         private void dangnhap_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            login lg = new login(txtUsername.Text, txtPassword.Text);
+            lg.checkLogin();
+            MessageBox.Show("xin chào " + lg.User.T_ndung);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult dl = MessageBox.Show("Bạn có muốn thoát?", "Thông báo", MessageBoxButtons.YesNo);
+            Console.WriteLine(dl);
+            if(dl == DialogResult.Yes)
+            {
+                this.Dispose();
+            }
         }
     }
 }

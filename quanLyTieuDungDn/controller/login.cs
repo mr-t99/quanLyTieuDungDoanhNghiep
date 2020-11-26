@@ -19,10 +19,12 @@ namespace quanLyTieuDungDn.controller
             this.userName = userName;
             this.passWord = passWord;
         }
+        internal user User { get => user; set => user = value; }
+
         public void checkLogin()
         {
             cnn = new connectDatabase();
-            this.user = new user();
+            this.User = new user();
             DataTable data;
             try
             {
@@ -31,10 +33,10 @@ namespace quanLyTieuDungDn.controller
                     + this.passWord + "'");
                 foreach (DataRow dt in data.Rows)
                 {
-                    this.user.T_ndung = dt["tn_dung"].ToString();
-                    this.user.C_vu = dt["c_vu"].ToString();
-                    this.user.Id = Int32.Parse(dt["id"].ToString());
-                    this.user.Id_phong = Int32.Parse(dt["id_phong"].ToString());
+                    this.User.T_ndung = dt["tn_dung"].ToString();
+                    this.User.C_vu = dt["c_vu"].ToString();
+                    this.User.Id = Int32.Parse(dt["id"].ToString());
+                    this.User.Id_phong = Int32.Parse(dt["id_phong"].ToString());
                 }
             }
             catch

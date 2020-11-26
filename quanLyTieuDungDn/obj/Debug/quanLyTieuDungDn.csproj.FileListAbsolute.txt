@@ -1,0 +1,10 @@
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\bin\Debug\quanLyTieuDungDn.exe.config
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\bin\Debug\quanLyTieuDungDn.exe
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\bin\Debug\quanLyTieuDungDn.pdb
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.csprojAssemblyReference.cache
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.Properties.Resources.resources
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.dangnhap.resources
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.csproj.GenerateResource.cache
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.csproj.CoreCompileInputs.cache
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.exe
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.pdb
