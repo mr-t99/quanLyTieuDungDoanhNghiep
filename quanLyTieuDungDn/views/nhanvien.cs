@@ -37,5 +37,10 @@ namespace quanLyTieuDungDn.views
                 dn.Show();
             }
         }
+
+        private void menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

@@ -124,6 +124,7 @@
             this.menu.Size = new System.Drawing.Size(1282, 32);
             this.menu.TabIndex = 5;
             this.menu.Text = "menuStrip1";
+            this.menu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menu_ItemClicked);
             // 
             // option
             // 

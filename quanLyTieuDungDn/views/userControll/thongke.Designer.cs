@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgThongKe = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,18 +37,18 @@
             this.labTong = new System.Windows.Forms.Label();
             this.labCaNhan = new System.Windows.Forms.Label();
             this.labVuot = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgThongKe)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgThongKe
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1252, 531);
-            this.dataGridView1.TabIndex = 0;
+            this.dgThongKe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgThongKe.Location = new System.Drawing.Point(3, 0);
+            this.dgThongKe.Name = "dgThongKe";
+            this.dgThongKe.RowHeadersWidth = 51;
+            this.dgThongKe.RowTemplate.Height = 24;
+            this.dgThongKe.Size = new System.Drawing.Size(1252, 531);
+            this.dgThongKe.TabIndex = 0;
             // 
             // label1
             // 
@@ -134,12 +134,13 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgThongKe);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "thongke";
             this.Size = new System.Drawing.Size(1258, 691);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.thongke_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgThongKe)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,7 +148,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgThongKe;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
