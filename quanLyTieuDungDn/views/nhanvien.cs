@@ -12,19 +12,25 @@ namespace quanLyTieuDungDn.views
 {
     public partial class nhanvien : Form
     {
-        public delegate void sendInfor(int id, string name);
+        private int id_ndung, id_phong;
+        public delegate void sendInfor(int id_ndung, int id_phong, string name);
         public sendInfor infor;
         public nhanvien()
         {
             InitializeComponent();
             infor = new sendInfor(setUserName);
+
         }
-        private void setUserName(int id, string name)
+        private void setUserName(int id_nd, int id_phong, string name)
         {
             userOption.Text = name;
+            this.id_ndung = id_nd;
+            this.id_phong = id_phong;
         }
         private void nhanvien_Load(object sender, EventArgs e)
         {
+            Console.WriteLine(this.id_phong);
+            this.thongke1.setId(this.id_ndung, this.id_phong);
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,5 +48,6 @@ namespace quanLyTieuDungDn.views
         {
 
         }
+
     }
 }

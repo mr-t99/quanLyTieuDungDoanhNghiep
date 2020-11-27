@@ -37,12 +37,11 @@ namespace quanLyTieuDungDn.views
                 {
                     nhanvien nv = new nhanvien();
 
-                    nv.infor(lg.User.Id, lg.User.T_ndung);
+                    nv.infor(lg.User.Id, lg.User.Id_phong, lg.User.T_ndung);
                     nv.Show();
                     this.Hide();
                 }
             }
-            //MessageBox.Show("xin chào " + lg.User.T_ndung);
 
         }
 
