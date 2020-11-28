@@ -12,7 +12,7 @@ namespace quanLyTieuDungDn.module
     {
         public static SqlConnection conn;
         public static SqlCommand cmd;
-        public static DataTable dt;
+        private static DataTable dt;
         public static SqlDataAdapter adap;
         public static string sqlConnect = @"Data Source=DESKTOP-693KNU1\SQLEXPRESS;Initial Catalog=quanLyTieuDung;Integrated Security=True";
 

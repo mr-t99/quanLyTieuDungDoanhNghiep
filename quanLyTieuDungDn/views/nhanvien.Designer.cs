@@ -142,7 +142,7 @@
             this.đáToolStripMenuItem2.Name = "đáToolStripMenuItem2";
             this.đáToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
             this.đáToolStripMenuItem2.Text = "Thống kê";
-            this.đáToolStripMenuItem2.Click += new System.EventHandler(this.đáToolStripMenuItem2_Click);
+
             // 
             // dấdádsaToolStripMenuItem
             // 

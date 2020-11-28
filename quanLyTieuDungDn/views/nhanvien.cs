@@ -19,7 +19,6 @@ namespace quanLyTieuDungDn.views
         {
             InitializeComponent();
             infor = new sendInfor(setUserName);
-
         }
         private void setUserName(int id_nd, int id_phong, string name)
         {
@@ -45,15 +44,12 @@ namespace quanLyTieuDungDn.views
             }
         }
 
-        private void đáToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void dấdádsaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.thongke1.Visible = false;
             this.themTieuDung1.Visible = true;
+            this.themTieuDung1.setUserName(id_ndung);
         }
 
         private void menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

@@ -13,20 +13,17 @@ namespace quanLyTieuDungDn.views.userControll
 {
     public partial class thongke : UserControl
     {
-        public delegate void sendId(int id_ndung, int id_phong);
-        public sendId sen;
         private int id_ndung, id_phong;
         public thongke()
         {
             InitializeComponent();
-            sen = new sendId(setId);
         }
 
         public void setId(int id_ndung, int id_phong)
         {
             this.id_ndung = id_ndung;
             this.id_phong = id_phong;
-            thongkeController controllerThongke = new thongkeController();
+            controller.nhanvienController controllerThongke = new controller.nhanvienController();
             controllerThongke.dataBangThongKe(this.id_phong);
             dgThongKe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgThongKe.DataSource = controllerThongke.DataTable;
