@@ -83,6 +83,12 @@
     <Compile Include="views\quanly.Designer.cs">
       <DependentUpon>quanly.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\userControll\ThemTieuDung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="views\userControll\ThemTieuDung.Designer.cs">
+      <DependentUpon>ThemTieuDung.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\userControll\thongke.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\quanly.resx">
       <DependentUpon>quanly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\userControll\ThemTieuDung.resx">
+      <DependentUpon>ThemTieuDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\userControll\thongke.resx">
       <DependentUpon>thongke.cs</DependentUpon>

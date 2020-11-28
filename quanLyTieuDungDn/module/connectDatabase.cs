@@ -27,13 +27,39 @@ namespace quanLyTieuDungDn.module
                 adap = new SqlDataAdapter(cmd);
                 dt = new DataTable();
                 adap.Fill(dt);
-                conn.Close();
+                
             }
             catch (Exception)
             {
                 Console.WriteLine("Lỗi getData");
             }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
             return dt;
+        }
+        public int RepairData(string sql)
+        {
+            int rowCount = 0;
+            try
+            {
+                conn = new SqlConnection(sqlConnect);
+                conn.Open();
+                cmd = new SqlCommand(sql, conn);
+                rowCount = cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Lỗi phần InsertData module ConnectDatabase");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return rowCount;
         }
     }
 }
