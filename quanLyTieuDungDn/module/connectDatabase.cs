@@ -8,7 +8,7 @@ using System.Data;
 
 namespace quanLyTieuDungDn.module
 {
-    class connectDatabase
+    class ConnectDatabase
     {
         public static SqlConnection conn;
         public static SqlCommand cmd;

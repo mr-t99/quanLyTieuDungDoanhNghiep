@@ -54,8 +54,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="module\connectDatabase.cs" />
+    <Compile Include="module\ConnectDatabase.cs" />
     <Compile Include="module\NhanVien.cs" />
+    <Compile Include="module\TieuDung.cs" />
     <Compile Include="module\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,6 +83,12 @@
     </Compile>
     <Compile Include="views\quanly.Designer.cs">
       <DependentUpon>quanly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\userControll\SuaTieuDung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="views\userControll\SuaTieuDung.Designer.cs">
+      <DependentUpon>SuaTieuDung.cs</DependentUpon>
     </Compile>
     <Compile Include="views\userControll\ThemTieuDung.cs">
       <SubType>UserControl</SubType>
@@ -115,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\quanly.resx">
       <DependentUpon>quanly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\userControll\SuaTieuDung.resx">
+      <DependentUpon>SuaTieuDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\userControll\ThemTieuDung.resx">
       <DependentUpon>ThemTieuDung.cs</DependentUpon>

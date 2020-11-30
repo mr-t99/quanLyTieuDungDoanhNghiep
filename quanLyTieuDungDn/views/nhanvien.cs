@@ -28,9 +28,9 @@ namespace quanLyTieuDungDn.views
         }
         private void nhanvien_Load(object sender, EventArgs e)
         {
-            Console.WriteLine(this.id_phong);
             this.thongke1.setId(this.id_ndung, this.id_phong);
             this.themTieuDung1.Visible = false;
+            this.suaTieuDung1.Visible = false;
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -48,8 +48,24 @@ namespace quanLyTieuDungDn.views
         private void dấdádsaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.thongke1.Visible = false;
+            this.suaTieuDung1.Visible = false;
             this.themTieuDung1.Visible = true;
             this.themTieuDung1.setUserName(id_ndung);
+        }
+
+        private void đáToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.thongke1.Visible = true;
+            this.suaTieuDung1.Visible = false;
+            this.themTieuDung1.Visible = false;
+        }
+
+        private void daToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.thongke1.Visible = false;
+            this.suaTieuDung1.Visible = true;
+            this.themTieuDung1.Visible = false;
+            this.suaTieuDung1.setUserName(id_ndung);
         }
 
         private void menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

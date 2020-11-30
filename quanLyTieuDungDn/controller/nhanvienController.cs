@@ -11,7 +11,7 @@ namespace quanLyTieuDungDn.controller
 {
     class nhanvienController
     {
-        private connectDatabase cnn;
+        private ConnectDatabase cnn;
         private DataTable dataTable;
         private NhanVien dataLable;
         private ArrayList dataDataCombox;
@@ -23,13 +23,13 @@ namespace quanLyTieuDungDn.controller
 
         public void dataBangThongKe(int id)
         {
-            cnn = new connectDatabase();
+            cnn = new ConnectDatabase();
             this.dataTable = cnn.getdata("select tn_dung as'Tên người dùng', t_phong as 'Tên phòng', t_tdung as 'Sử dụng', gia as 'Giá', ngay as 'Ngày', t_thai as 'Trạng thái'  from nguoi_dung, tieu_dung, phong  where tieu_dung.id_nguoidung = nguoi_dung.id and phong.id=nguoi_dung.id_phong and phong.id="+id+"");
         }
         public void setDataLable(int id_ndung, int id_phong)
         {
             this.DataLable = new NhanVien();
-            cnn = new connectDatabase();
+            cnn = new ConnectDatabase();
             DataTable dataLable = cnn.getdata("select nguoi_dung.tn_dung, sum(tieu_dung.gia) as tong from nguoi_dung, tieu_dung, phong where nguoi_dung.id_phong = phong.id and tieu_dung.id_nguoidung = nguoi_dung.id and id_nguoidung="+id_ndung+" GROUP BY nguoi_dung.tn_dung");
             
             if (dataLable != null)
@@ -56,7 +56,7 @@ namespace quanLyTieuDungDn.controller
         }
         public void dataCombox()
         {
-            cnn = new connectDatabase();
+            cnn = new ConnectDatabase();
             DataTable data = cnn.getdata("select * from loai_tieu_dung");
             dataDataCombox = new ArrayList();
             if (data != null)
@@ -70,6 +70,22 @@ namespace quanLyTieuDungDn.controller
                 }
             }
         }
-        
+        public int addTieuDung(TieuDung td)
+        {
+            int status = 0;
+            status = this.cnn.RepairData("insert into tieu_dung(id_nguoidung, t_tdung, gia, ngay, id_tdung) values ("+
+                td.Id_ndung+", N'"+
+                td.T_tdung+"', "+
+                td.Gia+", '"+
+                td.Ngay+"', "+
+                td.Id_tdung+")");
+            return status;
+        }
+        public DataTable dataTableTieuDung(int id_ndung)
+        {
+            cnn = new ConnectDatabase();
+            DataTable dt = cnn.getdata("select id, t_tdung as 'Mô tả', gia as 'Giá', ngay as 'Ngày lập', t_thai as 'Trạng thái' from tieu_dung where tieu_dung.id_nguoidung="+id_ndung+"");
+            return dt;
+        }
     }
 }

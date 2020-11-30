@@ -11,7 +11,7 @@ namespace quanLyTieuDungDn.controller
     class login
     {
         private string userName, passWord;
-        private connectDatabase cnn;
+        private ConnectDatabase cnn;
         private User user;
         
         public login(string userName, string passWord)
@@ -23,7 +23,7 @@ namespace quanLyTieuDungDn.controller
 
         public void checkLogin()
         {
-            cnn = new connectDatabase();
+            cnn = new ConnectDatabase();
             DataTable data;
             this.User = new User();
             try
