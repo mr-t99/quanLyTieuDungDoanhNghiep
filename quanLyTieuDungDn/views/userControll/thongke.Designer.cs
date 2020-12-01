@@ -37,17 +37,18 @@
             this.labTong = new System.Windows.Forms.Label();
             this.labCaNhan = new System.Windows.Forms.Label();
             this.labVuot = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgThongKe)).BeginInit();
             this.SuspendLayout();
             // 
             // dgThongKe
             // 
             this.dgThongKe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgThongKe.Location = new System.Drawing.Point(3, 0);
+            this.dgThongKe.Location = new System.Drawing.Point(3, 42);
             this.dgThongKe.Name = "dgThongKe";
             this.dgThongKe.RowHeadersWidth = 51;
             this.dgThongKe.RowTemplate.Height = 24;
-            this.dgThongKe.Size = new System.Drawing.Size(1252, 531);
+            this.dgThongKe.Size = new System.Drawing.Size(1252, 489);
             this.dgThongKe.TabIndex = 0;
             // 
             // label1
@@ -122,10 +123,21 @@
             this.labVuot.TabIndex = 2;
             this.labVuot.Text = "label5";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(474, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(261, 39);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Thống kê chung";
+            // 
             // thongke
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.labVuot);
             this.Controls.Add(this.labCaNhan);
             this.Controls.Add(this.labTong);
@@ -157,5 +169,6 @@
         private System.Windows.Forms.Label labTong;
         private System.Windows.Forms.Label labCaNhan;
         private System.Windows.Forms.Label labVuot;
+        private System.Windows.Forms.Label label5;
     }
 }

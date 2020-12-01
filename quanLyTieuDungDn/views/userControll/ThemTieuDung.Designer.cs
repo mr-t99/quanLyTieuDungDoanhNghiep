@@ -40,6 +40,7 @@
             this.btDuyet = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btThemLTdung = new System.Windows.Forms.Button();
+            this.lbIntro = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTieuDung)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -47,12 +48,13 @@
             // dgvTieuDung
             // 
             this.dgvTieuDung.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTieuDung.Location = new System.Drawing.Point(3, 3);
+            this.dgvTieuDung.Location = new System.Drawing.Point(0, 42);
             this.dgvTieuDung.Name = "dgvTieuDung";
             this.dgvTieuDung.RowHeadersWidth = 51;
             this.dgvTieuDung.RowTemplate.Height = 24;
-            this.dgvTieuDung.Size = new System.Drawing.Size(1252, 474);
+            this.dgvTieuDung.Size = new System.Drawing.Size(1258, 450);
             this.dgvTieuDung.TabIndex = 0;
+            this.dgvTieuDung.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTieuDung_CellClick);
             // 
             // label1
             // 
@@ -137,9 +139,9 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btThemLTdung);
             this.panel1.Controls.Add(this.txtThemLoaiTieuDung);
-            this.panel1.Location = new System.Drawing.Point(869, 483);
+            this.panel1.Location = new System.Drawing.Point(869, 498);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(386, 205);
+            this.panel1.Size = new System.Drawing.Size(386, 190);
             this.panel1.TabIndex = 7;
             // 
             // btThemLTdung
@@ -151,10 +153,21 @@
             this.btThemLTdung.Text = "Thêm";
             this.btThemLTdung.UseVisualStyleBackColor = true;
             // 
+            // lbIntro
+            // 
+            this.lbIntro.AutoSize = true;
+            this.lbIntro.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIntro.Location = new System.Drawing.Point(525, 0);
+            this.lbIntro.Name = "lbIntro";
+            this.lbIntro.Size = new System.Drawing.Size(109, 39);
+            this.lbIntro.TabIndex = 8;
+            this.lbIntro.Text = "label5";
+            // 
             // ThemTieuDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lbIntro);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btDuyet);
             this.Controls.Add(this.txtGia);
@@ -191,5 +204,6 @@
         private System.Windows.Forms.Button btDuyet;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btThemLTdung;
+        private System.Windows.Forms.Label lbIntro;
     }
 }

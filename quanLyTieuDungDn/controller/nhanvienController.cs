@@ -78,14 +78,32 @@ namespace quanLyTieuDungDn.controller
                 td.T_tdung+"', "+
                 td.Gia+", '"+
                 td.Ngay+"', "+
-                td.Id_tdung+")");
+                td.Id_ltdung+")");
+            return status;
+        }
+        public int repairTieuDung(TieuDung td)
+        {
+            int status = 0;
+            status = this.cnn.RepairData("update tieu_dung set t_tdung=N'"+
+                td.T_tdung+"',gia="+
+                td.Gia+", id_tdung="
+                +td.Id_ltdung+", ngay='"+
+                td.Ngay+"' where tieu_dung.id="+
+                td.Id_tdung+"");
+            Console.WriteLine("update tieu_dung set t_tdung=N'" +
+                td.T_tdung + "',gia=" +
+                td.Gia + ", id_tdung="
+                + td.Id_ltdung + ", ngay='" +
+                td.Ngay + "' where tieu_dung.id=" +
+                td.Id_ltdung + "");
             return status;
         }
         public DataTable dataTableTieuDung(int id_ndung)
         {
             cnn = new ConnectDatabase();
-            DataTable dt = cnn.getdata("select id, t_tdung as 'Mô tả', gia as 'Giá', ngay as 'Ngày lập', t_thai as 'Trạng thái' from tieu_dung where tieu_dung.id_nguoidung="+id_ndung+"");
+            DataTable dt = cnn.getdata("select tieu_dung.id as id_td, t_tdung as 'Mô tả', loai_tieu_dung.l_tdung as 'Hạng mục', gia as 'Giá', ngay as 'Ngày lập', t_thai as 'Trạng thái' from tieu_dung, loai_tieu_dung where tieu_dung.id_tdung=loai_tieu_dung.id and tieu_dung.id_nguoidung=" + id_ndung+"");
             return dt;
         }
+
     }
 }
