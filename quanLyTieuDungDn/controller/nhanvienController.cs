@@ -52,7 +52,10 @@ namespace quanLyTieuDungDn.controller
             {
                 this.DataLable.V_muc = this.DataLable.S_phong - this.DataLable.H_muc;
             }
-            this.DataLable.V_muc = 0;
+            else {
+                this.DataLable.V_muc = 0;
+            }
+            
         }
         public void dataCombox()
         {
@@ -79,6 +82,12 @@ namespace quanLyTieuDungDn.controller
                 td.Gia+", '"+
                 td.Ngay+"', "+
                 td.Id_ltdung+")");
+            Console.WriteLine("insert into tieu_dung(id_nguoidung, t_tdung, gia, ngay, id_tdung) values (" +
+                td.Id_ndung + ", N'" +
+                td.T_tdung + "', " +
+                td.Gia + ", '" +
+                td.Ngay + "', " +
+                td.Id_ltdung + ")");
             return status;
         }
         public int repairTieuDung(TieuDung td)
@@ -90,12 +99,6 @@ namespace quanLyTieuDungDn.controller
                 +td.Id_ltdung+", ngay='"+
                 td.Ngay+"' where tieu_dung.id="+
                 td.Id_tdung+"");
-            Console.WriteLine("update tieu_dung set t_tdung=N'" +
-                td.T_tdung + "',gia=" +
-                td.Gia + ", id_tdung="
-                + td.Id_ltdung + ", ngay='" +
-                td.Ngay + "' where tieu_dung.id=" +
-                td.Id_ltdung + "");
             return status;
         }
         public DataTable dataTableTieuDung(int id_ndung)
@@ -103,6 +106,14 @@ namespace quanLyTieuDungDn.controller
             cnn = new ConnectDatabase();
             DataTable dt = cnn.getdata("select tieu_dung.id as id_td, t_tdung as 'Mô tả', loai_tieu_dung.l_tdung as 'Hạng mục', gia as 'Giá', ngay as 'Ngày lập', t_thai as 'Trạng thái' from tieu_dung, loai_tieu_dung where tieu_dung.id_tdung=loai_tieu_dung.id and tieu_dung.id_nguoidung=" + id_ndung+"");
             return dt;
+        }
+
+        public int DeleteTieuDung(int id)
+        {
+            int row = 0;
+            cnn = new ConnectDatabase();
+            row = cnn.RepairData("delete from tieu_dung where tieu_dung.id="+id+"");
+            return row;
         }
 
     }

@@ -32,11 +32,16 @@ namespace quanLyTieuDungDn.views.userControll
             if (type == 1)
             {
                 lbIntro.Text = "Thêm tiêu dùng";
+                btXoa.Visible = false;
                 txtGia.Clear();
                 txtMota.Clear();
             }else if(type==2){
                 lbIntro.Text = "Sửa tiêu dùng";
                 btDuyet.Text = "lưu thay đối";
+                btXoa.Visible = true;
+                btXoa.Enabled = false;
+                txtGia.Clear();
+                txtMota.Clear();
             }
         }
 
@@ -57,7 +62,8 @@ namespace quanLyTieuDungDn.views.userControll
                 td.Id_ndung = this.id_ndung;
                 quanLyTieuDungDn.module.NhanVien a = new NhanVien();
                 a = (quanLyTieuDungDn.module.NhanVien)cbLoaiTdung.SelectedItem;
-                td.Id_tdung = a.Id_tdung;
+                Console.WriteLine(a.Id_tdung);
+                td.Id_ltdung = a.Id_tdung;
                 td.T_tdung = txtMota.Text;
                 td.Gia = txtGia.Text;
                 if (nhanvienController.addTieuDung(td) != 0)
@@ -104,6 +110,24 @@ namespace quanLyTieuDungDn.views.userControll
             cbLoaiTdung.ValueMember = "id_tdung";
         }
 
+        private void btXoa_Click(object sender, EventArgs e)
+        {
+            DialogResult dl = MessageBox.Show("Bạn có trắc muốn xóa!", "Thông báo", MessageBoxButtons.YesNo);
+            if(dl == DialogResult.Yes)
+            {
+                if (nhanvienController.DeleteTieuDung(this.id_tdung) != 0)
+                {
+                    MessageBox.Show("Xóa thành công");
+                    dgvTieuDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dgvTieuDung.DataSource = nhanvienController.dataTableTieuDung(id_ndung);
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi không thể xóa");
+                }
+            }
+        }
+
         private void cbLoaiTdung_SelectedIndexChanged(object sender, EventArgs e)
         {
             
@@ -130,6 +154,7 @@ namespace quanLyTieuDungDn.views.userControll
                     txtGia.Text = row.Cells[3].Value.ToString();
                     this.id_tdung = Int32.Parse(row.Cells[0].Value.ToString());
                     cbLoaiTdung.SelectedIndex = cbLoaiTdung.FindStringExact(row.Cells[2].Value.ToString());
+                    btXoa.Enabled = true;
                 }
             }
         }

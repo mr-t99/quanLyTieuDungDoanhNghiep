@@ -41,6 +41,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btThemLTdung = new System.Windows.Forms.Button();
             this.lbIntro = new System.Windows.Forms.Label();
+            this.btXoa = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTieuDung)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -125,7 +126,7 @@
             // 
             // btDuyet
             // 
-            this.btDuyet.Location = new System.Drawing.Point(511, 626);
+            this.btDuyet.Location = new System.Drawing.Point(656, 626);
             this.btDuyet.Name = "btDuyet";
             this.btDuyet.Size = new System.Drawing.Size(123, 36);
             this.btDuyet.TabIndex = 6;
@@ -159,14 +160,25 @@
             this.lbIntro.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbIntro.Location = new System.Drawing.Point(525, 0);
             this.lbIntro.Name = "lbIntro";
-            this.lbIntro.Size = new System.Drawing.Size(109, 39);
+            this.lbIntro.Size = new System.Drawing.Size(103, 38);
             this.lbIntro.TabIndex = 8;
             this.lbIntro.Text = "label5";
+            // 
+            // btXoa
+            // 
+            this.btXoa.Location = new System.Drawing.Point(579, 626);
+            this.btXoa.Name = "btXoa";
+            this.btXoa.Size = new System.Drawing.Size(71, 36);
+            this.btXoa.TabIndex = 9;
+            this.btXoa.Text = "Xóa";
+            this.btXoa.UseVisualStyleBackColor = true;
+            this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
             // 
             // ThemTieuDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btXoa);
             this.Controls.Add(this.lbIntro);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btDuyet);
@@ -205,5 +217,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btThemLTdung;
         private System.Windows.Forms.Label lbIntro;
+        private System.Windows.Forms.Button btXoa;
     }
 }
