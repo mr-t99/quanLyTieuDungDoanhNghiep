@@ -16,6 +16,7 @@ namespace quanLyTieuDungDn.module
         public static SqlDataAdapter adap;
         public static string sqlConnect = @"Data Source=DESKTOP-693KNU1\SQLEXPRESS;Initial Catalog=quanLyTieuDung;Integrated Security=True";
 
+
         public DataTable getdata(string sql)
         {
             try

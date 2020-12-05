@@ -41,6 +41,10 @@ namespace quanLyTieuDungDn.views
                     nv.Show();
                     this.Hide();
                 }
+                if(lg.User.C_vu=="Kế Toán")
+                {
+
+                }
             }
 
         }
