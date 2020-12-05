@@ -86,6 +86,12 @@
     <Compile Include="views\quanly.Designer.cs">
       <DependentUpon>quanly.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\userControll\ketoan\HoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="views\userControll\ketoan\HoaDon.Designer.cs">
+      <DependentUpon>HoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\userControll\ThemTieuDung.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     <EmbeddedResource Include="views\quanly.resx">
       <DependentUpon>quanly.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="views\userControll\ketoan\HoaDon.resx">
+      <DependentUpon>HoaDon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\userControll\ThemTieuDung.resx">
       <DependentUpon>ThemTieuDung.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,8 +147,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="views\userControll\ketoan\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

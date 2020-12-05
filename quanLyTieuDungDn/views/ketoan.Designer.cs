@@ -42,6 +42,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.thongke1 = new quanLyTieuDungDn.views.userControll.thongke();
+            this.hoaDon1 = new quanLyTieuDungDn.views.userControll.ketoan.HoaDon();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -113,7 +114,6 @@
             // 
             // comBoxPhong
             // 
-            this.comBoxPhong.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.comBoxPhong.Name = "comBoxPhong";
             this.comBoxPhong.Size = new System.Drawing.Size(121, 28);
             this.comBoxPhong.SelectedIndexChanged += new System.EventHandler(this.comBoxPhong_SelectedIndexChanged);
@@ -154,11 +154,21 @@
             this.thongke1.TabIndex = 2;
             this.thongke1.Load += new System.EventHandler(this.thongke1_Load);
             // 
+            // hoaDon1
+            // 
+            this.hoaDon1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hoaDon1.Location = new System.Drawing.Point(13, 36);
+            this.hoaDon1.Margin = new System.Windows.Forms.Padding(5);
+            this.hoaDon1.Name = "hoaDon1";
+            this.hoaDon1.Size = new System.Drawing.Size(1258, 691);
+            this.hoaDon1.TabIndex = 3;
+            // 
             // ketoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 753);
+            this.Controls.Add(this.hoaDon1);
             this.Controls.Add(this.thongke1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -192,5 +202,6 @@
         private userControll.thongke thongke1;
         private System.Windows.Forms.ToolStripMenuItem phòngToolStripMenuItem;
         private System.Windows.Forms.ToolStripComboBox comBoxPhong;
+        private userControll.ketoan.HoaDon hoaDon1;
     }
 }
