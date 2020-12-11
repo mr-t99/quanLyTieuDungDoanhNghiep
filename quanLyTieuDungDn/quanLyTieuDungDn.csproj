@@ -158,6 +158,12 @@
     <EmbeddedResource Include="views\userControll\QuanLy\QLKiemDuyet.resx">
       <DependentUpon>QLKiemDuyet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="views\userControll\QuanLy\QlNhanVien.resx">
+      <DependentUpon>QlNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\userControll\QuanLy\QlPhong.resx">
+      <DependentUpon>QlPhong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\userControll\ThemTieuDung.resx">
       <DependentUpon>ThemTieuDung.cs</DependentUpon>
     </EmbeddedResource>

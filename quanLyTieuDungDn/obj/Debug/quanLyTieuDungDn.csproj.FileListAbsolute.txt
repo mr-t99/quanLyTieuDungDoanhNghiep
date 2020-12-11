@@ -15,3 +15,6 @@ D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieu
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.userControll.ThemTieuDung.resources
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.userControll.ketoan.HoaDon.resources
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.userControll.ketoan.ThongTin.resources
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.userControll.QuanLy.QLKiemDuyet.resources
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.userControll.QuanLy.QlNhanVien.resources
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.userControll.QuanLy.QlPhong.resources
