@@ -57,13 +57,14 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1245, 399);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(270, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(230, 29);
+            this.label1.Size = new System.Drawing.Size(275, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "Danh sách tiêu dùng";
             // 
@@ -72,7 +73,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(-2, 509);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(170, 29);
+            this.label2.Size = new System.Drawing.Size(203, 32);
             this.label2.TabIndex = 2;
             this.label2.Text = "Tên nhân viên:";
             // 
@@ -81,7 +82,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(-2, 593);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(167, 29);
+            this.label3.Size = new System.Drawing.Size(197, 32);
             this.label3.TabIndex = 2;
             this.label3.Text = "Tên tiêu dùng:";
             // 
@@ -90,7 +91,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(815, 521);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 29);
+            this.label4.Size = new System.Drawing.Size(121, 32);
             this.label4.TabIndex = 2;
             this.label4.Text = "Kế toán:";
             // 
@@ -99,7 +100,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(406, 649);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 29);
+            this.label5.Size = new System.Drawing.Size(112, 32);
             this.label5.TabIndex = 2;
             this.label5.Text = "Số tiền:";
             // 
@@ -108,7 +109,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(663, 609);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(128, 29);
+            this.label6.Size = new System.Drawing.Size(151, 32);
             this.label6.TabIndex = 2;
             this.label6.Text = "Ngày giao:";
             // 
@@ -116,28 +117,28 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(3, 556);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(345, 34);
+            this.textBox1.Size = new System.Drawing.Size(345, 39);
             this.textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(3, 641);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(345, 34);
+            this.textBox2.Size = new System.Drawing.Size(345, 39);
             this.textBox2.TabIndex = 3;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(820, 553);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(345, 34);
+            this.textBox3.Size = new System.Drawing.Size(345, 39);
             this.textBox3.TabIndex = 3;
             // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(491, 641);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(151, 34);
+            this.textBox5.Size = new System.Drawing.Size(151, 39);
             this.textBox5.TabIndex = 3;
             // 
             // label7
@@ -145,7 +146,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(391, 509);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 29);
+            this.label7.Size = new System.Drawing.Size(78, 32);
             this.label7.TabIndex = 2;
             this.label7.Text = "Loại:";
             // 
@@ -154,7 +155,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(396, 553);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(246, 37);
+            this.comboBox1.Size = new System.Drawing.Size(246, 40);
             this.comboBox1.TabIndex = 4;
             // 
             // button1
@@ -170,14 +171,14 @@
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(668, 641);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(409, 34);
+            this.dateTimePicker1.Size = new System.Drawing.Size(409, 39);
             this.dateTimePicker1.TabIndex = 6;
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(960, 9);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(188, 34);
+            this.textBox4.Size = new System.Drawing.Size(188, 39);
             this.textBox4.TabIndex = 7;
             // 
             // button2
@@ -191,7 +192,7 @@
             // 
             // HoaDon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox4);

@@ -14,7 +14,7 @@ namespace quanLyTieuDungDn.module
         public static SqlCommand cmd;
         private static DataTable dt;
         public static SqlDataAdapter adap;
-        public static string sqlConnect = @"Data Source=DESKTOP-693KNU1\SQLEXPRESS;Initial Catalog=quanLyTieuDung;Integrated Security=True";
+        public static string sqlConnect = @"Data Source=DESKTOP-U9CFM1J\SQLEXPRESS;Initial Catalog=quanLyTieuDung;Integrated Security=True";
 
 
         public DataTable getdata(string sql)

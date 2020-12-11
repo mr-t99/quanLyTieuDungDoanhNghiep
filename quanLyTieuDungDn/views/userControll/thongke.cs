@@ -35,6 +35,11 @@ namespace quanLyTieuDungDn.views.userControll
             labVuot.Text = string.Format("{0:#,##0.00}", controllerThongke.DataLable.V_muc);
         }
 
+        private void dgThongKe_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void thongke_Load(object sender, EventArgs e)
         {
         }

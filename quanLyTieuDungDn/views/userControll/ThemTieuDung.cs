@@ -128,6 +128,11 @@ namespace quanLyTieuDungDn.views.userControll
             }
         }
 
+        private void dgvTieuDung_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void cbLoaiTdung_SelectedIndexChanged(object sender, EventArgs e)
         {
             

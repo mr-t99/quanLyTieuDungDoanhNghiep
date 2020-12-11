@@ -17,7 +17,7 @@ namespace quanLyTieuDungDn
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ketoan());
+            Application.Run(new quanly());
         }
     }
 }

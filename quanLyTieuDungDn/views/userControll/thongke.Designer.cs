@@ -50,13 +50,14 @@
             this.dgThongKe.RowTemplate.Height = 24;
             this.dgThongKe.Size = new System.Drawing.Size(1252, 489);
             this.dgThongKe.TabIndex = 0;
+            this.dgThongKe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgThongKe_CellContentClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(22, 562);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 29);
+            this.label1.Size = new System.Drawing.Size(135, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "Hạn mức:";
             // 
@@ -65,7 +66,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(17, 632);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 29);
+            this.label2.Size = new System.Drawing.Size(142, 32);
             this.label2.TabIndex = 1;
             this.label2.Text = "Vượt mức:";
             // 
@@ -74,7 +75,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(450, 562);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(159, 29);
+            this.label3.Size = new System.Drawing.Size(188, 32);
             this.label3.TabIndex = 1;
             this.label3.Text = "Tổng hiện tại:";
             // 
@@ -83,7 +84,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(502, 632);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 29);
+            this.label4.Size = new System.Drawing.Size(130, 32);
             this.label4.TabIndex = 1;
             this.label4.Text = "Cá nhân:";
             // 
@@ -92,7 +93,7 @@
             this.labHanMuc.AutoSize = true;
             this.labHanMuc.Location = new System.Drawing.Point(141, 562);
             this.labHanMuc.Name = "labHanMuc";
-            this.labHanMuc.Size = new System.Drawing.Size(79, 29);
+            this.labHanMuc.Size = new System.Drawing.Size(93, 32);
             this.labHanMuc.TabIndex = 2;
             this.labHanMuc.Text = "label5";
             // 
@@ -101,7 +102,7 @@
             this.labTong.AutoSize = true;
             this.labTong.Location = new System.Drawing.Point(615, 562);
             this.labTong.Name = "labTong";
-            this.labTong.Size = new System.Drawing.Size(79, 29);
+            this.labTong.Size = new System.Drawing.Size(93, 32);
             this.labTong.TabIndex = 2;
             this.labTong.Text = "label5";
             // 
@@ -110,7 +111,7 @@
             this.labCaNhan.AutoSize = true;
             this.labCaNhan.Location = new System.Drawing.Point(615, 632);
             this.labCaNhan.Name = "labCaNhan";
-            this.labCaNhan.Size = new System.Drawing.Size(79, 29);
+            this.labCaNhan.Size = new System.Drawing.Size(93, 32);
             this.labCaNhan.TabIndex = 2;
             this.labCaNhan.Text = "label5";
             // 
@@ -119,7 +120,7 @@
             this.labVuot.AutoSize = true;
             this.labVuot.Location = new System.Drawing.Point(141, 632);
             this.labVuot.Name = "labVuot";
-            this.labVuot.Size = new System.Drawing.Size(79, 29);
+            this.labVuot.Size = new System.Drawing.Size(93, 32);
             this.labVuot.TabIndex = 2;
             this.labVuot.Text = "label5";
             // 
@@ -129,13 +130,13 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(474, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(261, 39);
+            this.label5.Size = new System.Drawing.Size(306, 46);
             this.label5.TabIndex = 3;
             this.label5.Text = "Thống kê chung";
             // 
             // thongke
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label5);
             this.Controls.Add(this.labVuot);

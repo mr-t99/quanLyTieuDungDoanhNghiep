@@ -48,6 +48,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lựaChọnToolStripMenuItem,
@@ -56,7 +57,7 @@
             this.comBoxPhong});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1282, 32);
+            this.menuStrip1.Size = new System.Drawing.Size(1282, 39);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -66,20 +67,20 @@
             this.thốngKêToolStripMenuItem,
             this.tìmKiếmToolStripMenuItem});
             this.lựaChọnToolStripMenuItem.Name = "lựaChọnToolStripMenuItem";
-            this.lựaChọnToolStripMenuItem.Size = new System.Drawing.Size(83, 28);
+            this.lựaChọnToolStripMenuItem.Size = new System.Drawing.Size(100, 33);
             this.lựaChọnToolStripMenuItem.Text = "Lựa chọn";
             // 
             // thốngKêToolStripMenuItem
             // 
             this.thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
-            this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(201, 34);
             this.thốngKêToolStripMenuItem.Text = "Thống kê";
             this.thốngKêToolStripMenuItem.Click += new System.EventHandler(this.thốngKêToolStripMenuItem_Click);
             // 
             // tìmKiếmToolStripMenuItem
             // 
             this.tìmKiếmToolStripMenuItem.Name = "tìmKiếmToolStripMenuItem";
-            this.tìmKiếmToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.tìmKiếmToolStripMenuItem.Size = new System.Drawing.Size(201, 34);
             this.tìmKiếmToolStripMenuItem.Text = "In hóa đơn";
             this.tìmKiếmToolStripMenuItem.Click += new System.EventHandler(this.tìmKiếmToolStripMenuItem_Click);
             // 
@@ -88,26 +89,26 @@
             this.userToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.đăngXuấtToolStripMenuItem});
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(50, 28);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(61, 33);
             this.userToolStripMenuItem.Text = "user";
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(195, 34);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             // 
             // phòngToolStripMenuItem
             // 
             this.phòngToolStripMenuItem.Margin = new System.Windows.Forms.Padding(600, 0, 0, 0);
             this.phòngToolStripMenuItem.Name = "phòngToolStripMenuItem";
-            this.phòngToolStripMenuItem.Size = new System.Drawing.Size(68, 28);
+            this.phòngToolStripMenuItem.Size = new System.Drawing.Size(84, 33);
             this.phòngToolStripMenuItem.Text = "Phòng:";
             // 
             // comBoxPhong
             // 
             this.comBoxPhong.Name = "comBoxPhong";
-            this.comBoxPhong.Size = new System.Drawing.Size(121, 28);
+            this.comBoxPhong.Size = new System.Drawing.Size(121, 33);
             this.comBoxPhong.SelectedIndexChanged += new System.EventHandler(this.comBoxPhong_SelectedIndexChanged);
             // 
             // statusStrip1
@@ -116,23 +117,23 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 727);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 721);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1282, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(1282, 32);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(195, 20);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(234, 25);
             this.toolStripStatusLabel1.Text = "Nhân viên: Trần Ngọc Thăng";
             // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Margin = new System.Windows.Forms.Padding(700, 4, 0, 2);
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(156, 20);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(193, 26);
             this.toolStripStatusLabel2.Text = "Hôm  nay: 20-12-2020";
             // 
             // hoaDon1
@@ -143,6 +144,7 @@
             this.hoaDon1.Name = "hoaDon1";
             this.hoaDon1.Size = new System.Drawing.Size(1258, 691);
             this.hoaDon1.TabIndex = 3;
+            this.hoaDon1.Load += new System.EventHandler(this.hoaDon1_Load);
             // 
             // thongke1
             // 
@@ -155,7 +157,7 @@
             // 
             // ketoan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 753);
             this.Controls.Add(this.hoaDon1);

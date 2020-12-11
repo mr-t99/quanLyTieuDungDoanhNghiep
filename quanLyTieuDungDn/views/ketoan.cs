@@ -61,5 +61,10 @@ namespace quanLyTieuDungDn.views
             this.thongke1.Visible = true;
             this.hoaDon1.Visible = false;
         }
+
+        private void hoaDon1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

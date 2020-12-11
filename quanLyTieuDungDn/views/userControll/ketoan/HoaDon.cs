@@ -16,5 +16,10 @@ namespace quanLyTieuDungDn.views.userControll.ketoan
         {
             InitializeComponent();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
