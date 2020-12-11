@@ -43,6 +43,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,11 +61,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(557, 17);
+            this.label1.Location = new System.Drawing.Point(270, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 29);
+            this.label1.Size = new System.Drawing.Size(230, 29);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Chọn tiêu dùng";
+            this.label1.Text = "Danh sách tiêu dùng";
             // 
             // label2
             // 
@@ -171,10 +173,28 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(409, 34);
             this.dateTimePicker1.TabIndex = 6;
             // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(960, 9);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(188, 34);
+            this.textBox4.TabIndex = 7;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1156, 9);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(89, 29);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Tìm";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // HoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
@@ -191,7 +211,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "HoaDon";
             this.Size = new System.Drawing.Size(1258, 691);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -217,5 +237,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button button2;
     }
 }

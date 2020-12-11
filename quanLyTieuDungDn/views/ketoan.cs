@@ -30,51 +30,36 @@ namespace quanLyTieuDungDn.views
             thongke1.setId('1', phong.Id);
         }
 
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ketoan_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void thongke1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void thốngKêToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void comBoxPhong_SelectedIndexChanged(object sender, EventArgs e)
         {
             PhongModel phong = new PhongModel();
             phong = (PhongModel)comBoxPhong.ComboBox.SelectedItem;
             thongke1.setId(1, phong.Id);
+        }
+
+        private void thốngKêToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.thongke1.Visible = true;
+            this.hoaDon1.Visible = false;
+        }
+
+        private void tìmKiếmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.thongke1.Visible = false;
+            this.hoaDon1.Visible = true;
+        }
+
+        private void thôngTinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.thongke1.Visible = false;
+            this.hoaDon1.Visible = false;
+            
+        }
+
+        private void ketoan_Load(object sender, EventArgs e)
+        {
+            this.thongke1.Visible = true;
+            this.hoaDon1.Visible = false;
         }
     }
 }

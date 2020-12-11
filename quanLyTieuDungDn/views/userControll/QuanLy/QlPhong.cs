@@ -1,25 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace quanLyTieuDungDn.views
+namespace quanLyTieuDungDn.views.userControll.QuanLy
 {
-    public partial class quanly : Form
+    public partial class QlPhong : UserControl
     {
-        public quanly()
+        public QlPhong()
         {
             InitializeComponent();
-        }
-
-        private void tiêuDùngToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
