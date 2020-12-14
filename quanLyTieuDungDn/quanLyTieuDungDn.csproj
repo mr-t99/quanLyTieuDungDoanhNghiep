@@ -58,6 +58,7 @@
     <Compile Include="Model\ConnectDatabase.cs" />
     <Compile Include="Model\GetDataModle.cs" />
     <Compile Include="Model\NhanVienModel.cs" />
+    <Compile Include="Model\Object\NGUOIDUNG.cs" />
     <Compile Include="Model\Object\Phong.cs" />
     <Compile Include="Model\PhongModel.cs" />
     <Compile Include="Model\NhanVien.cs" />
