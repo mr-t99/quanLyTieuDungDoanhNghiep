@@ -8,5 +8,6 @@ namespace quanLyTieuDungDn.Model.Object
 {
     class NguoiDung
     {
+        zhj
     }
 }
