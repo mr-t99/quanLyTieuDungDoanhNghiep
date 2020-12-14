@@ -45,7 +45,6 @@
             this.daToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userOption = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.themTieuDung1 = new quanLyTieuDungDn.views.userControll.ThemTieuDung();
             this.thongke1 = new quanLyTieuDungDn.views.userControll.thongke();
             this.contextMenuStrip3.SuspendLayout();
             this.contextMenuStrip4.SuspendLayout();
@@ -125,7 +124,6 @@
             this.menu.Size = new System.Drawing.Size(1282, 32);
             this.menu.TabIndex = 5;
             this.menu.Text = "menuStrip1";
-            this.menu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menu_ItemClicked);
             // 
             // option
             // 
@@ -140,23 +138,21 @@
             // đáToolStripMenuItem2
             // 
             this.đáToolStripMenuItem2.Name = "đáToolStripMenuItem2";
-            this.đáToolStripMenuItem2.Size = new System.Drawing.Size(196, 26);
+            this.đáToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
             this.đáToolStripMenuItem2.Text = "Thống kê";
             this.đáToolStripMenuItem2.Click += new System.EventHandler(this.đáToolStripMenuItem2_Click);
             // 
             // dấdádsaToolStripMenuItem
             // 
             this.dấdádsaToolStripMenuItem.Name = "dấdádsaToolStripMenuItem";
-            this.dấdádsaToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
+            this.dấdádsaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.dấdádsaToolStripMenuItem.Text = "Thêm tiêu dùng";
-            this.dấdádsaToolStripMenuItem.Click += new System.EventHandler(this.dấdádsaToolStripMenuItem_Click);
             // 
             // daToolStripMenuItem
             // 
             this.daToolStripMenuItem.Name = "daToolStripMenuItem";
-            this.daToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
+            this.daToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.daToolStripMenuItem.Text = "Chỉnh sửa";
-            this.daToolStripMenuItem.Click += new System.EventHandler(this.daToolStripMenuItem_Click);
             // 
             // userOption
             // 
@@ -171,16 +167,6 @@
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
             this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
-            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
-            // 
-            // themTieuDung1
-            // 
-            this.themTieuDung1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.themTieuDung1.Location = new System.Drawing.Point(10, 47);
-            this.themTieuDung1.Margin = new System.Windows.Forms.Padding(5);
-            this.themTieuDung1.Name = "themTieuDung1";
-            this.themTieuDung1.Size = new System.Drawing.Size(1258, 691);
-            this.themTieuDung1.TabIndex = 7;
             // 
             // thongke1
             // 
@@ -196,14 +182,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 753);
-            this.Controls.Add(this.themTieuDung1);
             this.Controls.Add(this.thongke1);
             this.Controls.Add(this.menu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "nhanvien";
             this.Text = "nhanvien";
-            this.Load += new System.EventHandler(this.nhanvien_Load);
             this.contextMenuStrip3.ResumeLayout(false);
             this.contextMenuStrip4.ResumeLayout(false);
             this.menu.ResumeLayout(false);

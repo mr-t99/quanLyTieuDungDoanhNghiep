@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using quanLyTieuDungDn.controller;
+using quanLyTieuDungDn.Model.Object;
 
 namespace quanLyTieuDungDn.views
 {
@@ -26,27 +27,26 @@ namespace quanLyTieuDungDn.views
         private void button1_Click(object sender, EventArgs e)
         {
             LoginController lg = new LoginController(txtUsername.Text, txtPassword.Text);
-            lg.checkLogin();
-            if(lg.User.T_ndung == null)
+            NguoiDung check = lg.CheckLogin();
+            if (check.C_vu == "Nhân viên")
             {
-                MessageBox.Show("Tên tài khoản hoặc mật khẩu không chính xác");
+                nhanvien nv = new nhanvien();
+                nv.Id_ndung = check.Id_nguoi_dung;
+                nv.Show();
+                this.Visible = false;
+            }
+            else if (check.C_vu == "Quản lý")
+            {
+
+            }
+            else if (check.C_vu == "Kế toán")
+            {
+
             }
             else
             {
-                if(lg.User.C_vu== "Nhân viên")
-                {
-                    nhanvien nv = new nhanvien();
-
-                    nv.infor(lg.User.Id, lg.User.Id_phong, lg.User.T_ndung);
-                    nv.Show();
-                    this.Hide();
-                }
-                if(lg.User.C_vu=="Kế Toán")
-                {
-
-                }
+                MessageBox.Show("Tài khoản không hợp lệ");
             }
-
         }
 
         private void button2_Click(object sender, EventArgs e)
