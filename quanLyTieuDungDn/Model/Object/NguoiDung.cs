@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace quanLyTieuDungDn.Model.Object
 {
-    class NguoiDung
+    class NGUOIDUNG
     {
     }
 }
