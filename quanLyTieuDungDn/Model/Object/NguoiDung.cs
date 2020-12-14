@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace quanLyTieuDungDn.Model
+namespace quanLyTieuDungDn.Model.Object
 {
-    class Class1
+    class NguoiDung
     {
     }
 }
