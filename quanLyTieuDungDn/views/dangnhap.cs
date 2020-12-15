@@ -25,7 +25,7 @@ namespace quanLyTieuDungDn.views
 
         private void button1_Click(object sender, EventArgs e)
         {
-            login lg = new login(txtUsername.Text, txtPassword.Text);
+            LoginController lg = new LoginController(txtUsername.Text, txtPassword.Text);
             lg.checkLogin();
             if(lg.User.T_ndung == null)
             {

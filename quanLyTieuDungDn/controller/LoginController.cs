@@ -8,13 +8,13 @@ using System.Data;
 
 namespace quanLyTieuDungDn.controller
 {
-    class login
+    class LoginController
     {
         private string userName, passWord;
         private ConnectDatabase cnn;
         private User user;
         
-        public login(string userName, string passWord)
+        public LoginController(string userName, string passWord)
         {
             this.userName = userName;
             this.passWord = passWord;
