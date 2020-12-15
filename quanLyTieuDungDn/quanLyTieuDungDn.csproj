@@ -55,9 +55,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Class1.cs" />
     <Compile Include="Model\ConnectDatabase.cs" />
     <Compile Include="Model\GetDataModle.cs" />
     <Compile Include="Model\NhanVienModel.cs" />
+    <Compile Include="Model\Object\Test1.cs" />
     <Compile Include="Model\PhongModel.cs" />
     <Compile Include="Model\NhanVien.cs" />
     <Compile Include="Model\TieuDung.cs" />
