@@ -14,8 +14,8 @@ namespace quanLyTieuDungDn.Model
         public string sqlConnect = Environment.GetEnvironmentVariable("sqlString");
         private SqlConnection conn;
         public DataSet nhanVien;
-        public DataTable thongKe, phong, tieuDung;
-        public SqlDataAdapter adThongKe, adTieuDung, adPhong;
+        public DataTable thongKe, phong, LoaiTeuDung, tieuDung;
+        public SqlDataAdapter adThongKe, adLoaiTieuDung, adPhong, adTieuDung;
         //các đối tượng
         private NguoiDung nguoiDung;
         //các biến
@@ -45,7 +45,7 @@ namespace quanLyTieuDungDn.Model
         }
         private void GetTableThongKe(int id_phong)
         {
-            string sql = "select tn_dung as 'Nhân viên',tieu_dung.t_tdung as 'Mua',t_phong as 'Phòng', gia as 'Giá', ngay_de_nghi as 'Đề nghị', ngay_hoan_thanh as 'Hoàn thành', t_tthai as 'Trạng thái' from tieu_dung, nguoi_dung, loai_tieu_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and tieu_dung.id_tdung = loai_tieu_dung.id and tieu_dung.t_thai = trang_thai.id and nguoi_dung.id_phong = phong.id and id_phong = "+id_phong+"";
+            string sql = "select tn_dung as 'Nhân viên',tieu_dung.t_tdung as 'Mua', gia as 'Giá', ngay_de_nghi as 'Đề nghị', ngay_hoan_thanh as 'Hoàn thành', t_tthai as 'Trạng thái' from tieu_dung, nguoi_dung, loai_tieu_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and tieu_dung.id_tdung = loai_tieu_dung.id and tieu_dung.t_thai = trang_thai.id and nguoi_dung.id_phong = phong.id and id_phong = "+id_phong+"";
             try
             {
                 MoKetNoi();
@@ -92,20 +92,75 @@ namespace quanLyTieuDungDn.Model
             try
             {
                 MoKetNoi();
-                adTieuDung = new SqlDataAdapter(sql, conn);
-                adTieuDung.FillSchema(nhanVien, SchemaType.Source, "TIEUDUNG");
-                adTieuDung.Fill(nhanVien, "TIEUDUNG");
-                this.tieuDung = nhanVien.Tables["TIEUDUNG"];
+                adLoaiTieuDung = new SqlDataAdapter(sql, conn);
+                adLoaiTieuDung.FillSchema(nhanVien, SchemaType.Source, "LOAITIEUDUNG");
+                adLoaiTieuDung.Fill(nhanVien, "LOAITIEUDUNG");
+                this.LoaiTeuDung = nhanVien.Tables["LOAITIEUDUNG"];
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
                 MessageBox.Show("Lỗi lấy tieuDung");
-                this.tieuDung = null;
+                this.LoaiTeuDung = null;
             }
             finally
             {
                 conn.Close();
+            }
+        }
+        public void ThemTieuDung(TieuDung td)
+        {
+            string sql = "select * from tieu_dung";
+            try
+            {
+                adTieuDung = new SqlDataAdapter(sql, conn);
+                SqlCommandBuilder sqlCommand = new SqlCommandBuilder(adTieuDung);
+                adTieuDung.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                adTieuDung.Fill(nhanVien, "TIEUDUNG");
+                adTieuDung.FillSchema(nhanVien, SchemaType.Source, "TIEUDUNG");
+                adTieuDung.Fill(nhanVien, "TIEUDUNG");
+                tieuDung = nhanVien.Tables["TIEUDUNG"];
+                DataRow newTd = this.tieuDung.NewRow();
+                newTd["id_nguoidung"] = nguoiDung.Id_nguoi_dung;
+                Console.WriteLine(nguoiDung.Id_nguoi_dung);
+                Console.WriteLine(td.T_tdung);
+                Console.WriteLine(td.Gia);
+                Console.WriteLine(DateTime.Now.ToString("yyyy/MM/dd"));
+                Console.WriteLine(newTd["id_tdung"] = td.Id_tieu_dung);
+                newTd["t_tdung"] = td.T_tdung;
+                newTd["gia"] = td.Gia;
+                newTd["ngay_de_nghi"] = DateTime.Now.ToString("yyyy/MM/dd");
+                newTd["id_tdung"] = td.Id_tieu_dung;
+                newTd["t_thai"] = 1;
+                nhanVien.Tables["TIEUDUNG"].Rows.Add(newTd);
+                CapNhatDatabase();
+                DataRow dr = this.thongKe.NewRow();
+                dr["Nhân viên"] = nguoiDung.Tn_dung;
+                dr["Mua"] = td.T_tdung;
+                dr["Giá"] = td.Gia;
+                dr["Đề nghị"] = DateTime.Now.ToString("yyyy/MM/dd");
+                dr["Trạng thái"] = "Khởi tạo";
+                nhanVien.Tables["THONGKE"].Rows.Add(dr);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine( e.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void CapNhatDatabase()
+        {
+            try
+            {
+                adTieuDung.Update(nhanVien, "TIEUDUNG");
+                tieuDung = nhanVien.Tables["TIEUDUNG"];
+            }
+            catch
+            {
+                MessageBox.Show("Không cập nhật được database");
             }
         }
     }

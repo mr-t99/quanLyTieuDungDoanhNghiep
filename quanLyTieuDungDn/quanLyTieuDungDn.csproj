@@ -65,7 +65,6 @@
     <Compile Include="Model\Object\TieuDung.cs" />
     <Compile Include="Model\Object\TrangThai.cs" />
     <Compile Include="Model\PhongModel.cs" />
-    <Compile Include="Model\TieuDung.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

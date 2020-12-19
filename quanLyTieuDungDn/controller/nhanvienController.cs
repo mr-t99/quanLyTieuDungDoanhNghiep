@@ -9,6 +9,7 @@ using System.Collections;
 using quanLyTieuDungDn.Model.Object;
 using quanLyTieuDungDn.Model;
 using System.Windows.Forms;
+
 namespace quanLyTieuDungDn.controller
 {
     class nhanvienController
@@ -86,9 +87,28 @@ namespace quanLyTieuDungDn.controller
         }
         private void getTieuDung()
         {
-            if(nhanVien.tieuDung != null)
+            if(nhanVien.LoaiTeuDung != null)
             {
-                this.tieuDung = nhanVien.tieuDung;
+                this.tieuDung = nhanVien.LoaiTeuDung;
+            }
+        }
+        public void ThemTieuDung(TieuDung td)
+        {
+            if(td.Gia!=0)
+            {
+                string message = "";
+                if (td.T_tdung.Length == 0)
+                {
+                    message += "Mô tả trống!\n";
+                }
+                if (message.Length == 0)
+                {
+                    nhanVien.ThemTieuDung(td);
+                }
+                else
+                {
+                    MessageBox.Show(message);
+                }
             }
         }
     }

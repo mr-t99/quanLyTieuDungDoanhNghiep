@@ -38,7 +38,7 @@ namespace quanLyTieuDungDn.views.userControll.NhanVien
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            SetTieuDung()
+            nhanVien.ThemTieuDung(SetTieuDung());
         }
         private void setCbTieuDung()
         {
@@ -65,11 +65,19 @@ namespace quanLyTieuDungDn.views.userControll.NhanVien
         private TieuDung SetTieuDung()
         {
             TieuDung tieuDung = new TieuDung();
+            try
+            {
+                tieuDung.Gia = Int32.Parse(txtGia.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Giá chỉ bao gồm số");
+                tieuDung.Gia = 0;
+            }
             tieuDung.T_tdung = txtMoTa.Text;
-            tieuDung.Gia = Int32.Parse(txtGia.Text);
-            TieuDung td = new TieuDung();
-            td = (TieuDung)cbLoaiTieuDung.SelectedItem;
-            tieuDung.Id_tieu_dung = td.Id_tieu_dung;
+            LoaiTieuDung td = new LoaiTieuDung();
+            td = (LoaiTieuDung)cbLoaiTieuDung.SelectedItem;
+            tieuDung.Id_tieu_dung = td.Id_loai_tieu_dung;
             return tieuDung;
         }
 
