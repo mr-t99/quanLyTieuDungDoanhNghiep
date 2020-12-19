@@ -33,7 +33,7 @@ namespace quanLyTieuDungDn.views.userControll.NhanVien
             tbTieuDung.DataSource = this.nhanvien.thongKe;
             tbTieuDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbTieuDung.ReadOnly = true;
-
+            tbTieuDung.Enabled = false;
         }
         private void SetLable()
         {
@@ -43,5 +43,17 @@ namespace quanLyTieuDungDn.views.userControll.NhanVien
             lbVuotMuc.Text = String.Format("{0:#,##0.00}", nhanvien.v_muc);
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int row = -1;
+            foreach(DataGridViewRow dr in tbTieuDung.Rows)
+            {
+                dr.Selected = false;
+                if(dr.Cells[0].Value != null && dr.Cells[1].Value.ToString().Equals(txtTimKiem.Text))
+                {
+                    dr.Selected = true;
+                }
+            }
+        }
     }
 }

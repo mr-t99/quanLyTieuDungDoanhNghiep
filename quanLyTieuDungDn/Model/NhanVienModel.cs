@@ -45,7 +45,7 @@ namespace quanLyTieuDungDn.Model
         }
         private void GetTableThongKe(int id_phong)
         {
-            string sql = "select tn_dung as 'Nhân viên',t_phong as 'Phòng', t_tdung as 'Loại tiêu dùng', gia as 'Giá', ngay_de_nghi as 'Đề nghị', ngay_hoan_thanh as 'Hoàn thanh', t_tthai as 'Trạng thái' from tieu_dung, nguoi_dung, loai_tieu_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and tieu_dung.id_tdung = loai_tieu_dung.id and tieu_dung.t_thai = trang_thai.id and nguoi_dung.id_phong = phong.id and id_phong = "+id_phong+"";
+            string sql = "select tn_dung as 'Nhân viên',tieu_dung.t_tdung as 'Mua',t_phong as 'Phòng', gia as 'Giá', ngay_de_nghi as 'Đề nghị', ngay_hoan_thanh as 'Hoàn thành', t_tthai as 'Trạng thái' from tieu_dung, nguoi_dung, loai_tieu_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and tieu_dung.id_tdung = loai_tieu_dung.id and tieu_dung.t_thai = trang_thai.id and nguoi_dung.id_phong = phong.id and id_phong = "+id_phong+"";
             try
             {
                 MoKetNoi();
