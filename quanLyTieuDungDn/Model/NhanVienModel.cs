@@ -14,8 +14,8 @@ namespace quanLyTieuDungDn.Model
         public string sqlConnect = Environment.GetEnvironmentVariable("sqlString");
         private SqlConnection conn;
         public DataSet nhanVien;
-        public DataTable thongKe, phong;
-        public SqlDataAdapter adTieuDung, adPhong;
+        public DataTable thongKe, phong, tieuDung;
+        public SqlDataAdapter adThongKe, adTieuDung, adPhong;
         //các đối tượng
         private NguoiDung nguoiDung;
         //các biến
@@ -41,7 +41,7 @@ namespace quanLyTieuDungDn.Model
         {
             GetTableThongKe(nguoiDung.Id_phong);
             GetTablePhong(nguoiDung.Id_phong);
-
+            GetTableTieuDung();
         }
         private void GetTableThongKe(int id_phong)
         {
@@ -49,10 +49,10 @@ namespace quanLyTieuDungDn.Model
             try
             {
                 MoKetNoi();
-                adTieuDung = new SqlDataAdapter(sql, conn);
-                adTieuDung.FillSchema(nhanVien, SchemaType.Source, "TIEUDUNG");
-                adTieuDung.Fill(nhanVien, "TIEUDUNG");
-                this.thongKe = nhanVien.Tables["TIEUDUNG"];
+                adThongKe = new SqlDataAdapter(sql, conn);
+                adThongKe.FillSchema(nhanVien, SchemaType.Source, "THONGKE");
+                adThongKe.Fill(nhanVien, "THONGKE");
+                this.thongKe = nhanVien.Tables["THONGKE"];
             }
             catch (Exception e)
             {
@@ -66,7 +66,7 @@ namespace quanLyTieuDungDn.Model
         }
         private void GetTablePhong(int id_phong)
         {
-            
+            Console.WriteLine("ádasdsa");
             string sql = "select * from phong where id=" + id_phong + "";
             try
             {
@@ -80,6 +80,28 @@ namespace quanLyTieuDungDn.Model
                 Console.WriteLine(e);
                 MessageBox.Show("Lỗi lấy hạn mức");
                 this.phong = null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        private void GetTableTieuDung()
+        {
+            string sql = "select * from loai_tieu_dung";
+            try
+            {
+                MoKetNoi();
+                adTieuDung = new SqlDataAdapter(sql, conn);
+                adTieuDung.FillSchema(nhanVien, SchemaType.Source, "TIEUDUNG");
+                adTieuDung.Fill(nhanVien, "TIEUDUNG");
+                this.tieuDung = nhanVien.Tables["TIEUDUNG"];
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                MessageBox.Show("Lỗi lấy tieuDung");
+                this.tieuDung = null;
             }
             finally
             {

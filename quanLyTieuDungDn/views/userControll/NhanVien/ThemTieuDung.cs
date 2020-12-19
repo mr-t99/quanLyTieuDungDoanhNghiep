@@ -7,37 +7,73 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using quanLyTieuDungDn.controller;
+using quanLyTieuDungDn.Model.Object;
+using System.Collections;
 
 namespace quanLyTieuDungDn.views.userControll.NhanVien
 {
     public partial class ThemTieuDung : UserControl
     {
+
+
+        private NguoiDung nguoiDung;
+        private nhanvienController nhanVien;
         public ThemTieuDung()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        public void setNguoiDung(NguoiDung ng)
         {
-
+            this.nguoiDung = ng;
+            nhanVien = new nhanvienController(ng);
+            LoadView();
         }
 
-        private void a_Load(object sender, EventArgs e)
+        private void LoadView()
         {
-
+            setCbTieuDung();
+            setTbTieuDung();
         }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
+        {
+            SetTieuDung()
+        }
+        private void setCbTieuDung()
+        {
+            ArrayList arrTieuDung = new ArrayList();
+            DataTable tieuDung = nhanVien.tieuDung;
+            foreach(DataRow dr in tieuDung.Rows)
+            {
+                LoaiTieuDung td = new LoaiTieuDung();
+                td.Id_loai_tieu_dung = (int)dr["id"];
+                td.L_tdung = dr["l_tdung"].ToString();
+                arrTieuDung.Add(td);
+            }
+            cbLoaiTieuDung.DataSource = arrTieuDung;
+            cbLoaiTieuDung.DisplayMember = "L_tdung";
+            cbLoaiTieuDung.ValueMember = "Id_loai_tieu_dung";
+            
+        }
+        private void setTbTieuDung()
+        {
+            tbTieuDung.DataSource = nhanVien.thongKe;
+            tbTieuDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private TieuDung SetTieuDung()
+        {
+            TieuDung tieuDung = new TieuDung();
+            tieuDung.T_tdung = txtMoTa.Text;
+            tieuDung.Gia = Int32.Parse(txtGia.Text);
+            TieuDung td = new TieuDung();
+            td = (TieuDung)cbLoaiTieuDung.SelectedItem;
+            tieuDung.Id_tieu_dung = td.Id_tieu_dung;
+            return tieuDung;
+        }
+
+        private void ThemTieuDung_Load(object sender, EventArgs e)
         {
 
         }

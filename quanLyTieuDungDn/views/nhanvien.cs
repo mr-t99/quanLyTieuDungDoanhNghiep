@@ -43,6 +43,7 @@ namespace quanLyTieuDungDn.views
         {
             thongKe1.Visible = false;
             themTieuDung1.Visible = true;
+            themTieuDung1.setNguoiDung(this.nguoiDung);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace quanLyTieuDungDn.controller
     class nhanvienController
     {
         private NguoiDung nguoiDung;
-        public DataTable thongKe, phong;
+        public DataTable thongKe, phong, tieuDung;
         NhanVienModel nhanVien;
 
         //Bien lable 
@@ -25,11 +25,13 @@ namespace quanLyTieuDungDn.controller
             nhanVien = new NhanVienModel(ng);
             GetTb();
             setLable();
+            getTieuDung();
         }
         private void GetTb()
         {
             if (nhanVien.thongKe != null)
             {
+                
                 this.thongKe = nhanVien.thongKe;
             }
             else
@@ -80,6 +82,13 @@ namespace quanLyTieuDungDn.controller
             else
             {
                 MessageBox.Show("Lỗi thong ke");
+            }
+        }
+        private void getTieuDung()
+        {
+            if(nhanVien.tieuDung != null)
+            {
+                this.tieuDung = nhanVien.tieuDung;
             }
         }
     }

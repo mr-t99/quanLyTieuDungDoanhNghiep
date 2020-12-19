@@ -8,7 +8,7 @@ namespace quanLyTieuDungDn.Model.Object
 {
     class TieuDung
     {
-        private int id_tieu_dung,id_nguoidung,id_tdung,t_thai,id_qly;
+        private int id_tieu_dung,id_nguoidung,id_tdung,t_thai,id_qly, gia;
         private string t_tdung,ghi_chu;
         private DateTime ngay_de_nghi, ngay_hoan_thanh;
 
@@ -21,5 +21,6 @@ namespace quanLyTieuDungDn.Model.Object
         public string Ghi_chu { get => ghi_chu; set => ghi_chu = value; }
         public DateTime Ngay_de_nghi { get => ngay_de_nghi; set => ngay_de_nghi = value; }
         public DateTime Ngay_hoan_thanh { get => ngay_hoan_thanh; set => ngay_hoan_thanh = value; }
+        public int Gia { get => gia; set => gia = value; }
     }
 }
