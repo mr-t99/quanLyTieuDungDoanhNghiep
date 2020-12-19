@@ -59,7 +59,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(562, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 39);
+            this.label1.Size = new System.Drawing.Size(134, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tiêu dùng";
             // 
@@ -71,6 +71,7 @@
             this.tbTieuDung.RowHeadersWidth = 51;
             this.tbTieuDung.Size = new System.Drawing.Size(1248, 467);
             this.tbTieuDung.TabIndex = 1;
+            this.tbTieuDung.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tbTieuDung_CellClick);
             // 
             // label2
             // 
@@ -78,7 +79,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(168, 39);
+            this.label2.Size = new System.Drawing.Size(135, 31);
             this.label2.TabIndex = 0;
             this.label2.Text = "Thông tin:";
             // 
@@ -87,7 +88,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(69, 61);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 29);
+            this.label3.Size = new System.Drawing.Size(61, 24);
             this.label3.TabIndex = 2;
             this.label3.Text = "Mô tả:";
             // 
@@ -96,7 +97,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(87, 108);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 29);
+            this.label4.Size = new System.Drawing.Size(43, 24);
             this.label4.TabIndex = 2;
             this.label4.Text = "Giá:";
             // 
@@ -120,21 +121,21 @@
             this.cbLoaiTieuDung.FormattingEnabled = true;
             this.cbLoaiTieuDung.Location = new System.Drawing.Point(478, 100);
             this.cbLoaiTieuDung.Name = "cbLoaiTieuDung";
-            this.cbLoaiTieuDung.Size = new System.Drawing.Size(255, 37);
+            this.cbLoaiTieuDung.Size = new System.Drawing.Size(255, 32);
             this.cbLoaiTieuDung.TabIndex = 3;
             // 
             // txtGia
             // 
             this.txtGia.Location = new System.Drawing.Point(136, 105);
             this.txtGia.Name = "txtGia";
-            this.txtGia.Size = new System.Drawing.Size(171, 34);
+            this.txtGia.Size = new System.Drawing.Size(171, 29);
             this.txtGia.TabIndex = 4;
             // 
             // txtMoTa
             // 
             this.txtMoTa.Location = new System.Drawing.Point(136, 56);
             this.txtMoTa.Name = "txtMoTa";
-            this.txtMoTa.Size = new System.Drawing.Size(597, 34);
+            this.txtMoTa.Size = new System.Drawing.Size(597, 29);
             this.txtMoTa.TabIndex = 3;
             // 
             // label6
@@ -142,7 +143,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(338, 108);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(170, 29);
+            this.label6.Size = new System.Drawing.Size(134, 24);
             this.label6.TabIndex = 2;
             this.label6.Text = "Loại tiêu dùng:";
             // 
@@ -166,6 +167,7 @@
             this.txtThemPhanLoai.TabIndex = 0;
             this.txtThemPhanLoai.Text = "Thêm phân loại";
             this.txtThemPhanLoai.UseVisualStyleBackColor = true;
+            this.txtThemPhanLoai.Click += new System.EventHandler(this.txtThemPhanLoai_Click);
             // 
             // label5
             // 
@@ -173,15 +175,15 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(0, -3);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(178, 39);
+            this.label5.Size = new System.Drawing.Size(134, 31);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Tiêu dùng:";
+            this.label5.Text = "Phân loại:";
             // 
             // txtThemTieuDung
             // 
             this.txtThemTieuDung.Location = new System.Drawing.Point(65, 44);
             this.txtThemTieuDung.Name = "txtThemTieuDung";
-            this.txtThemTieuDung.Size = new System.Drawing.Size(318, 34);
+            this.txtThemTieuDung.Size = new System.Drawing.Size(318, 29);
             this.txtThemTieuDung.TabIndex = 4;
             // 
             // label7
@@ -190,7 +192,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 39);
+            this.label7.Size = new System.Drawing.Size(0, 31);
             this.label7.TabIndex = 0;
             // 
             // panel2
@@ -211,6 +213,7 @@
             this.btXoa.TabIndex = 0;
             this.btXoa.Text = "Xóa";
             this.btXoa.UseVisualStyleBackColor = true;
+            this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
             // 
             // btSua
             // 
@@ -220,6 +223,7 @@
             this.btSua.TabIndex = 0;
             this.btSua.Text = "Sửa";
             this.btSua.UseVisualStyleBackColor = true;
+            this.btSua.Click += new System.EventHandler(this.btSua_Click);
             // 
             // btXetDuyet
             // 
@@ -233,7 +237,7 @@
             // 
             // ThemTieuDung
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);

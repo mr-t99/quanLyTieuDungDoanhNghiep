@@ -15,11 +15,11 @@ namespace quanLyTieuDungDn.controller
     class nhanvienController
     {
         private NguoiDung nguoiDung;
-        public DataTable thongKe, phong, tieuDung;
+        public DataTable thongKe, thongKeTieuDungNguoiDung, phong, tieuDung;
         NhanVienModel nhanVien;
 
         //Bien lable 
-        public int h_muc = 0, v_muc = 0, t_phong = 0, c_nhan = 0;
+        public int h_muc = 0, v_muc = 0, t_phong = 0, c_nhan = 0, checkRow;
         public nhanvienController(NguoiDung ng)
         {
             this.nguoiDung = ng;
@@ -28,6 +28,8 @@ namespace quanLyTieuDungDn.controller
             setLable();
             getTieuDung();
         }
+
+        //phương thức cho user controll Thong Ke
         private void GetTb()
         {
             if (nhanVien.thongKe != null)
@@ -47,7 +49,28 @@ namespace quanLyTieuDungDn.controller
             {
                 MessageBox.Show("Lỗi lấy dữ liệu bảng phong");
             }
-            
+        }
+        //Phương thức chu userControll Sua thong tin tieu dung
+        public void GetThongKeCaNhan()
+        {
+            thongKe.Clear();
+            if (nhanVien.thongKe != null)
+            {
+                nhanVien.GetTableThongKeCaNhan();
+                this.thongKe = nhanVien.thongKe;
+            }
+            else
+            {
+                MessageBox.Show("Lỗi lấy dữ liệu bảng thống kê");
+            }
+            if (nhanVien.phong != null)
+            {
+                this.phong = nhanVien.phong;
+            }
+            else
+            {
+                MessageBox.Show("Lỗi lấy dữ liệu bảng phong");
+            }
         }
         private void setLable()
         {
@@ -92,7 +115,7 @@ namespace quanLyTieuDungDn.controller
                 this.tieuDung = nhanVien.LoaiTeuDung;
             }
         }
-        public void ThemTieuDung(TieuDung td)
+        public void ThemTieuDung(TieuDung td, LoaiTieuDung ltd)
         {
             if(td.Gia!=0)
             {
@@ -103,12 +126,46 @@ namespace quanLyTieuDungDn.controller
                 }
                 if (message.Length == 0)
                 {
-                    nhanVien.ThemTieuDung(td);
+                    nhanVien.ThemTieuDung(td, ltd);
                 }
                 else
                 {
                     MessageBox.Show(message);
                 }
+            }
+        }
+        public void SuaTieuDung(TieuDung td, LoaiTieuDung ltd, int row)
+        {
+            if (td.Gia != 0)
+            {
+                string message = "";
+                if (td.T_tdung.Length == 0)
+                {
+                    message += "Mô tả trống!\n";
+                }
+                if (message.Length == 0)
+                {
+                    nhanVien.SuaTieuDung(td, ltd, row);
+                }
+                else
+                {
+                    MessageBox.Show(message);
+                }
+            }
+        }
+        public void XoaTieuDung(TieuDung tieuDung ,int row)
+        {
+            if(row != -1 )
+            {
+                DialogResult rl = MessageBox.Show("Bạn có trắc muốn xóa công tiêu dùng " + tieuDung.T_tdung + " ?", "Thông báo", MessageBoxButtons.YesNo);
+                if (rl == DialogResult.Yes)
+                {
+                    nhanVien.XoaTieuDung(row);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải chọn phòng để xóa!!!");
             }
         }
     }
