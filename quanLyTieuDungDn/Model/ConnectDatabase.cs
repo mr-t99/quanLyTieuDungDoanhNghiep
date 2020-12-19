@@ -5,62 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace quanLyTieuDungDn.module
 {
     class ConnectDatabase
     {
-        public static SqlConnection conn;
-        public static SqlCommand cmd;
-        private static DataTable dt;
-        public static SqlDataAdapter adap;
-        public static string sqlConnect = @"Data Source=DESKTOP-U9CFM1J\SQLEXPRESS;Initial Catalog=quanLyTieuDung;Integrated Security=True";
-
-
-        public DataTable getdata(string sql)
+        private static SqlConnection conn;
+        public string sqlConnect = @"Data Source=DESKTOP-693KNU1\SQLEXPRESS;Initial Catalog=quanLyTieuDung;Integrated Security=True";
+        public ConnectDatabase()
         {
-            try
-            {
-                conn = new SqlConnection(sqlConnect);
-                conn.Open();
-                cmd = new SqlCommand(sql, conn);
-                cmd.CommandType = CommandType.Text;
-                adap = new SqlDataAdapter(cmd);
-                dt = new DataTable();
-                adap.Fill(dt);
-                
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Lỗi getData");
-            }
-            finally
-            {
-                conn.Close();
-                conn.Dispose();
-            }
-            return dt;
+            Conn = new SqlConnection(sqlConnect);
         }
-        public int RepairData(string sql)
+
+        public static SqlConnection Conn { get => conn; set => conn = value; }
+
+        public void MoKetNoi()
         {
-            int rowCount = 0;
-            try
-            {
-                conn = new SqlConnection(sqlConnect);
-                conn.Open();
-                cmd = new SqlCommand(sql, conn);
-                rowCount = cmd.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Lỗi phần InsertData module ConnectDatabase");
-            }
-            finally
-            {
-                conn.Close();
-                conn.Dispose();
-            }
-            return rowCount;
+            if (Conn.State == ConnectionState.Closed) Conn.Open();
+            if (Conn.State == ConnectionState.Closed) MessageBox.Show("Không kết nối được");
         }
     }
 }

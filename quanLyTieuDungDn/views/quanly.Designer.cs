@@ -41,7 +41,7 @@
             this.qlNhanVien1 = new quanLyTieuDungDn.views.userControll.QuanLy.QlNhanVien();
             this.qlPhong1 = new quanLyTieuDungDn.views.userControll.QuanLy.QlPhong();
             this.qlKiemDuyet1 = new quanLyTieuDungDn.views.userControll.QuanLy.QLKiemDuyet();
-            this.thongke1 = new quanLyTieuDungDn.views.userControll.thongke();
+           
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,14 +81,14 @@
             this.nhânViênToolStripMenuItem.Name = "nhânViênToolStripMenuItem";
             this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.nhânViênToolStripMenuItem.Text = "Nhân viên";
-            this.nhânViênToolStripMenuItem.Click += new System.EventHandler(this.nhânViênToolStripMenuItem_Click_1);
+            
             // 
             // phòngToolStripMenuItem
             // 
             this.phòngToolStripMenuItem.Name = "phòngToolStripMenuItem";
             this.phòngToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.phòngToolStripMenuItem.Text = "Phòng";
-            this.phòngToolStripMenuItem.Click += new System.EventHandler(this.phòngToolStripMenuItem_Click);
+            
             // 
             // tiêuDùngToolStripMenuItem
             // 
@@ -104,14 +104,14 @@
             this.tiêuDùngToolStripMenuItem1.Name = "tiêuDùngToolStripMenuItem1";
             this.tiêuDùngToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.tiêuDùngToolStripMenuItem1.Text = "Tiêu dùng";
-            this.tiêuDùngToolStripMenuItem1.Click += new System.EventHandler(this.tiêuDùngToolStripMenuItem1_Click);
+            
             // 
             // kiểmDuyệtToolStripMenuItem
             // 
             this.kiểmDuyệtToolStripMenuItem.Name = "kiểmDuyệtToolStripMenuItem";
             this.kiểmDuyệtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.kiểmDuyệtToolStripMenuItem.Text = "Kiểm duyệt";
-            this.kiểmDuyệtToolStripMenuItem.Click += new System.EventHandler(this.kiểmDuyệtToolStripMenuItem_Click);
+            
             // 
             // userToolStripMenuItem
             // 
@@ -144,7 +144,7 @@
             this.qlPhong1.Name = "qlPhong1";
             this.qlPhong1.Size = new System.Drawing.Size(1258, 700);
             this.qlPhong1.TabIndex = 7;
-            this.qlPhong1.Load += new System.EventHandler(this.qlPhong1_Load);
+            
             // 
             // qlKiemDuyet1
             // 
@@ -157,19 +157,14 @@
             // 
             // thongke1
             // 
-            this.thongke1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thongke1.Location = new System.Drawing.Point(13, 27);
-            this.thongke1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.thongke1.Name = "thongke1";
-            this.thongke1.Size = new System.Drawing.Size(1258, 691);
-            this.thongke1.TabIndex = 9;
+
             // 
             // quanly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 753);
-            this.Controls.Add(this.thongke1);
+
             this.Controls.Add(this.qlKiemDuyet1);
             this.Controls.Add(this.qlPhong1);
             this.Controls.Add(this.menuStrip2);
@@ -200,6 +195,5 @@
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
         private userControll.QuanLy.QlPhong qlPhong1;
         private userControll.QuanLy.QLKiemDuyet qlKiemDuyet1;
-        private userControll.thongke thongke1;
     }
 }

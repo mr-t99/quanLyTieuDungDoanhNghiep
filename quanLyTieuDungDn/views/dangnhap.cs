@@ -30,8 +30,7 @@ namespace quanLyTieuDungDn.views
             NguoiDung check = lg.CheckLogin();
             if (check.C_vu == "Nhân viên")
             {
-                nhanvien nv = new nhanvien();
-                nv.Id_ndung = check.Id_nguoi_dung;
+                nhanvien nv = new nhanvien(check);
                 nv.Show();
                 this.Visible = false;
             }

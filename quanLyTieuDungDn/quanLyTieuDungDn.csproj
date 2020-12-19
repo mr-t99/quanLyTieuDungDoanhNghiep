@@ -56,7 +56,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\ConnectDatabase.cs" />
-    <Compile Include="Model\GetDataModle.cs" />
+    <Compile Include="Model\DangNhapModel.cs" />
     <Compile Include="Model\NhanVienModel.cs" />
     <Compile Include="Model\Object\LoaiTieuDung.cs" />
     <Compile Include="Model\Object\NguoiDung.cs" />
@@ -65,7 +65,6 @@
     <Compile Include="Model\Object\TieuDung.cs" />
     <Compile Include="Model\Object\TrangThai.cs" />
     <Compile Include="Model\PhongModel.cs" />
-    <Compile Include="Model\NhanVien.cs" />
     <Compile Include="Model\TieuDung.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
@@ -106,6 +105,18 @@
     <Compile Include="views\userControll\ketoan\ThongTin.Designer.cs">
       <DependentUpon>ThongTin.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\userControll\NhanVien\ThemTieuDung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="views\userControll\NhanVien\ThemTieuDung.Designer.cs">
+      <DependentUpon>ThemTieuDung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\userControll\NhanVien\ThongKe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="views\userControll\NhanVien\ThongKe.Designer.cs">
+      <DependentUpon>ThongKe.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\userControll\QuanLy\QLKiemDuyet.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,18 +134,6 @@
     </Compile>
     <Compile Include="views\userControll\QuanLy\QlPhong.Designer.cs">
       <DependentUpon>QlPhong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="views\userControll\ThemTieuDung.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="views\userControll\ThemTieuDung.Designer.cs">
-      <DependentUpon>ThemTieuDung.cs</DependentUpon>
-    </Compile>
-    <Compile Include="views\userControll\thongke.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="views\userControll\thongke.Designer.cs">
-      <DependentUpon>thongke.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -163,6 +162,12 @@
     <EmbeddedResource Include="views\userControll\ketoan\ThongTin.resx">
       <DependentUpon>ThongTin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="views\userControll\NhanVien\ThemTieuDung.resx">
+      <DependentUpon>ThemTieuDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\userControll\NhanVien\ThongKe.resx">
+      <DependentUpon>ThongKe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\userControll\QuanLy\QLKiemDuyet.resx">
       <DependentUpon>QLKiemDuyet.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,12 +176,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\userControll\QuanLy\QlPhong.resx">
       <DependentUpon>QlPhong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\userControll\ThemTieuDung.resx">
-      <DependentUpon>ThemTieuDung.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\userControll\thongke.resx">
-      <DependentUpon>thongke.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

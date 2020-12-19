@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\quanLyTieuDungDn",
+    "\\quanLyTieuDungDn\\views",
+    "\\quanLyTieuDungDn\\views\\userControll"
   ],
-  "SelectedNode": "\\quanLyTieuDungDn.sln",
+  "SelectedNode": "\\quanLyTieuDungDn\\views\\dangnhap.Designer.cs",
   "PreviewInSolutionExplorer": false
 }

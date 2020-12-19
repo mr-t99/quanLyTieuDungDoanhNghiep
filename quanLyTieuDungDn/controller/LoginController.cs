@@ -32,7 +32,7 @@ namespace quanLyTieuDungDn.controller
             }
             if (message.Length == 0)
             {
-                GetDataModle getData = new GetDataModle("select * from nguoi_dung where t_khoan ='"
+                DangNhapModel getData = new DangNhapModel("select * from nguoi_dung where t_khoan ='"
                     + this.userName + "' and m_khau='"
                     + this.passWord + "';");
 
@@ -47,6 +47,10 @@ namespace quanLyTieuDungDn.controller
                     {
                         nguoiDung.Id_nguoi_dung = (int)data.Rows[0]["id"];
                         nguoiDung.C_vu = data.Rows[0]["c_vu"].ToString();
+                        nguoiDung.Id_phong = (int)data.Rows[0]["id_phong"];
+                        nguoiDung.Que_quan = data.Rows[0]["que_quan"].ToString();
+                        nguoiDung.Tn_dung = data.Rows[0]["tn_dung"].ToString();
+                        nguoiDung.T_khoan = data.Rows[0]["t_khoan"].ToString();
                     }
                 }
                 return nguoiDung;

@@ -6,115 +6,81 @@ using System.Threading.Tasks;
 using quanLyTieuDungDn.module;
 using System.Data;
 using System.Collections;
-
+using quanLyTieuDungDn.Model.Object;
+using quanLyTieuDungDn.Model;
+using System.Windows.Forms;
 namespace quanLyTieuDungDn.controller
 {
     class nhanvienController
     {
-        private ConnectDatabase cnn;
-        private DataTable dataTable;
-        private NhanVien dataLable;
-        private ArrayList dataDataCombox;
-        
+        private NguoiDung nguoiDung;
+        public DataTable thongKe, phong;
+        NhanVienModel nhanVien;
 
-        public DataTable DataTable { get => dataTable; set => dataTable = value; }
-        internal NhanVien DataLable { get => dataLable; set => dataLable = value; }
-        public ArrayList DataDataCombox { get => dataDataCombox; set => dataDataCombox = value; }
-
-        public void dataBangThongKe(int id)
+        //Bien lable 
+        public int h_muc = 0, v_muc = 0, t_phong = 0, c_nhan = 0;
+        public nhanvienController(NguoiDung ng)
         {
-            cnn = new ConnectDatabase();
-            this.dataTable = cnn.getdata("select tn_dung as'Tên người dùng', t_phong as 'Tên phòng', t_tdung as 'Sử dụng', gia as 'Giá', ngay as 'Ngày', t_thai as 'Trạng thái'  from nguoi_dung, tieu_dung, phong  where tieu_dung.id_nguoidung = nguoi_dung.id and phong.id=nguoi_dung.id_phong and phong.id="+id+"");
+            this.nguoiDung = ng;
+            nhanVien = new NhanVienModel(ng);
+            GetTb();
+            setLable();
         }
-        public void setDataLable(int id_ndung, int id_phong)
-        {     
-            this.DataLable = new NhanVien();
-            cnn = new ConnectDatabase();
-            DataTable dataLable = cnn.getdata("select nguoi_dung.tn_dung, sum(tieu_dung.gia) as tong from nguoi_dung, tieu_dung, phong where nguoi_dung.id_phong = phong.id and tieu_dung.id_nguoidung = nguoi_dung.id and id_nguoidung="+id_ndung+" GROUP BY nguoi_dung.tn_dung");
-            
-            if (dataLable != null)
+        private void GetTb()
+        {
+            if (nhanVien.thongKe != null)
             {
-                foreach(DataRow row in dataLable.Rows)
-                {
-                    this.DataLable.C_nhan = Int64.Parse(row["tong"].ToString());
-                }
+                this.thongKe = nhanVien.thongKe;
             }
-            dataLable = cnn.getdata("select phong.t_phong, phong.h_muc, sum(tieu_dung.gia) as tong from nguoi_dung, tieu_dung, phong where nguoi_dung.id_phong = phong.id and tieu_dung.id_nguoidung = nguoi_dung.id and phong.id="+id_phong+" GROUP BY phong.t_phong, phong.h_muc");
-            if (dataLable != null)
+            else
             {
-                foreach (DataRow row in dataLable.Rows)
-                {
-                    this.DataLable.S_phong = Int64.Parse(row["tong"].ToString());
-                    this.DataLable.H_muc = Int64.Parse(row["h_muc"].ToString());
-                }
+                MessageBox.Show("Lỗi lấy dữ liệu bảng thống kê");
             }
-            if (this.DataLable.S_phong - this.DataLable.H_muc > 0)
+            if (nhanVien.phong != null)
             {
-                this.DataLable.V_muc = this.DataLable.S_phong - this.DataLable.H_muc;
+                this.phong = nhanVien.phong;
             }
-            else {
-                this.DataLable.V_muc = 0;
+            else
+            {
+                MessageBox.Show("Lỗi lấy dữ liệu bảng phong");
             }
             
         }
-        public void dataCombox()
+        private void setLable()
         {
-            cnn = new ConnectDatabase();
-            DataTable data = cnn.getdata("select * from loai_tieu_dung");
-            dataDataCombox = new ArrayList();
-            if (data != null)
+            if (phong.Rows.Count != 0)
             {
-                foreach(DataRow dr in data.Rows)
+                this.h_muc = (int)phong.Rows[0]["h_muc"];
+                Console.WriteLine(phong.Rows[0]["h_muc"]);
+            }
+            else
+            {
+                MessageBox.Show("Lỗi phòng");
+            }
+            //Lay tong phong
+            if (thongKe.Rows.Count != 0)
+            {
+                foreach(DataRow dr in thongKe.Rows)
                 {
-                    NhanVien nv = new NhanVien();
-                    nv.Id_tdung = Int32.Parse(dr["id"].ToString());
-                    nv.T_tdung = dr["l_tdung"].ToString();
-                    dataDataCombox.Add(nv);
+                    this.t_phong = t_phong + (int)dr["Giá"];
+                }
+                v_muc = t_phong - h_muc;
+                if (h_muc >= t_phong)
+                {
+                    v_muc = 0;
+                }
+                foreach (DataRow dr in thongKe.Rows)
+                {
+                    if (dr["Nhân viên"].ToString() == nguoiDung.Tn_dung)
+                    {
+                        c_nhan += (int)dr["Giá"];
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("Lỗi thong ke");
+            }
         }
-        public int addTieuDung(TieuDung td)
-        {
-            int status = 0;
-            status = this.cnn.RepairData("insert into tieu_dung(id_nguoidung, t_tdung, gia, ngay, id_tdung) values ("+
-                td.Id_ndung+", N'"+
-                td.T_tdung+"', "+
-                td.Gia+", '"+
-                td.Ngay+"', "+
-                td.Id_ltdung+")");
-            Console.WriteLine("insert into tieu_dung(id_nguoidung, t_tdung, gia, ngay, id_tdung) values (" +
-                td.Id_ndung + ", N'" +
-                td.T_tdung + "', " +
-                td.Gia + ", '" +
-                td.Ngay + "', " +
-                td.Id_ltdung + ")");
-            return status;
-        }
-        public int repairTieuDung(TieuDung td)
-        {
-            int status = 0;
-            status = this.cnn.RepairData("update tieu_dung set t_tdung=N'"+
-                td.T_tdung+"',gia="+
-                td.Gia+", id_tdung="
-                +td.Id_ltdung+", ngay='"+
-                td.Ngay+"' where tieu_dung.id="+
-                td.Id_tdung+"");
-            return status;
-        }
-        public DataTable dataTableTieuDung(int id_ndung)
-        {
-            cnn = new ConnectDatabase();
-            DataTable dt = cnn.getdata("select tieu_dung.id as id_td, t_tdung as 'Mô tả', loai_tieu_dung.l_tdung as 'Hạng mục', gia as 'Giá', ngay as 'Ngày lập', t_thai as 'Trạng thái' from tieu_dung, loai_tieu_dung where tieu_dung.id_tdung=loai_tieu_dung.id and tieu_dung.id_nguoidung=" + id_ndung+"");
-            return dt;
-        }
-
-        public int DeleteTieuDung(int id)
-        {
-            int row = 0;
-            cnn = new ConnectDatabase();
-            row = cnn.RepairData("delete from tieu_dung where tieu_dung.id="+id+"");
-            return row;
-        }
-
     }
 }

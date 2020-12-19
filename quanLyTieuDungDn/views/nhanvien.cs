@@ -13,16 +13,36 @@ namespace quanLyTieuDungDn.views
 {
     public partial class nhanvien : Form
     {
-        private int id_ndung;
-        public nhanvien()
+        private NguoiDung nguoiDung;
+
+        public nhanvien(NguoiDung ng)
         {
+            this.nguoiDung = ng;
             InitializeComponent();
+            thongKe1.Visible = true;
+            thongKe1.setNguoiDung(this.nguoiDung);
+            themTieuDung1.Visible = false;
+
         }
 
-        public int Id_ndung { get => id_ndung; set => id_ndung = value; }
         private void đáToolStripMenuItem2_Click(object sender, EventArgs e)
         {
+            thongKe1.Visible = true;
+            thongKe1.setNguoiDung(this.nguoiDung);
+            themTieuDung1.Visible = false;
+        }
 
+        private void nhanvien_Load(object sender, EventArgs e)
+        {
+            lbNgay.Text = "Hôm nay: "+DateTime.Now.ToString("dd/MM/yyyy");
+            lbTenNv.Text = "Nhân viên: " + nguoiDung.Tn_dung;
+            lbphong.Text = "Phòng: " + nguoiDung.Id_phong;
+        }
+
+        private void dấdádsaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            thongKe1.Visible = false;
+            themTieuDung1.Visible = true;
         }
     }
 }
