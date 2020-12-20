@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using quanLyTieuDungDn.Model;
 
 namespace quanLyTieuDungDn
 {
@@ -15,6 +16,20 @@ namespace quanLyTieuDungDn
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void crystalReportViewer1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
         }
     }
 }

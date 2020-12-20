@@ -36,11 +36,13 @@ namespace quanLyTieuDungDn.views
             }
             else if (check.C_vu == "Quản lý")
             {
-
+                
             }
             else if (check.C_vu == "Kế toán")
             {
-
+                ketoan kt = new ketoan(check);
+                kt.Show();
+                this.Visible = false;
             }
             else
             {
