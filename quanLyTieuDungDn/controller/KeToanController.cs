@@ -17,15 +17,15 @@ namespace quanLyTieuDungDn.controller
     {
         private NguoiDung nguoiDung;
         private KeToanModel keToan;
-        public DataTable phong, thongKe;
+        public DataTable phong, hoaDonNhanTien;
         int id_phong;
 
         public int Id_phong { get => id_phong; set => id_phong = value; }
 
-        public KeToanController(NguoiDung nd)
+        public KeToanController(NguoiDung nd, int id_tthai)
         {
             this.nguoiDung = nd;
-            keToan = new KeToanModel(nguoiDung);
+            keToan = new KeToanModel(nguoiDung, id_tthai);
             setAllTable();
         }
         private void setAllTable()
@@ -42,7 +42,7 @@ namespace quanLyTieuDungDn.controller
             //Lay danh sach tieu dung dk chap thuan
             if (keToan.thongKe != null)
             {
-                this.thongKe = keToan.thongKe;
+                this.hoaDonNhanTien = keToan.thongKe;
             }
             else
             {
@@ -62,13 +62,12 @@ namespace quanLyTieuDungDn.controller
             Console.WriteLine(arrPhong.Count);
             return arrPhong;
         }
-        public void NhanTien(int row, int id)
+        public void NhanTien(int row, int id, TieuDung td)
         {
             if (row!=-1)
             {
-                if (keToan.GiaoTien(row) == 1)
+                if (keToan.GiaoTien(row, td) == 1)
                 {
-                    
                     HoaDonNhanTien hd = new HoaDonNhanTien(keToan.InHoaDon(id));
                     hd.Show();
                 }

@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.lựaChọnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tìmKiếmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nghiệmThuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thêmTiêuDùngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,8 +42,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.nghiệmThuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hoaDon1 = new quanLyTieuDungDn.views.userControll.ketoan.HoaDon();
+            this.NghiemThu = new quanLyTieuDungDn.views.userControll.ketoan.HoaDon();
+            this.InHoaDon = new quanLyTieuDungDn.views.userControll.ketoan.HoaDon();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +61,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(1282, 27);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // lựaChọnToolStripMenuItem
             // 
@@ -80,11 +80,19 @@
             this.tìmKiếmToolStripMenuItem.Text = "In phiếu nhân tiền";
             this.tìmKiếmToolStripMenuItem.Click += new System.EventHandler(this.tìmKiếmToolStripMenuItem_Click);
             // 
+            // nghiệmThuToolStripMenuItem
+            // 
+            this.nghiệmThuToolStripMenuItem.Name = "nghiệmThuToolStripMenuItem";
+            this.nghiệmThuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nghiệmThuToolStripMenuItem.Text = "Nghiệm thu";
+            this.nghiệmThuToolStripMenuItem.Click += new System.EventHandler(this.nghiệmThuToolStripMenuItem_Click);
+            // 
             // thêmTiêuDùngToolStripMenuItem
             // 
             this.thêmTiêuDùngToolStripMenuItem.Name = "thêmTiêuDùngToolStripMenuItem";
             this.thêmTiêuDùngToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.thêmTiêuDùngToolStripMenuItem.Text = "Thêm tiêu dùng";
+            this.thêmTiêuDùngToolStripMenuItem.Click += new System.EventHandler(this.thêmTiêuDùngToolStripMenuItem_Click);
             // 
             // thốngKêToolStripMenuItem
             // 
@@ -143,27 +151,32 @@
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(123, 16);
             this.toolStripStatusLabel2.Text = "Hôm  nay: 20-12-2020";
             // 
-            // nghiệmThuToolStripMenuItem
+            // NghiemThu
             // 
-            this.nghiệmThuToolStripMenuItem.Name = "nghiệmThuToolStripMenuItem";
-            this.nghiệmThuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.nghiệmThuToolStripMenuItem.Text = "Nghiệm thu";
+            this.NghiemThu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NghiemThu.Location = new System.Drawing.Point(13, 36);
+            this.NghiemThu.Margin = new System.Windows.Forms.Padding(5);
+            this.NghiemThu.Name = "NghiemThu";
+            this.NghiemThu.Size = new System.Drawing.Size(1258, 691);
+            this.NghiemThu.TabIndex = 4;
             // 
-            // hoaDon1
+            // InHoaDon
             // 
-            this.hoaDon1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hoaDon1.Location = new System.Drawing.Point(13, 36);
-            this.hoaDon1.Margin = new System.Windows.Forms.Padding(5);
-            this.hoaDon1.Name = "hoaDon1";
-            this.hoaDon1.Size = new System.Drawing.Size(1258, 691);
-            this.hoaDon1.TabIndex = 3;
+            this.InHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InHoaDon.Location = new System.Drawing.Point(13, 36);
+            this.InHoaDon.Margin = new System.Windows.Forms.Padding(5);
+            this.InHoaDon.Name = "InHoaDon";
+            this.InHoaDon.Size = new System.Drawing.Size(1258, 691);
+            this.InHoaDon.TabIndex = 3;
+            this.InHoaDon.Load += new System.EventHandler(this.hoaDon1_Load);
             // 
             // ketoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 753);
-            this.Controls.Add(this.hoaDon1);
+            this.Controls.Add(this.NghiemThu);
+            this.Controls.Add(this.InHoaDon);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -194,8 +207,9 @@
         
         private System.Windows.Forms.ToolStripMenuItem phòngToolStripMenuItem;
         private System.Windows.Forms.ToolStripComboBox comBoxPhong;
-        private userControll.ketoan.HoaDon hoaDon1;
+        private userControll.ketoan.HoaDon InHoaDon;
         private System.Windows.Forms.ToolStripMenuItem thêmTiêuDùngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nghiệmThuToolStripMenuItem;
+        private userControll.ketoan.HoaDon NghiemThu;
     }
 }

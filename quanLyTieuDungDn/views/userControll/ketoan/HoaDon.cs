@@ -51,26 +51,36 @@ namespace quanLyTieuDungDn.views.userControll.ketoan
         {
             
             txtTenNhanVien.Text = cRow.Cells[0].Value.ToString();
-            Console.WriteLine(txtTenNhanVien.Text);
             txtSoTien.Text = cRow.Cells[2].Value.ToString();
             txtTienTieuDung.Text = cRow.Cells[1].Value.ToString();
         }
+        
         public HoaDon()
         {
             InitializeComponent();
             
         }
-        public void setNguoiDung(NguoiDung nd)
+        //xử lý
+        public void setNguoiDung(NguoiDung nd, string view)
         {
             this.nguoiDung = nd;
-            keToan = new KeToanController(nguoiDung);
+            if (view == "nghiemthu")
+            {
+                keToan = new KeToanController(nguoiDung,4);
+                btLuu.Text = "Nghiệm thu";
+                
+            }
+            else
+            {
+                keToan = new KeToanController(nguoiDung, 2);
+            }
             loadView();
             TT = TrangThai.isView;
         }
       
         private void loadView()
         {
-            tbTieuDung.DataSource = keToan.thongKe;
+            tbTieuDung.DataSource = keToan.hoaDonNhanTien;
             tbTieuDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbTieuDung.ReadOnly = true;
             tbTieuDung.Columns[7].Visible = false;
@@ -85,10 +95,14 @@ namespace quanLyTieuDungDn.views.userControll.ketoan
                 this.id = (int)tbTieuDung.Rows[e.RowIndex].Cells[7].Value;
             }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            keToan.NhanTien(row, this.id);
+            //Xử lý phần in hóa đơn
+            TieuDung td = new TieuDung();
+            td.Ngay_hoan_thanh = dateGiao.Value;
+            td.Id_ktoan = nguoiDung.Id_nguoi_dung;
+            keToan.NhanTien(row, this.id, td);
+            //xử lý phần nghiệm thu
         }
     }
 }

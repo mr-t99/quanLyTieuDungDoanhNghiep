@@ -20,16 +20,17 @@ namespace quanLyTieuDungDn.Model
         public SqlDataAdapter adPhong, adTieuDung, adLoaiTieuDung, adThongKe, adHoaDon;
         //các đối tượng
         private NguoiDung nguoiDung;
-        private int id_phong;
+        private int id_phong, id_tthai;
 
         public int Id_phong { get => id_phong; set => id_phong = value; }
 
-        public KeToanModel(NguoiDung ng)
+        public KeToanModel(NguoiDung ng, int id_tthai)
         {
             conn = new SqlConnection(sqlConnect);
             keToan = new DataSet();
             this.nguoiDung = ng;
             id_phong = nguoiDung.Id_phong;
+            this.id_tthai = id_tthai;
             setTable();
         }
         
@@ -89,7 +90,7 @@ namespace quanLyTieuDungDn.Model
                 conn.Close();
             }
         }
-        private void GetTableThongKe( )
+        private void GetTableThongKe()
         {
             if (thongKe!=null)
             {
@@ -97,7 +98,7 @@ namespace quanLyTieuDungDn.Model
             }
             else
             {
-                string sql = "select  tn_dung as 'Nhân viên',tieu_dung.t_tdung as 'Mua', gia as 'Giá', loai_tieu_dung.l_tdung as 'Phân loại', ngay_de_nghi as 'Đề nghị', ngay_hoan_thanh as 'Hoàn thành', t_tthai as 'Trạng thái', tieu_dung.id from tieu_dung, nguoi_dung, loai_tieu_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and tieu_dung.id_tdung = loai_tieu_dung.id and tieu_dung.t_thai = trang_thai.id and nguoi_dung.id_phong = phong.id and id_phong = " + this.id_phong + " and t_thai = 2";
+                string sql = "select  tn_dung as 'Nhân viên',tieu_dung.t_tdung as 'Mua', gia as 'Giá', loai_tieu_dung.l_tdung as 'Phân loại', ngay_de_nghi as 'Đề nghị', ngay_hoan_thanh as 'Giao tiền', t_tthai as 'Trạng thái', tieu_dung.id from tieu_dung, nguoi_dung, loai_tieu_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and tieu_dung.id_tdung = loai_tieu_dung.id and tieu_dung.t_thai = trang_thai.id and nguoi_dung.id_phong = phong.id and id_phong = " + this.id_phong + " and t_thai = "+this.id_tthai+"";
                 try
                 {
                     MoKetNoi();
@@ -121,9 +122,10 @@ namespace quanLyTieuDungDn.Model
         }
         private void GetTableTieuDung()
         {
-            string sql = "select * from tieu_dung where id_nguoidung = (select id from nguoi_dung where id_phong="+this.id_phong+") and t_thai = 2";
+            string sql = "select * from tieu_dung where id_nguoidung in (select id from nguoi_dung where id_phong="+id_phong+") and t_thai = 2";
             try
             {
+                Console.WriteLine(sql);
                 adTieuDung = new SqlDataAdapter(sql, conn);
                 SqlCommandBuilder sqlCommand = new SqlCommandBuilder(adTieuDung);
                 adTieuDung.MissingSchemaAction = MissingSchemaAction.AddWithKey;
@@ -141,21 +143,23 @@ namespace quanLyTieuDungDn.Model
                 conn.Close();
             }
         }
-        public int GiaoTien(int row)
+        public int GiaoTien(int row, TieuDung td)
         {
             try
             {
+                
                 DataRow dr = keToan.Tables["TIEUDUNG"].Rows[row];
-                Console.WriteLine("Ten tdung:" + dr["t_tdung"].ToString());
-                Console.WriteLine("Ten tdung:" + dr["id_nguoidung"].ToString());
+                dr["ngay_hoan_thanh"] = td.Ngay_hoan_thanh;
+                dr["id_ktoan"] = td.Id_ktoan;
                 dr["t_thai"] = 4;
                 CapNhatDatabase();
                 DataRow tk = keToan.Tables["THONGKE"].Rows[row];
                 tk["Trạng thái"] = "Đã nhận tiền";
                 return 1;
             }
-            catch
+            catch(Exception e)
             {
+                Console.WriteLine("Lỗi phần giao tiền: "+e);
                 return 0;
             }
         }

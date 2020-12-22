@@ -37,9 +37,9 @@
             this.txtTenNhanVien = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btLuu = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateGiao = new System.Windows.Forms.DateTimePicker();
             this.txtSoTien = new System.Windows.Forms.TextBox();
             this.lbTen = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -129,19 +129,19 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Tên nhân viên:";
             // 
-            // button1
+            // btLuu
             // 
-            this.button1.Location = new System.Drawing.Point(1102, 644);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 44);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Lưu hóa đơn";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btLuu.Location = new System.Drawing.Point(1102, 644);
+            this.btLuu.Name = "btLuu";
+            this.btLuu.Size = new System.Drawing.Size(153, 44);
+            this.btLuu.TabIndex = 19;
+            this.btLuu.Text = "Lưu hóa đơn";
+            this.btLuu.UseVisualStyleBackColor = true;
+            this.btLuu.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dateTimePicker1);
+            this.panel2.Controls.Add(this.dateGiao);
             this.panel2.Controls.Add(this.txtSoTien);
             this.panel2.Controls.Add(this.lbTen);
             this.panel2.Controls.Add(this.label4);
@@ -152,12 +152,12 @@
             this.panel2.Size = new System.Drawing.Size(636, 225);
             this.panel2.TabIndex = 20;
             // 
-            // dateTimePicker1
+            // dateGiao
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(300, 155);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(289, 28);
-            this.dateTimePicker1.TabIndex = 25;
+            this.dateGiao.Location = new System.Drawing.Point(300, 155);
+            this.dateGiao.Name = "dateGiao";
+            this.dateGiao.Size = new System.Drawing.Size(289, 28);
+            this.dateGiao.TabIndex = 25;
             // 
             // txtSoTien
             // 
@@ -207,7 +207,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btLuu);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox4);
@@ -238,9 +238,9 @@
         private System.Windows.Forms.TextBox txtTenNhanVien;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btLuu;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateGiao;
         private System.Windows.Forms.TextBox txtSoTien;
         private System.Windows.Forms.Label lbTen;
         private System.Windows.Forms.Label label4;

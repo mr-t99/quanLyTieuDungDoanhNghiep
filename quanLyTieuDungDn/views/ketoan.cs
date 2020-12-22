@@ -23,11 +23,14 @@ namespace quanLyTieuDungDn.views
         {
             this.nguoiDung = ng;
             InitializeComponent();
-            keToan = new KeToanController(this.nguoiDung);
+            keToan = new KeToanController(this.nguoiDung, 4);
             setComBox();
             Phong p = (Phong)comBoxPhong.ComboBox.SelectedItem;
             nguoiDung.Id_phong = p.Id_phong;
-            hoaDon1.setNguoiDung(nguoiDung);
+
+            NghiemThu.Visible = true;
+            NghiemThu.setNguoiDung(nguoiDung, "nghiemthu");
+            InHoaDon.Visible = false;
         }
 
         private void setComBox()
@@ -44,18 +47,44 @@ namespace quanLyTieuDungDn.views
             p = (Phong)comBoxPhong.ComboBox.SelectedItem;
             Console.WriteLine(p.T_phong);
             this.nguoiDung.Id_phong = p.Id_phong;
-            keToan = new KeToanController(this.nguoiDung);
-            hoaDon1.setNguoiDung(nguoiDung);
+            
+            if (NghiemThu.Visible == true)
+            {
+                keToan = new KeToanController(this.nguoiDung, 4);
+                InHoaDon.setNguoiDung(nguoiDung, "nghiemthu");
+            }
+            else
+            {
+                keToan = new KeToanController(this.nguoiDung, 2);
+                InHoaDon.setNguoiDung(nguoiDung, "hoadon");
+            }
+            
+        }
+
+        private void hoaDon1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void thêmTiêuDùngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            nhanvien nv = new nhanvien(nguoiDung);
+            nv.Show();
         }
 
         private void tìmKiếmToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            InHoaDon.Visible = true;
+            NghiemThu.Visible = false;
+            InHoaDon.setNguoiDung(nguoiDung, "hoadon");
+            
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void nghiệmThuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            NghiemThu.Visible = true;
+            NghiemThu.setNguoiDung(nguoiDung, "nghiemthu");
+            InHoaDon.Visible = false;
         }
     }
 }
