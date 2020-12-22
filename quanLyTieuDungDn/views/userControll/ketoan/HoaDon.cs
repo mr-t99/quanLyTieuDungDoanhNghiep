@@ -97,12 +97,21 @@ namespace quanLyTieuDungDn.views.userControll.ketoan
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            //Xử lý phần in hóa đơn
             TieuDung td = new TieuDung();
-            td.Ngay_hoan_thanh = dateGiao.Value;
-            td.Id_ktoan = nguoiDung.Id_nguoi_dung;
-            keToan.NhanTien(row, this.id, td);
             //xử lý phần nghiệm thu
+            if (btLuu.Text == "Nghiệm thu")
+            {
+                td.Ngay_hoan_thanh = dateGiao.Value;
+                td.Id_ktoan = nguoiDung.Id_nguoi_dung;
+                keToan.NghiemTHu(row, this.id, td);
+            }
+            else
+            {
+                //Xử lý phần in hóa đơn
+                td.Ngay_hoan_thanh = dateGiao.Value;
+                td.Id_ktoan = nguoiDung.Id_nguoi_dung;
+                keToan.NhanTien(row, this.id, td);
+            }
         }
     }
 }

@@ -106,7 +106,6 @@ namespace quanLyTieuDungDn.Model
                     adThongKe.FillSchema(keToan, SchemaType.Source, "THONGKE");
                     adThongKe.Fill(keToan, "THONGKE");
                     this.thongKe = keToan.Tables["THONGKE"];
-                    
                 }
                 catch (Exception e)
                 {
@@ -160,6 +159,25 @@ namespace quanLyTieuDungDn.Model
             catch(Exception e)
             {
                 Console.WriteLine("Lỗi phần giao tiền: "+e);
+                return 0;
+            }
+        }
+        public int NghiemThu(int row, TieuDung td)
+        {
+            try
+            {
+
+                DataRow dr = keToan.Tables["TIEUDUNG"].Rows[row];
+                dr["ngay_hoan_thanh"] = td.Ngay_hoan_thanh;
+                dr["t_thai"] = 5;
+                CapNhatDatabase();
+                DataRow tk = keToan.Tables["THONGKE"].Rows[row];
+                tk["Trạng thái"] = "Đã nghiệm thu";
+                return 1;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Lỗi phần giao tiền: " + e);
                 return 0;
             }
         }

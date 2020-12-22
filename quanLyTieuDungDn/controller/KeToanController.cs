@@ -77,5 +77,19 @@ namespace quanLyTieuDungDn.controller
                 MessageBox.Show("Bạn phải chọn tiêu dùng");
             }
         }
+        public void NghiemTHu(int row, int id, TieuDung td)
+        {
+            if (row != -1)
+            {
+                if (keToan.NghiemThu(row, td) == 1)
+                {
+                    MessageBox.Show("Đã nghiệm thu");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải chọn tiêu dùng");
+            }
+        }
     }
 }
