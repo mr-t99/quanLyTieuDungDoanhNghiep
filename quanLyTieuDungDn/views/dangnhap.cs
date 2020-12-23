@@ -28,6 +28,7 @@ namespace quanLyTieuDungDn.views
         {
             LoginController lg = new LoginController(txtUsername.Text, txtPassword.Text);
             NguoiDung check = lg.CheckLogin();
+            Console.WriteLine(check.Id_phong);
             if (check.C_vu == "Nhân viên")
             {
                 nhanvien nv = new nhanvien(check);

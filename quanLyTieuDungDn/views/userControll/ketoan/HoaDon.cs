@@ -16,6 +16,7 @@ namespace quanLyTieuDungDn.views.userControll.ketoan
     {
         KeToanController keToan;
         NguoiDung nguoiDung;
+        Phong phongModel;
         TrangThai trangThai;
         int row=-1, id;
         private enum TrangThai { isView, isEdit};
@@ -61,18 +62,19 @@ namespace quanLyTieuDungDn.views.userControll.ketoan
             
         }
         //xử lý
-        public void setNguoiDung(NguoiDung nd, string view)
+        public void setNguoiDung(NguoiDung nd, Phong p, string view)
         {
             this.nguoiDung = nd;
+            this.phongModel = p;
             if (view == "nghiemthu")
             {
-                keToan = new KeToanController(nguoiDung,4);
+                keToan = new KeToanController(nguoiDung, phongModel,4);
                 btLuu.Text = "Nghiệm thu";
                 
             }
             else
             {
-                keToan = new KeToanController(nguoiDung, 2);
+                keToan = new KeToanController(nguoiDung, phongModel, 2);
             }
             loadView();
             TT = TrangThai.isView;

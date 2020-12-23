@@ -18,14 +18,22 @@ namespace quanLyTieuDungDn.controller
         private NguoiDung nguoiDung;
         private KeToanModel keToan;
         public DataTable phong, hoaDonNhanTien;
+        Phong phongModel;
         int id_phong;
 
         public int Id_phong { get => id_phong; set => id_phong = value; }
 
-        public KeToanController(NguoiDung nd, int id_tthai)
+        public KeToanController()
+        {
+            keToan = new KeToanModel();
+            phong = keToan.phong;
+        }
+
+        public KeToanController(NguoiDung nd,Phong p, int id_tthai)
         {
             this.nguoiDung = nd;
-            keToan = new KeToanModel(nguoiDung, id_tthai);
+            this.phongModel = p;
+            keToan = new KeToanModel(nguoiDung,phongModel, id_tthai);
             setAllTable();
         }
         private void setAllTable()

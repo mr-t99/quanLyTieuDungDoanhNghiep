@@ -19,17 +19,19 @@ namespace quanLyTieuDungDn.views
 
         private NguoiDung nguoiDung;
         private KeToanController keToan;
+        Phong p;
         public ketoan(NguoiDung ng)
         {
             this.nguoiDung = ng;
             InitializeComponent();
-            keToan = new KeToanController(this.nguoiDung, 4);
+            keToan = new KeToanController();
             setComBox();
-            Phong p = (Phong)comBoxPhong.ComboBox.SelectedItem;
-            nguoiDung.Id_phong = p.Id_phong;
-
+            p = new Phong();
+            p = (Phong)comBoxPhong.ComboBox.SelectedItem;
+            keToan = new KeToanController(this.nguoiDung, p, 4);
+            
             NghiemThu.Visible = true;
-            NghiemThu.setNguoiDung(nguoiDung, "nghiemthu");
+            NghiemThu.setNguoiDung(nguoiDung, p, "nghiemthu");
             InHoaDon.Visible = false;
         }
 
@@ -43,20 +45,18 @@ namespace quanLyTieuDungDn.views
 
         private void ComBoxPhong_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Phong p = new Phong();
+            
             p = (Phong)comBoxPhong.ComboBox.SelectedItem;
-            Console.WriteLine(p.T_phong);
-            this.nguoiDung.Id_phong = p.Id_phong;
             
             if (NghiemThu.Visible == true)
             {
-                keToan = new KeToanController(this.nguoiDung, 4);
-                InHoaDon.setNguoiDung(nguoiDung, "nghiemthu");
+                keToan = new KeToanController(this.nguoiDung,p, 4);
+                InHoaDon.setNguoiDung(nguoiDung, p, "nghiemthu");
             }
             else
             {
-                keToan = new KeToanController(this.nguoiDung, 2);
-                InHoaDon.setNguoiDung(nguoiDung, "hoadon");
+                keToan = new KeToanController(this.nguoiDung,p, 2);
+                InHoaDon.setNguoiDung(nguoiDung, p, "hoadon");
             }
             
         }
@@ -68,6 +68,7 @@ namespace quanLyTieuDungDn.views
 
         private void thêmTiêuDùngToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("Id phong:" + nguoiDung.Id_phong);
             nhanvien nv = new nhanvien(nguoiDung);
             nv.Show();
         }
@@ -76,15 +77,28 @@ namespace quanLyTieuDungDn.views
         {
             InHoaDon.Visible = true;
             NghiemThu.Visible = false;
-            InHoaDon.setNguoiDung(nguoiDung, "hoadon");
+            p = (Phong)comBoxPhong.ComboBox.SelectedItem;
+            InHoaDon.setNguoiDung(nguoiDung, p, "hoadon");
             
         }
 
         private void nghiệmThuToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            p = (Phong)comBoxPhong.ComboBox.SelectedItem;
             NghiemThu.Visible = true;
-            NghiemThu.setNguoiDung(nguoiDung, "nghiemthu");
+            NghiemThu.setNguoiDung(nguoiDung, p, "nghiemthu");
             InHoaDon.Visible = false;
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult rl = MessageBox.Show("Bạn muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo);
+            if(rl == DialogResult.Yes)
+            {
+                this.Dispose();
+                dangnhap dn = new dangnhap();
+                dn.Visible = true;
+            }
         }
     }
 }

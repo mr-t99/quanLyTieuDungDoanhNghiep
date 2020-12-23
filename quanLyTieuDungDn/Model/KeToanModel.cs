@@ -18,18 +18,26 @@ namespace quanLyTieuDungDn.Model
         public DataSet keToan;
         public DataTable phong, LoaiTeuDung, tieuDung, thongKe, HoaDon;
         public SqlDataAdapter adPhong, adTieuDung, adLoaiTieuDung, adThongKe, adHoaDon;
+        public Phong phongModel;
         //các đối tượng
         private NguoiDung nguoiDung;
         private int id_phong, id_tthai;
 
         public int Id_phong { get => id_phong; set => id_phong = value; }
+        public KeToanModel()
+        {
+            conn = new SqlConnection(sqlConnect);
+            keToan = new DataSet();
+            GetTablePhong();
 
-        public KeToanModel(NguoiDung ng, int id_tthai)
+        }
+        public KeToanModel(NguoiDung ng, Phong p, int id_tthai)
         {
             conn = new SqlConnection(sqlConnect);
             keToan = new DataSet();
             this.nguoiDung = ng;
-            id_phong = nguoiDung.Id_phong;
+            this.phongModel = p;
+            id_phong = phongModel.Id_phong;
             this.id_tthai = id_tthai;
             setTable();
         }
@@ -146,7 +154,6 @@ namespace quanLyTieuDungDn.Model
         {
             try
             {
-                
                 DataRow dr = keToan.Tables["TIEUDUNG"].Rows[row];
                 dr["ngay_hoan_thanh"] = td.Ngay_hoan_thanh;
                 dr["id_ktoan"] = td.Id_ktoan;

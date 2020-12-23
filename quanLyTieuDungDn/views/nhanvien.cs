@@ -22,7 +22,6 @@ namespace quanLyTieuDungDn.views
             thongKe1.Visible = true;
             thongKe1.setNguoiDung(this.nguoiDung);
             themTieuDung1.Visible = false;
-
         }
 
         private void đáToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -44,6 +43,17 @@ namespace quanLyTieuDungDn.views
             thongKe1.Visible = false;
             themTieuDung1.Visible = true;
             themTieuDung1.setNguoiDung(this.nguoiDung);
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult rl = MessageBox.Show("Bạn muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo);
+            if (rl == DialogResult.Yes)
+            {
+                this.Dispose();
+                dangnhap dn = new dangnhap();
+                dn.Visible = true;
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace quanLyTieuDungDn.Model.Object
 {
-    class Phong
+    public class Phong
     {
         private int id_phong,sl_nvien;
         private string t_phong;
