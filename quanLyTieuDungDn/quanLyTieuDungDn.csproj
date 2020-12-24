@@ -56,13 +56,13 @@
     <Compile Include="controller\KeToanController.cs" />
     <Compile Include="controller\LoginController.cs" />
     <Compile Include="controller\nhanvienController.cs" />
+    <Compile Include="controller\QuanLyController.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\ConnectDatabase.cs" />
     <Compile Include="Model\DangNhapModel.cs" />
     <Compile Include="Model\KeToanModel.cs" />
     <Compile Include="Model\NhanVienModel.cs" />
@@ -73,6 +73,7 @@
     <Compile Include="Model\Object\TieuDung.cs" />
     <Compile Include="Model\Object\TrangThai.cs" />
     <Compile Include="Model\PhongModel.cs" />
+    <Compile Include="Model\QuanLyModel.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

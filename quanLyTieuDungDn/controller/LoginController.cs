@@ -51,6 +51,7 @@ namespace quanLyTieuDungDn.controller
                         nguoiDung.Que_quan = data.Rows[0]["que_quan"].ToString();
                         nguoiDung.Tn_dung = data.Rows[0]["tn_dung"].ToString();
                         nguoiDung.T_khoan = data.Rows[0]["t_khoan"].ToString();
+                        nguoiDung.G_tinh = (bool)data.Rows[0]["g_tinh"];
                     }
                 }
                 return nguoiDung;

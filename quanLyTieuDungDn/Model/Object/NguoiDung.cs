@@ -11,6 +11,7 @@ namespace quanLyTieuDungDn.Model.Object
         private int id_nguoi_dung,id_phong;
         private string t_khoan, m_khau, tn_dung, que_quan, c_vu;
         private DateTime ngay_lam;
+        private bool g_tinh;
 
         public int Id_nguoi_dung { get => id_nguoi_dung; set => id_nguoi_dung = value; }
         public int Id_phong { get => id_phong; set => id_phong = value; }
@@ -20,5 +21,6 @@ namespace quanLyTieuDungDn.Model.Object
         public string Que_quan { get => que_quan; set => que_quan = value; }
         public string C_vu { get => c_vu; set => c_vu = value; }
         public DateTime Ngay_lam { get => ngay_lam; set => ngay_lam = value; }
+        public bool G_tinh { get => g_tinh; set => g_tinh = value; }
     }
 }

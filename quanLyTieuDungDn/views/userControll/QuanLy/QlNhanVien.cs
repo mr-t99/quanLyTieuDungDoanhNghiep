@@ -13,7 +13,7 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
 {
     public partial class QlNhanVien : UserControl
     {
-        private ConnectDatabase cnn = new ConnectDatabase();
+        
         public QlNhanVien()
         {
             InitializeComponent();
