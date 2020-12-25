@@ -46,6 +46,7 @@ namespace quanLyTieuDungDn.views
             qlKiemDuyet1.Visible = false;
             qlNhanVien1.Visible = false;
             qlPhong1.Visible = true;
+            qlPhong1.SetNguoiDung(nguoiDung);
         }
 
         private void nhânViênToolStripMenuItem_Click(object sender, EventArgs e)

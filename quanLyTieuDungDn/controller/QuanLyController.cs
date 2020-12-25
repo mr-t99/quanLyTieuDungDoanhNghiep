@@ -14,13 +14,14 @@ namespace quanLyTieuDungDn.controller
     class QuanLyController
     {
         private QuanLyModel quanLy;
-        public DataTable phong, viewTieuDung;
+        public DataTable phong, viewTieuDung, viewNhanVien;
         private int id_phong, id_tthai;
         public QuanLyController()
         {
             quanLy = new QuanLyModel();
-            this.phong = quanLy.phong;
+            this.phong = quanLy.viewPhong;
         }
+        //Kiểm duyệt
         public ArrayList ArrPhong()
         {
             ArrayList arrPhong = new ArrayList();
@@ -28,7 +29,7 @@ namespace quanLyTieuDungDn.controller
             {
                 Phong p = new Phong();
                 p.Id_phong = (int)dr["id"];
-                p.T_phong = dr["t_phong"].ToString();
+                p.T_phong = dr["Tên phòng"].ToString();
                 arrPhong.Add(p);
             }
             return arrPhong;
@@ -70,8 +71,62 @@ namespace quanLyTieuDungDn.controller
                 MessageBox.Show("Bạn phải chọn dòng");
             }
         }
+        //Phòng
+        public QuanLyController(int id_phong)
+        {
+            quanLy = new QuanLyModel(id_phong);
+            this.viewNhanVien = quanLy.viewNhanVien;
+            this.viewTieuDung = quanLy.viewTieuDung;
+        }
+        public void ThemPhong(Phong p)
+        {
+            string mess = "";
+            if (p.T_phong.Length == 0)
+            {
+                mess += "Tên phòng còn trống\n";
+            }
+            if (p.H_muc == 0 || Int32.TryParse(p.H_muc.ToString(), out int i)==false)
+            {
+                mess += "Hạn mức không hợp lệ";
+            }
+            if (mess.Length == 0)
+            {
+                quanLy.ThemPhong(p);
+            }
+            else
+            {
+                MessageBox.Show(mess);
+            }
+        }
+        public void SuaPhong(Phong p, int row)
+        {
+            if (row != -1)
+            {
+                string mess = "";
+                if (p.T_phong.Length == 0)
+                {
+                    mess += "Tên phòng còn trống\n";
+                }
+                if (p.H_muc == 0 || Int32.TryParse(p.H_muc.ToString(), out int i) == false)
+                {
+                    mess += "Hạn mức không hợp lệ";
+                }
+                if (mess.Length == 0)
+                {
+                    quanLy.SuaPhong(p, row);
+                }
+                else
+                {
+                    MessageBox.Show(mess);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải chọn dòng");
+            }
+        }
     }
-    //Kiểm duyệt
+    
     //Nhân viên
-    //Phòng
+
 }
