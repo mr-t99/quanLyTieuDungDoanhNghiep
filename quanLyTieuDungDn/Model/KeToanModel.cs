@@ -129,7 +129,7 @@ namespace quanLyTieuDungDn.Model
         }
         private void GetTableTieuDung()
         {
-            string sql = "select * from tieu_dung where id_nguoidung in (select id from nguoi_dung where id_phong="+id_phong+") and t_thai = 2";
+            string sql = "select * from tieu_dung where id_nguoidung in (select id from nguoi_dung where id_phong="+id_phong+") and t_thai = "+id_tthai+"";
             try
             {
                 Console.WriteLine(sql);

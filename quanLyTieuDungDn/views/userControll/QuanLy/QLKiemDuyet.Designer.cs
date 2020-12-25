@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbPhong = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tbTieuDung = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.cbTrangThai = new System.Windows.Forms.ComboBox();
             this.txtSoTien = new System.Windows.Forms.TextBox();
@@ -47,8 +47,7 @@
             this.rtxtGhiChu = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btLuu = new System.Windows.Forms.Button();
-            this.btDuyet = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbTieuDung)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +70,7 @@
             this.cbPhong.Name = "cbPhong";
             this.cbPhong.Size = new System.Drawing.Size(162, 24);
             this.cbPhong.TabIndex = 1;
+            this.cbPhong.SelectedIndexChanged += new System.EventHandler(this.cbPhong_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -82,13 +82,14 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Phòng";
             // 
-            // dataGridView1
+            // tbTieuDung
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 53);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1252, 413);
-            this.dataGridView1.TabIndex = 3;
+            this.tbTieuDung.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tbTieuDung.Location = new System.Drawing.Point(6, 53);
+            this.tbTieuDung.Name = "tbTieuDung";
+            this.tbTieuDung.Size = new System.Drawing.Size(1252, 413);
+            this.tbTieuDung.TabIndex = 3;
+            this.tbTieuDung.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tbTieuDung_CellClick);
             // 
             // panel2
             // 
@@ -216,33 +217,24 @@
             // 
             // btLuu
             // 
-            this.btLuu.Location = new System.Drawing.Point(999, 657);
+            this.btLuu.Location = new System.Drawing.Point(1043, 660);
             this.btLuu.Name = "btLuu";
             this.btLuu.Size = new System.Drawing.Size(125, 40);
             this.btLuu.TabIndex = 24;
             this.btLuu.Text = "Lưu duyệt";
             this.btLuu.UseVisualStyleBackColor = true;
-            // 
-            // btDuyet
-            // 
-            this.btDuyet.Location = new System.Drawing.Point(1130, 657);
-            this.btDuyet.Name = "btDuyet";
-            this.btDuyet.Size = new System.Drawing.Size(125, 40);
-            this.btDuyet.TabIndex = 24;
-            this.btDuyet.Text = "Sửa duyệt";
-            this.btDuyet.UseVisualStyleBackColor = true;
+            this.btLuu.Click += new System.EventHandler(this.btLuu_Click);
             // 
             // QLKiemDuyet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btDuyet);
             this.Controls.Add(this.btLuu);
             this.Controls.Add(this.rtxtGhiChu);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.tbTieuDung);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbPhong);
             this.Controls.Add(this.label1);
@@ -251,7 +243,7 @@
             this.Name = "QLKiemDuyet";
             this.Size = new System.Drawing.Size(1258, 700);
             this.Load += new System.EventHandler(this.QLKiemDuyet_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbTieuDung)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -266,7 +258,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbPhong;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView tbTieuDung;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lbTen;
         private System.Windows.Forms.Label label4;
@@ -282,6 +274,5 @@
         private System.Windows.Forms.RichTextBox rtxtGhiChu;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btLuu;
-        private System.Windows.Forms.Button btDuyet;
     }
 }
