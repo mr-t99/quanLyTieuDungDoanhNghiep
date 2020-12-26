@@ -111,7 +111,7 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
             tieuDung.T_thai = tt.Id_trang_thai;
             tieuDung.Ghi_chu = rtxtGhiChu.Text;
             tieuDung.Id_qly = nguoiDung.Id_nguoi_dung;
-            this.quanLy.CapNhatDataBase(row, tieuDung);
+            this.quanLy.CapNhatDataTieuDung(row, tieuDung);
         }
     }
 }

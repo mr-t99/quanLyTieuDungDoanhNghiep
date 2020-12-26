@@ -51,12 +51,9 @@ namespace quanLyTieuDungDn.Model
             {
                 MoKetNoi();
                 adViewPhong = new SqlDataAdapter(sql, conn);
-                SqlCommandBuilder sqlCommand = new SqlCommandBuilder(adViewPhong);
-                adViewPhong.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-                adViewPhong.Fill(quanLy, "VIEWPHONG");
                 adViewPhong.FillSchema(quanLy, SchemaType.Source, "VIEWPHONG");
                 adViewPhong.Fill(quanLy, "VIEWPHONG");
-                viewPhong = quanLy.Tables["VIEWPHONG"];
+                this.viewPhong = quanLy.Tables["VIEWPHONG"];
             }
             catch (Exception e)
             {
@@ -177,7 +174,6 @@ namespace quanLyTieuDungDn.Model
             GetTableViewTieuDung();
             GetTableViewPhong();
             GetTablePhong();
-
         }
         private void GetTableNhanVien()
         {
@@ -243,7 +239,7 @@ namespace quanLyTieuDungDn.Model
         }
         private void GetTablePhong()
         {
-            string sql = "select * from phong";
+            string sql = "select * from phong ORDER BY id DESC;";
             try
             {
                 Console.WriteLine(sql);
@@ -276,25 +272,43 @@ namespace quanLyTieuDungDn.Model
             DataRow ndr = this.viewPhong.NewRow();
             ndr["Tên phòng"] = p.T_phong;
             ndr["Hạn mức"] = p.H_muc;
-            ndr["id"] = Int32.Parse(viewPhong.Rows[0]["id"].ToString()) + 1;
+            //ndr["id"] = Int32.Parse(viewPhong.Rows[0]["id"].ToString()) + 1;
             quanLy.Tables["VIEWPHONG"].Rows.Add(ndr);
         }
         public void SuaPhong(Phong p, int row)
         {
-            Console.WriteLine(row);
-            DataRow dr = quanLy.Tables["PHONG"].Rows[row];
-            dr["t_phong"] = p.T_phong;
-            dr["h_muc"] = p.H_muc;
+            try
+            {
+                Console.WriteLine(row);
+                DataRow dr = quanLy.Tables["PHONG"].Rows[row];
+                dr["t_phong"] = p.T_phong;
+                dr["h_muc"] = p.H_muc;
 
-            DataRow ndr = quanLy.Tables["VIEWPHONG"].Rows[row];
-            ndr["Tên phòng"] = p.T_phong;
-            ndr["Hạn mức"] = p.H_muc;
-            
+                DataRow ndr = quanLy.Tables["VIEWPHONG"].Rows[row];
+                ndr["Hạn mức"] = p.H_muc;
+                ndr["Tên phòng"] = p.T_phong;
+                Console.WriteLine(quanLy.Tables["PHONG"].Rows.Count);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+                MessageBox.Show("Lỗi sửa");
+            }
+
         }
-        public void XoaTieuDung(int row)
+        public void XoaPhong(int row)
         {
-            quanLy.Tables["PHONG"].Rows[row].Delete();
-            quanLy.Tables["VIEWPHONG"].Rows[row].Delete();
+            try
+            {
+                Console.WriteLine(row);
+                quanLy.Tables["PHONG"].Rows[row].Delete();
+                quanLy.Tables["VIEWPHONG"].Rows[row].Delete();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+                MessageBox.Show("Đã xảy ra lỗi");
+            }
         }
         public void CapNhatDatabasePhong()
         {
@@ -302,11 +316,12 @@ namespace quanLyTieuDungDn.Model
             {
                 adPhong.Update(quanLy, "PHONG");
                 phong = quanLy.Tables["PHONG"];
+                
             }
             catch(Exception e)
             {
                 Console.WriteLine(e);
-                MessageBox.Show("Không cập nhật được database");
+                MessageBox.Show("Không cập nhật được database. Có thể đo xung đột khi xóa phòng");
             }
         }
         //Nhân viên

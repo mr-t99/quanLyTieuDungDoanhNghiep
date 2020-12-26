@@ -16,6 +16,7 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
     {
         private NguoiDung nguoiDung;
         private QuanLyController quanLy;
+        private QuanLyController quanLyPhong;
         private enum Status { isView, isAdd, isEdit};
         private Status status;
         private int row=-1;
@@ -65,8 +66,8 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
         }
         private void LoadTablePhong()
         {
-            this.quanLy = new QuanLyController();
-            tbPhong.DataSource = quanLy.phong;
+            this.quanLyPhong = new QuanLyController(0);
+            tbPhong.DataSource = quanLyPhong.phong;
             tbPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbPhong.Columns["id"].Visible = false;
             tbPhong.Columns["Số lượng nhân viên"].Visible = false;
@@ -115,7 +116,7 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
 
         private void btLuu_Click(object sender, EventArgs e)
         {
-
+            quanLyPhong.CapNhatDatabasePhong();
         }
         
         private void btThem_Click(object sender, EventArgs e)
@@ -131,9 +132,7 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
                 Phong p = new Phong();
                 p.H_muc = Int32.Parse(txtHanMuc.Text);
                 p.T_phong = txtPhong.Text;
-                quanLy.ThemPhong(p);
-                quanLy = new QuanLyController();
-                tbPhong.DataSource = quanLy.phong;
+                quanLyPhong.ThemPhong(p);
             }
         }
 
@@ -148,11 +147,16 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
             else
             {
                 Phong p = new Phong();
-                p.H_muc = Int32.Parse(txtHanMuc.Text);
+                try
+                {
+                    p.H_muc = Int32.Parse(txtHanMuc.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Hạn mức không hợp lệ");
+                }
                 p.T_phong = txtPhong.Text;
-                quanLy.SuaPhong(p, row);
-                quanLy = new QuanLyController();
-                tbPhong.DataSource = quanLy.phong;
+                quanLyPhong.SuaPhong(p, row);
             }
         }
 
@@ -162,14 +166,12 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
             {
                 statuss = Status.isEdit;
                 status = Status.isEdit;
-                MessageBox.Show("Bạn vừa vào chế độ sửa");
+                MessageBox.Show("Chế độ sửa");
             }
             else
             {
-                Phong p = new Phong();
-                p.H_muc = Int32.Parse(txtHanMuc.Text);
-                p.T_phong = txtPhong.Text;
-                quanLy.ThemPhong(p);
+                quanLyPhong.XoaPhong(row);
+
             }
         }
     }

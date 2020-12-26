@@ -52,8 +52,9 @@ namespace quanLyTieuDungDn.controller
             {
                 MessageBox.Show("Lỗi lấy dữ liệu tiêu dùng");
             }
+            this.phong = quanLy.viewPhong;
         }
-        public void CapNhatDataBase(int row, TieuDung td)
+        public void CapNhatDataTieuDung(int row, TieuDung td)
         {
             if (row != -1)
             {
@@ -77,11 +78,12 @@ namespace quanLyTieuDungDn.controller
             quanLy = new QuanLyModel(id_phong);
             this.viewNhanVien = quanLy.viewNhanVien;
             this.viewTieuDung = quanLy.viewTieuDung;
+            this.phong = quanLy.viewPhong;
         }
         public void ThemPhong(Phong p)
         {
             string mess = "";
-            if (p.T_phong.Length == 0)
+            if (p.T_phong.Length == 0 || p.T_phong.Length>20)
             {
                 mess += "Tên phòng còn trống\n";
             }
@@ -107,7 +109,7 @@ namespace quanLyTieuDungDn.controller
                 {
                     mess += "Tên phòng còn trống\n";
                 }
-                if (p.H_muc == 0 || Int32.TryParse(p.H_muc.ToString(), out int i) == false)
+                if (p.H_muc == 0)
                 {
                     mess += "Hạn mức không hợp lệ";
                 }
@@ -124,6 +126,21 @@ namespace quanLyTieuDungDn.controller
             {
                 MessageBox.Show("Bạn phải chọn dòng");
             }
+        }
+        public void XoaPhong(int row)
+        {
+            if (row != -1)
+            {
+                quanLy.XoaPhong(row);
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải chọn dòng");
+            }
+        }
+        public void CapNhatDatabasePhong()
+        {
+            quanLy.CapNhatDatabasePhong();
         }
     }
     
