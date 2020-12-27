@@ -14,17 +14,18 @@ namespace quanLyTieuDungDn.views
     public partial class quanly : Form
     {
         private NguoiDung nguoiDung;
-        public quanly()
+        public quanly(NguoiDung ng)
         {
             //setNguoi dung
-            nguoiDung = new NguoiDung();
-            nguoiDung.Id_nguoi_dung = 1;
-            nguoiDung.Id_phong = 1;
-            nguoiDung.Ngay_lam = DateTime.Now;
-            nguoiDung.Que_quan = "Thai Binh";
-            nguoiDung.Tn_dung = "Trần Ngọc Thăng";
-            nguoiDung.C_vu = "Quản lý";
-            nguoiDung.G_tinh = true;
+            //nguoiDung = new NguoiDung();
+            //nguoiDung.Id_nguoi_dung = 1;
+            //nguoiDung.Id_phong = 1;
+            //nguoiDung.Ngay_lam = DateTime.Now;
+            //nguoiDung.Que_quan = "Thai Binh";
+            //nguoiDung.Tn_dung = "Trần Ngọc Thăng";
+            //nguoiDung.C_vu = "Quản lý";
+            //nguoiDung.G_tinh = true;
+            this.nguoiDung = ng;
 
             InitializeComponent();
             qlKiemDuyet1.Visible = true;

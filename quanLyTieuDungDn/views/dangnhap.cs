@@ -37,7 +37,9 @@ namespace quanLyTieuDungDn.views
             }
             else if (check.C_vu == "Quản lý")
             {
-                
+                quanly ql = new quanly(check);
+                ql.Show();
+                this.Visible = false;
             }
             else if (check.C_vu == "Kế toán")
             {
