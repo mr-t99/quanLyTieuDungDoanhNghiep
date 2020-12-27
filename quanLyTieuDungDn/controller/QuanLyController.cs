@@ -25,12 +25,17 @@ namespace quanLyTieuDungDn.controller
         public ArrayList ArrPhong()
         {
             ArrayList arrPhong = new ArrayList();
+            if(this.phong !=null)
             foreach (DataRow dr in phong.Rows)
             {
                 Phong p = new Phong();
                 p.Id_phong = (int)dr["id"];
                 p.T_phong = dr["Tên phòng"].ToString();
                 arrPhong.Add(p);
+            }
+            else
+            {
+                MessageBox.Show("Lỗi lấy phòng");
             }
             return arrPhong;
         }
@@ -142,8 +147,73 @@ namespace quanLyTieuDungDn.controller
         {
             quanLy.CapNhatDatabasePhong();
         }
+        //Nhân viên
+        public bool checkNguoiDung(NguoiDung ng)
+        {
+            string mess = "";
+            if (ng.Tn_dung.Length==0)
+            {
+                mess += "Tên người dùng trống\n";
+            }
+            if (ng.T_khoan.Length == 0)
+            {
+                mess += "Tài khoản còn trống\n";
+            }
+            if (ng.Que_quan.Length == 0)
+            {
+                mess += "Quê quán còn trống\n";
+            }
+            if (ng.Khau.Length == 0)
+            {
+                mess += "Mật khẩu còn trống\n";
+            }
+            if (mess.Length == 0)
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show(mess);
+                return false;
+            }
+        }
+        public void ThemNhanVien(NguoiDung ng)
+        {
+            if (checkNguoiDung(ng) == true)
+            {
+                quanLy.ThemNhanVien(ng);
+            }
+        }
+        public void SuaNhanVien(NguoiDung ng, int row)
+        {
+            if (row != -1)
+            {
+                if (checkNguoiDung(ng) == true)
+                {
+                    quanLy.SuaNhanVien(ng, row);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải chọn một dòng");
+            }
+        }
+        public void XoaNhanVien(int row)
+        {
+            if(row != -1)
+            {
+                quanLy.XoaNhanVien(row);
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải chọn một dòng");
+            }
+        }
+        public void LuuDatabaseTableNhanVien()
+        {
+            quanLy.CapNhatDatabaseNhanVien();
+        }
     }
     
-    //Nhân viên
-
 }

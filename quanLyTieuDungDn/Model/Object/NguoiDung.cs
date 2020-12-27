@@ -9,7 +9,7 @@ namespace quanLyTieuDungDn.Model.Object
     public class NguoiDung
     {
         private int id_nguoi_dung,id_phong;
-        private string t_khoan, m_khau, tn_dung, que_quan, c_vu;
+        private string t_khoan, m_khau, tn_dung, que_quan, c_vu, t_phong;
         private DateTime ngay_lam;
         private bool g_tinh;
 
@@ -22,5 +22,6 @@ namespace quanLyTieuDungDn.Model.Object
         public string C_vu { get => c_vu; set => c_vu = value; }
         public DateTime Ngay_lam { get => ngay_lam; set => ngay_lam = value; }
         public bool G_tinh { get => g_tinh; set => g_tinh = value; }
+        public string T_phong { get => t_phong; set => t_phong = value; }
     }
 }

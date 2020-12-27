@@ -210,7 +210,7 @@ namespace quanLyTieuDungDn.Model
                 string sql;
                 if (this.id_phong == 0)
                 {
-                    sql = "select t_khoan as 'Tài khoản', m_khau as 'Mật khẩu', tn_dung as 'Nhân viên', que_quan as 'Quê quán', ngay_lam as 'Ngày làm', c_vu as 'Chức vụ', phong.t_phong as 'Phòng'  from nguoi_dung, phong where phong.id = nguoi_dung.id_phong";
+                    sql = "select t_khoan as 'Tài khoản', m_khau as 'Mật khẩu', tn_dung as 'Nhân viên', g_tinh as 'Giới tính', que_quan as 'Quê quán', ngay_lam as 'Ngày làm', c_vu as 'Chức vụ', phong.t_phong as 'Phòng' from nguoi_dung, phong where phong.id = nguoi_dung.id_phong";
                 }
                 else
                 {
@@ -242,7 +242,6 @@ namespace quanLyTieuDungDn.Model
             string sql = "select * from phong ORDER BY id DESC;";
             try
             {
-                Console.WriteLine(sql);
                 adPhong = new SqlDataAdapter(sql, conn);
                 SqlCommandBuilder sqlCommand = new SqlCommandBuilder(adPhong);
                 adPhong.MissingSchemaAction = MissingSchemaAction.AddWithKey;
@@ -279,7 +278,6 @@ namespace quanLyTieuDungDn.Model
         {
             try
             {
-                Console.WriteLine(row);
                 DataRow dr = quanLy.Tables["PHONG"].Rows[row];
                 dr["t_phong"] = p.T_phong;
                 dr["h_muc"] = p.H_muc;
@@ -287,7 +285,6 @@ namespace quanLyTieuDungDn.Model
                 DataRow ndr = quanLy.Tables["VIEWPHONG"].Rows[row];
                 ndr["Hạn mức"] = p.H_muc;
                 ndr["Tên phòng"] = p.T_phong;
-                Console.WriteLine(quanLy.Tables["PHONG"].Rows.Count);
             }
             catch(Exception e)
             {
@@ -300,7 +297,6 @@ namespace quanLyTieuDungDn.Model
         {
             try
             {
-                Console.WriteLine(row);
                 quanLy.Tables["PHONG"].Rows[row].Delete();
                 quanLy.Tables["VIEWPHONG"].Rows[row].Delete();
             }
@@ -325,6 +321,54 @@ namespace quanLyTieuDungDn.Model
             }
         }
         //Nhân viên
+        public void ThemNhanVien(NguoiDung nguoi)
+        {
+            DataRow dr = quanLy.Tables["NHANVIEN"].NewRow();
+            DataRow ndr = quanLy.Tables["VIEWNHANVIEN"].NewRow();
+            ndr["Tài khoản"] = dr["t_khoan"] = nguoi.T_khoan;
+            ndr["Mật khẩu"] = dr["m_khau"] = nguoi.Khau;
+            ndr["Nhân viên"] = dr["tn_dung"] = nguoi.Tn_dung;
+            ndr["Quê quán"] = dr["que_quan"] = nguoi.Que_quan;
+            ndr["Ngày làm"] = dr["ngay_lam"] = nguoi.Ngay_lam;
+            ndr["Chức vụ"] = dr["c_vu"] = nguoi.C_vu;
+            dr["id_phong"] = nguoi.Id_phong;
+            ndr["Phòng"] = nguoi.T_phong;
+            ndr["Giới tính"] = dr["g_tinh"] = nguoi.G_tinh;
+            quanLy.Tables["NHANVIEN"].Rows.Add(dr);
+            quanLy.Tables["VIEWNHANVIEN"].Rows.Add(ndr);
+        }
+        public void SuaNhanVien(NguoiDung nguoi, int row)
+        {
+            DataRow dr = quanLy.Tables["NHANVIEN"].Rows[row];
+            DataRow ndr = quanLy.Tables["VIEWNHANVIEN"].Rows[row];
+            ndr["Tài khoản"] = dr["t_khoan"] = nguoi.T_khoan;
+            ndr["Mật khẩu"] = dr["m_khau"] = nguoi.Khau;
+            ndr["Nhân viên"] = dr["tn_dung"] = nguoi.Tn_dung;
+            ndr["Quê quán"] = dr["que_quan"] = nguoi.Que_quan;
+            ndr["Ngày làm"] = dr["ngay_lam"] = nguoi.Ngay_lam;
+            ndr["Chức vụ"] = dr["c_vu"] = nguoi.C_vu;
+            dr["id_phong"] = nguoi.Id_phong;
+            ndr["Phòng"] = nguoi.T_phong;
+            ndr["Giới tính"] = dr["g_tinh"] = nguoi.G_tinh;
+        }
+        public void XoaNhanVien(int row)
+        {
+            quanLy.Tables["NHANVIEN"].Rows[row].Delete();
+            quanLy.Tables["VIEWNHANVIEN"].Rows[row].Delete();
+        }
+        public void CapNhatDatabaseNhanVien()
+        {
+            try
+            {
+                adNhanVien.Update(quanLy, "NHANVIEN");
+                this.nhanvien = quanLy.Tables["NHANVIEN"];
+                MessageBox.Show("Lưu cập nhật thành công");
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi không thể lưu dữ liệu, xảy ra xung đột khi xóa phòng");
+            }
+        }
     }
 
 }

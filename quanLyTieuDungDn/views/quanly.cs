@@ -54,6 +54,7 @@ namespace quanLyTieuDungDn.views
             qlKiemDuyet1.Visible = false;
             qlNhanVien1.Visible = true;
             qlPhong1.Visible = false;
+            qlNhanVien1.SetNguoiDung(nguoiDung);
         }
 
         private void lựaChọnToolStripMenuItem_Click(object sender, EventArgs e)
