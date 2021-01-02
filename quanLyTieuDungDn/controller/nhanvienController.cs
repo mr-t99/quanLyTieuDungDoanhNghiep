@@ -15,11 +15,11 @@ namespace quanLyTieuDungDn.controller
     class nhanvienController
     {
         private NguoiDung nguoiDung;
-        public DataTable thongKe, thongKeTieuDungNguoiDung, phong, tieuDung;
+        public DataTable thongKe, thongKeCaNhan, phong, tieuDung;
         NhanVienModel nhanVien;
 
         //Bien lable 
-        public int h_muc = 0, v_muc = 0, t_phong = 0, c_nhan = 0, checkRow;
+        public int h_muc = 0, v_muc = 0, t_phong = 0, c_nhan = 0;
         public nhanvienController(NguoiDung ng)
         {
             this.nguoiDung = ng;
@@ -48,6 +48,14 @@ namespace quanLyTieuDungDn.controller
             else
             {
                 MessageBox.Show("Lỗi lấy dữ liệu bảng phong");
+            }
+            if (nhanVien.thongKeCaNhan != null)
+            {
+                this.thongKeCaNhan = nhanVien.thongKeCaNhan;
+            }
+            else
+            {
+                MessageBox.Show("Lỗi lấy dữ liệu bảng thong ke ca nhan");
             }
         }
         //Phương thức chu userControll Sua thong tin tieu dung

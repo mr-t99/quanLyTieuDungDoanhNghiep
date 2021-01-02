@@ -128,7 +128,7 @@ namespace quanLyTieuDungDn.views.userControll.NhanVien
         private void setTbTieuDung()
         {
             nhanVien.GetThongKeCaNhan();
-            tbTieuDung.DataSource = nhanVien.thongKe;
+            tbTieuDung.DataSource = nhanVien.thongKeCaNhan;
             tbTieuDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 

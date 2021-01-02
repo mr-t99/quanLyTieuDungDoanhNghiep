@@ -79,8 +79,13 @@ namespace quanLyTieuDungDn.Model
             }
             else
             {
+                Console.WriteLine(id_tthai);
                 string sql = "select  tn_dung as 'Nhân viên',tieu_dung.t_tdung as 'Mua', gia as 'Giá', loai_tieu_dung.l_tdung as 'Phân loại', ngay_de_nghi as 'Đề nghị', ngay_hoan_thanh as 'Giao tiền', t_tthai as 'Trạng thái', tieu_dung.id from tieu_dung, nguoi_dung, loai_tieu_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and tieu_dung.id_tdung = loai_tieu_dung.id and tieu_dung.t_thai = trang_thai.id and nguoi_dung.id_phong = phong.id and id_phong = "+id_phong+" and (t_thai =1 or t_thai=2 or t_thai=3 )";
-                Console.WriteLine(sql);
+                if(id_tthai == 4)
+                {
+                    sql = "select  tn_dung as 'Nhân viên',tieu_dung.t_tdung as 'Mua', gia as 'Giá', loai_tieu_dung.l_tdung as 'Phân loại', ngay_de_nghi as 'Đề nghị', ngay_hoan_thanh as 'Giao tiền', t_tthai as 'Trạng thái', tieu_dung.id from tieu_dung, nguoi_dung, loai_tieu_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and tieu_dung.id_tdung = loai_tieu_dung.id and tieu_dung.t_thai = trang_thai.id and nguoi_dung.id_phong = phong.id and id_phong = " + id_phong + " and t_thai =4";
+                    Console.WriteLine(sql);
+                }
                 try
                 {
                     MoKetNoi();
@@ -104,9 +109,13 @@ namespace quanLyTieuDungDn.Model
         private void GetTableTieuDung()
         {
             string sql = "select * from tieu_dung where id_nguoidung in (select id from nguoi_dung where id_phong=" + id_phong + ") and (t_thai =1 or t_thai=2 or t_thai=3 )";
+            if (id_tthai == 4)
+            {
+                sql = "select * from tieu_dung where id_nguoidung in (select id from nguoi_dung where id_phong=" + id_phong + ") and t_thai =4 ";
+                Console.WriteLine(sql);
+            }
             try
             {
-                Console.WriteLine(sql);
                 adTieuDung = new SqlDataAdapter(sql, conn);
                 SqlCommandBuilder sqlCommand = new SqlCommandBuilder(adTieuDung);
                 adTieuDung.MissingSchemaAction = MissingSchemaAction.AddWithKey;
@@ -133,15 +142,8 @@ namespace quanLyTieuDungDn.Model
             dr["id_qly"] = tieuDung.Id_qly;
             UpdateDatabaseTieuDung();
             DataRow vdr = quanLy.Tables["VIEWTIEUDUNG"].Rows[row];
+            vdr["Trạng thái"] = tieuDung.T_tthai;
             vdr["Giá"] = tieuDung.Gia;
-            if(tieuDung.T_thai == 2)
-            {
-                vdr["Trạng thái"] = "Chấp nhận";
-            }
-            else
-            {
-                vdr["Trạng thái"] = "Từ chối";
-            }
             
         }
 
@@ -180,7 +182,6 @@ namespace quanLyTieuDungDn.Model
             string sql = "select * from nguoi_dung";
             try
             {
-                Console.WriteLine(sql);
                 adNhanVien = new SqlDataAdapter(sql, conn);
                 SqlCommandBuilder sqlCommand = new SqlCommandBuilder(adNhanVien);
                 adNhanVien.MissingSchemaAction = MissingSchemaAction.AddWithKey;

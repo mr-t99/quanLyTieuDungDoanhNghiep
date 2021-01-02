@@ -18,7 +18,7 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
         private QuanLyController quanLy;
         private NguoiDung nguoiDung;
         ArrayList tthai;
-        int row=-1;
+        int row=-1, id_tthai;
 
 
         public QLKiemDuyet()
@@ -28,11 +28,14 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
         public void SetNguoiDung(NguoiDung ng)
         {
             this.nguoiDung = ng;
-
+            lbTen.Text = nguoiDung.Tn_dung;
             //lấy dữ liệu phòng
             this.quanLy = new QuanLyController();
             LoadComboxPhong();
+            loadComboxTrangThai();
+            id_tthai = 1;
             LoadDataTable(ng);
+            btNghiemThu.Visible = false;
         }
         private void LoadComboxPhong()
         {
@@ -40,8 +43,12 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
             cbPhong.DataSource = quanLy.ArrPhong();
             cbPhong.DisplayMember = "t_phong";
             cbPhong.ValueMember = "id_phong";
+            
+        }
+        private void loadComboxTrangThai()
+        {
             //trạng thái
-             tthai = new ArrayList();
+            tthai = new ArrayList();
             TrangThai trangThai1 = new TrangThai();
             trangThai1.Id_trang_thai = 2;
             trangThai1.T_tthai = "Chấp nhận";
@@ -60,13 +67,12 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
         private void LoadDataTable(NguoiDung ng)
         {
             Phong p = (Phong)cbPhong.SelectedItem;
-            this.quanLy = new QuanLyController(ng,p.Id_phong, 1);
+            this.quanLy = new QuanLyController(ng,p.Id_phong, id_tthai);
             tbTieuDung.DataSource = quanLy.viewTieuDung;
             tbTieuDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            
+            tbTieuDung.Columns["id"].Visible = false;
             if (tbTieuDung.Rows.Count > 1)
             {
-                tbTieuDung.Columns["id"].Visible = false;
                 tbTieuDung.ReadOnly = true;
                 LoadDataTextBox(tbTieuDung.Rows[0]);
             }
@@ -78,11 +84,15 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
 
         private void cbPhong_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine("thay doi");
             Phong p = (Phong)cbPhong.SelectedItem;
-            this.quanLy = new QuanLyController(this.nguoiDung, p.Id_phong, 1);
+            this.quanLy = new QuanLyController(this.nguoiDung, p.Id_phong, id_tthai);
             tbTieuDung.DataSource = quanLy.viewTieuDung;
             tbTieuDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            if (tbTieuDung.Rows.Count > 1)
+            {
+                tbTieuDung.ReadOnly = true;
+                LoadDataTextBox(tbTieuDung.Rows[0]);
+            }
         }
         private void LoadDataTextBox(DataGridViewRow row)
         {
@@ -104,14 +114,58 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
 
         private void btLuu_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(row);
+
             TieuDung tieuDung = new TieuDung();
             tieuDung.Gia = Int32.Parse(txtSoTien.Text);
             TrangThai tt = (TrangThai)cbTrangThai.SelectedItem;
             tieuDung.T_thai = tt.Id_trang_thai;
+            tieuDung.T_tthai = tt.T_tthai;
             tieuDung.Ghi_chu = rtxtGhiChu.Text;
             tieuDung.Id_qly = nguoiDung.Id_nguoi_dung;
             this.quanLy.CapNhatDataTieuDung(row, tieuDung);
+        }
+
+        private void btNghiemThu_Click(object sender, EventArgs e)
+        {
+            TieuDung tieuDung = new TieuDung();
+            tieuDung.Gia = Int32.Parse(txtSoTien.Text);
+            TrangThai tt = (TrangThai)cbTrangThai.SelectedItem;
+            tieuDung.T_thai = tt.Id_trang_thai;
+            tieuDung.T_tthai = tt.T_tthai;
+            tieuDung.Ghi_chu = rtxtGhiChu.Text;
+            tieuDung.Id_qly = nguoiDung.Id_nguoi_dung;
+            this.quanLy.CapNhatDataTieuDung(row, tieuDung);
+        }
+
+        //Nghiem Thu
+        public void SetViewNghiemThu(NguoiDung ng)
+        {
+            this.nguoiDung = ng;
+            this.quanLy = new QuanLyController();
+            lbTen.Text = nguoiDung.Tn_dung;
+            LoadComboxPhong();
+            id_tthai = 4;
+            LoadDataTable(nguoiDung);
+            btNghiemThu.Visible = true;
+            LoadComboxTrangThaiNghiemThu();
+        }
+        private void LoadComboxTrangThaiNghiemThu()
+        {
+            tthai = new ArrayList();
+            TrangThai trangThai1 = new TrangThai();
+            trangThai1.Id_trang_thai = 5;
+            trangThai1.T_tthai = "Nghiệm thu";
+            tthai.Add(trangThai1);
+            TrangThai trangThai2 = new TrangThai();
+            trangThai2.Id_trang_thai = 6;
+            trangThai2.T_tthai = "Hoàn tiền";
+            tthai.Add(trangThai2);
+            cbTrangThai.DataSource = tthai;
+            cbTrangThai.DisplayMember = "t_tthai";
+            cbTrangThai.ValueMember = "id_trang_thai";
+            //thong nguoi dung khong duc sua
+            txtTenNhanVien.ReadOnly = true;
+            txtTienTieuDung.ReadOnly = true;
         }
     }
 }

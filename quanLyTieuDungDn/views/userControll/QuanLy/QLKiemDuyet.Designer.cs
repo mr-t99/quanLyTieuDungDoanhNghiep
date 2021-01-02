@@ -47,6 +47,7 @@
             this.rtxtGhiChu = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btLuu = new System.Windows.Forms.Button();
+            this.btNghiemThu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tbTieuDung)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -124,9 +125,9 @@
             this.lbTen.AutoSize = true;
             this.lbTen.Location = new System.Drawing.Point(81, 73);
             this.lbTen.Name = "lbTen";
-            this.lbTen.Size = new System.Drawing.Size(160, 24);
+            this.lbTen.Size = new System.Drawing.Size(44, 24);
             this.lbTen.TabIndex = 20;
-            this.lbTen.Text = "Trần Ngọc Thăng";
+            this.lbTen.Text = "Abc";
             // 
             // label4
             // 
@@ -225,10 +226,21 @@
             this.btLuu.UseVisualStyleBackColor = true;
             this.btLuu.Click += new System.EventHandler(this.btLuu_Click);
             // 
+            // btNghiemThu
+            // 
+            this.btNghiemThu.Location = new System.Drawing.Point(1043, 660);
+            this.btNghiemThu.Name = "btNghiemThu";
+            this.btNghiemThu.Size = new System.Drawing.Size(125, 40);
+            this.btNghiemThu.TabIndex = 24;
+            this.btNghiemThu.Text = "Nghiệm thu";
+            this.btNghiemThu.UseVisualStyleBackColor = true;
+            this.btNghiemThu.Click += new System.EventHandler(this.btNghiemThu_Click);
+            // 
             // QLKiemDuyet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btNghiemThu);
             this.Controls.Add(this.btLuu);
             this.Controls.Add(this.rtxtGhiChu);
             this.Controls.Add(this.panel2);
@@ -274,5 +286,6 @@
         private System.Windows.Forms.RichTextBox rtxtGhiChu;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btLuu;
+        private System.Windows.Forms.Button btNghiemThu;
     }
 }

@@ -45,14 +45,23 @@ namespace quanLyTieuDungDn.views.userControll.NhanVien
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int row = -1;
+            int row = 0;
             foreach(DataGridViewRow dr in tbTieuDung.Rows)
             {
                 dr.Selected = false;
                 if(dr.Cells[0].Value != null && dr.Cells[1].Value.ToString().Equals(txtTimKiem.Text))
                 {
                     dr.Selected = true;
+                    row++;
                 }
+            }
+            if (row == 0)
+            {
+                MessageBox.Show("Không tìm thấy tiêu dùng này");
+            }
+            else
+            {
+                MessageBox.Show("Có " + row + " tiêu dùng được tìm thấy");
             }
         }
     }

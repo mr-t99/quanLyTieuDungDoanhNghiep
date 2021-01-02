@@ -155,6 +155,12 @@
     <Compile Include="views\userControll\QuanLy\QlPhong.Designer.cs">
       <DependentUpon>QlPhong.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\userControll\QuanLy\ThongKe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="views\userControll\QuanLy\ThongKe.Designer.cs">
+      <DependentUpon>ThongKe.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\userControll\QuanLy\QlPhong.resx">
       <DependentUpon>QlPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\userControll\QuanLy\ThongKe.resx">
+      <DependentUpon>ThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

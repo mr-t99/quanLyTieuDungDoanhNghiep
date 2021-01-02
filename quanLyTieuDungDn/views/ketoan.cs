@@ -27,12 +27,9 @@ namespace quanLyTieuDungDn.views
             keToan = new KeToanController();
             setComBox();
             p = new Phong();
+            keToan = new KeToanController(this.nguoiDung, p, 2);
             p = (Phong)comBoxPhong.ComboBox.SelectedItem;
-            keToan = new KeToanController(this.nguoiDung, p, 4);
-            
-            NghiemThu.Visible = true;
-            NghiemThu.setNguoiDung(nguoiDung, p, "nghiemthu");
-            InHoaDon.Visible = false;
+            InHoaDon.setNguoiDung(nguoiDung, p);
         }
 
         private void setComBox()
@@ -47,18 +44,8 @@ namespace quanLyTieuDungDn.views
         {
             
             p = (Phong)comBoxPhong.ComboBox.SelectedItem;
-            
-            if (NghiemThu.Visible == true)
-            {
-                keToan = new KeToanController(this.nguoiDung,p, 4);
-                InHoaDon.setNguoiDung(nguoiDung, p, "nghiemthu");
-            }
-            else
-            {
-                keToan = new KeToanController(this.nguoiDung,p, 2);
-                InHoaDon.setNguoiDung(nguoiDung, p, "hoadon");
-            }
-            
+            keToan = new KeToanController(this.nguoiDung, p, 2);
+            InHoaDon.setNguoiDung(nguoiDung, p);            
         }
 
         private void hoaDon1_Load(object sender, EventArgs e)
@@ -68,7 +55,6 @@ namespace quanLyTieuDungDn.views
 
         private void thêmTiêuDùngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Id phong:" + nguoiDung.Id_phong);
             nhanvien nv = new nhanvien(nguoiDung);
             nv.Show();
         }
@@ -76,18 +62,9 @@ namespace quanLyTieuDungDn.views
         private void tìmKiếmToolStripMenuItem_Click(object sender, EventArgs e)
         {
             InHoaDon.Visible = true;
-            NghiemThu.Visible = false;
             p = (Phong)comBoxPhong.ComboBox.SelectedItem;
-            InHoaDon.setNguoiDung(nguoiDung, p, "hoadon");
+            InHoaDon.setNguoiDung(nguoiDung, p);
             
-        }
-
-        private void nghiệmThuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            p = (Phong)comBoxPhong.ComboBox.SelectedItem;
-            NghiemThu.Visible = true;
-            NghiemThu.setNguoiDung(nguoiDung, p, "nghiemthu");
-            InHoaDon.Visible = false;
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)

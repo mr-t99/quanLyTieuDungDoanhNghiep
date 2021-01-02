@@ -15,6 +15,7 @@ namespace quanLyTieuDungDn.views.userControll.ketoan
     public partial class HoaDon : UserControl
     {
         KeToanController keToan;
+        QuanLyController quanLy;
         NguoiDung nguoiDung;
         Phong phongModel;
         TrangThai trangThai;
@@ -62,20 +63,11 @@ namespace quanLyTieuDungDn.views.userControll.ketoan
             
         }
         //xử lý
-        public void setNguoiDung(NguoiDung nd, Phong p, string view)
+        public void setNguoiDung(NguoiDung nd, Phong p)
         {
             this.nguoiDung = nd;
             this.phongModel = p;
-            if (view == "nghiemthu")
-            {
-                keToan = new KeToanController(nguoiDung, phongModel,4);
-                btLuu.Text = "Nghiệm thu";
-                
-            }
-            else
-            {
-                keToan = new KeToanController(nguoiDung, phongModel, 2);
-            }
+            keToan = new KeToanController(nguoiDung, phongModel, 2);
             loadView();
             TT = TrangThai.isView;
         }
@@ -97,23 +89,41 @@ namespace quanLyTieuDungDn.views.userControll.ketoan
                 this.id = (int)tbTieuDung.Rows[e.RowIndex].Cells[7].Value;
             }
         }
-        private void button1_Click(object sender, EventArgs e)
+
+        private void timKiem_Click(object sender, EventArgs e)
         {
-            TieuDung td = new TieuDung();
-            //xử lý phần nghiệm thu
-            if (btLuu.Text == "Nghiệm thu")
+            int row = 0;
+            foreach (DataGridViewRow dr in tbTieuDung.Rows)
             {
-                td.Ngay_hoan_thanh = dateGiao.Value;
-                td.Id_ktoan = nguoiDung.Id_nguoi_dung;
-                keToan.NghiemTHu(row, this.id, td);
+                dr.Selected = false;
+                if (dr.Cells[0].Value != null && dr.Cells[1].Value.ToString().Equals(txtTiemKiem.Text))
+                {
+                    dr.Selected = true;
+                    row++;
+                }
+            }
+            if(row==0)
+            {
+                MessageBox.Show("Không tìm thấy tiêu dùng này");
             }
             else
             {
-                //Xử lý phần in hóa đơn
-                td.Ngay_hoan_thanh = dateGiao.Value;
-                td.Id_ktoan = nguoiDung.Id_nguoi_dung;
-                keToan.NhanTien(row, this.id, td);
+                MessageBox.Show("Có " + row + " tiêu dùng được tìm thấy");
             }
+        }
+
+        private void HoaDon_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btLuu_Click(object sender, EventArgs e)
+        {
+            TieuDung td = new TieuDung();
+            //Xử lý phần in hóa đơn
+            td.Ngay_hoan_thanh = dateGiao.Value;
+            td.Id_ktoan = nguoiDung.Id_nguoi_dung;
+            keToan.NhanTien(row, this.id, td);
         }
     }
 }

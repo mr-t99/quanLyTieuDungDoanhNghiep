@@ -28,39 +28,68 @@ namespace quanLyTieuDungDn.views
             this.nguoiDung = ng;
 
             InitializeComponent();
-            qlKiemDuyet1.Visible = true;
-            qlKiemDuyet1.SetNguoiDung(nguoiDung);
+            urChapThuan.Visible = true;
+            urChapThuan.SetNguoiDung(nguoiDung);
             qlNhanVien1.Visible = false;
             qlPhong1.Visible = false;
+            urNghiemThu.Visible = false;
         }
 
         private void duyệtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            qlKiemDuyet1.Visible = true;
-            qlKiemDuyet1.SetNguoiDung(nguoiDung);
+            urChapThuan.Visible = true;
+            urChapThuan.SetNguoiDung(nguoiDung);
             qlNhanVien1.Visible = false;
             qlPhong1.Visible = false;
+            urNghiemThu.Visible = false;
         }
 
         private void phòngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            qlKiemDuyet1.Visible = false;
+            urChapThuan.Visible = false;
             qlNhanVien1.Visible = false;
             qlPhong1.Visible = true;
+            urNghiemThu.Visible = false;
             qlPhong1.SetNguoiDung(nguoiDung);
         }
 
         private void nhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            qlKiemDuyet1.Visible = false;
+            urChapThuan.Visible = false;
             qlNhanVien1.Visible = true;
             qlPhong1.Visible = false;
+            urNghiemThu.Visible = false;
             qlNhanVien1.SetNguoiDung(nguoiDung);
         }
 
         private void lựaChọnToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult rl = MessageBox.Show("Bạn muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo);
+            if (rl == DialogResult.Yes)
+            {
+                this.Dispose();
+                dangnhap dn = new dangnhap();
+                dn.Visible = true;
+            }
+        }
+
+        private void kiểmDuyệtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nghiệmThuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            urNghiemThu.Visible = true;
+            urChapThuan.Visible = false;
+            qlNhanVien1.Visible = false;
+            qlPhong1.Visible = false;
+            urNghiemThu.SetViewNghiemThu(this.nguoiDung);
         }
     }
 }
