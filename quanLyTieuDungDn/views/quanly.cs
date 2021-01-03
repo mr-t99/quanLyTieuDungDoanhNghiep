@@ -33,6 +33,7 @@ namespace quanLyTieuDungDn.views
             qlNhanVien1.Visible = false;
             qlPhong1.Visible = false;
             urNghiemThu.Visible = false;
+            thongKe1.Visible = false;
         }
 
         private void duyệtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,6 +43,7 @@ namespace quanLyTieuDungDn.views
             qlNhanVien1.Visible = false;
             qlPhong1.Visible = false;
             urNghiemThu.Visible = false;
+            thongKe1.Visible = false;
         }
 
         private void phòngToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,6 +53,7 @@ namespace quanLyTieuDungDn.views
             qlPhong1.Visible = true;
             urNghiemThu.Visible = false;
             qlPhong1.SetNguoiDung(nguoiDung);
+            thongKe1.Visible = false;
         }
 
         private void nhânViênToolStripMenuItem_Click(object sender, EventArgs e)
@@ -60,6 +63,7 @@ namespace quanLyTieuDungDn.views
             qlPhong1.Visible = false;
             urNghiemThu.Visible = false;
             qlNhanVien1.SetNguoiDung(nguoiDung);
+            thongKe1.Visible = false;
         }
 
         private void lựaChọnToolStripMenuItem_Click(object sender, EventArgs e)
@@ -80,7 +84,13 @@ namespace quanLyTieuDungDn.views
 
         private void kiểmDuyệtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            urNghiemThu.Visible = false;
+            urChapThuan.Visible = false;
+            qlNhanVien1.Visible = false;
+            qlPhong1.Visible = false;
+            urNghiemThu.SetViewNghiemThu(this.nguoiDung);
+            thongKe1.Visible = true;
+            thongKe1.SetNguoiDung(nguoiDung);
         }
 
         private void nghiệmThuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -90,6 +100,7 @@ namespace quanLyTieuDungDn.views
             qlNhanVien1.Visible = false;
             qlPhong1.Visible = false;
             urNghiemThu.SetViewNghiemThu(this.nguoiDung);
+            thongKe1.Visible = false;
         }
     }
 }

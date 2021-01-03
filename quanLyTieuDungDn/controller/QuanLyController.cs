@@ -214,7 +214,16 @@ namespace quanLyTieuDungDn.controller
         {
             quanLy.CapNhatDatabaseNhanVien();
         }
+        //Thống kê
+        public DataTable viewThongKeChi;
+        private DateTime date;
+        public QuanLyController(int id_phong, DateTime ngay)
+        {
+            this.id_phong = id_phong;
+            this.date = ngay;
+            quanLy = new QuanLyModel(id_phong, date);
+            viewThongKeChi = quanLy.viewThongKeChi;
+        }
     }
-    //NghiemThu
 
 }

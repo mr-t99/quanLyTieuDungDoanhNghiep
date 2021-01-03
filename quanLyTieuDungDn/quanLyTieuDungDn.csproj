@@ -83,6 +83,11 @@
       <DependentUpon>cpHoaDonNhanTien.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="views\cpThongKeChiTheoNgay.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cpThongKeChiTheoNgay.rpt</DependentUpon>
+    </Compile>
     <Compile Include="views\dangnhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +117,12 @@
     </Compile>
     <Compile Include="views\quanly.Designer.cs">
       <DependentUpon>quanly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\ThongKeChiTheoNgay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\ThongKeChiTheoNgay.Designer.cs">
+      <DependentUpon>ThongKeChiTheoNgay.cs</DependentUpon>
     </Compile>
     <Compile Include="views\userControll\ketoan\HoaDon.cs">
       <SubType>UserControl</SubType>
@@ -177,6 +188,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cpHoaDonNhanTien.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="views\cpThongKeChiTheoNgay.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cpThongKeChiTheoNgay.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\dangnhap.resx">
       <DependentUpon>dangnhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\quanly.resx">
       <DependentUpon>quanly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\ThongKeChiTheoNgay.resx">
+      <DependentUpon>ThongKeChiTheoNgay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\userControll\ketoan\HoaDon.resx">
       <DependentUpon>HoaDon.cs</DependentUpon>

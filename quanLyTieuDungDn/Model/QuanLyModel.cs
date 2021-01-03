@@ -80,10 +80,10 @@ namespace quanLyTieuDungDn.Model
             else
             {
                 Console.WriteLine(id_tthai);
-                string sql = "select  tn_dung as 'Nhân viên',tieu_dung.t_tdung as 'Mua', gia as 'Giá', loai_tieu_dung.l_tdung as 'Phân loại', ngay_de_nghi as 'Đề nghị', ngay_hoan_thanh as 'Giao tiền', t_tthai as 'Trạng thái', tieu_dung.id from tieu_dung, nguoi_dung, loai_tieu_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and tieu_dung.id_tdung = loai_tieu_dung.id and tieu_dung.t_thai = trang_thai.id and nguoi_dung.id_phong = phong.id and id_phong = "+id_phong+" and (t_thai =1 or t_thai=2 or t_thai=3 )";
+                string sql = "select  tn_dung as 'Nhân viên',tieu_dung.t_tdung as 'Mua', gia as 'Giá', loai_tieu_dung.l_tdung as 'Phân loại', ngay_de_nghi as 'Đề nghị', ngay_hoan_thanh as 'Chấp nhận', t_tthai as 'Trạng thái', tieu_dung.id from tieu_dung, nguoi_dung, loai_tieu_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and tieu_dung.id_tdung = loai_tieu_dung.id and tieu_dung.t_thai = trang_thai.id and nguoi_dung.id_phong = phong.id and id_phong = "+id_phong+" and (t_thai =1 or t_thai=2 or t_thai=3 )";
                 if(id_tthai == 4)
                 {
-                    sql = "select  tn_dung as 'Nhân viên',tieu_dung.t_tdung as 'Mua', gia as 'Giá', loai_tieu_dung.l_tdung as 'Phân loại', ngay_de_nghi as 'Đề nghị', ngay_hoan_thanh as 'Giao tiền', t_tthai as 'Trạng thái', tieu_dung.id from tieu_dung, nguoi_dung, loai_tieu_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and tieu_dung.id_tdung = loai_tieu_dung.id and tieu_dung.t_thai = trang_thai.id and nguoi_dung.id_phong = phong.id and id_phong = " + id_phong + " and t_thai =4";
+                    sql = "select  tn_dung as 'Nhân viên',tieu_dung.t_tdung as 'Mua', gia as 'Giá', loai_tieu_dung.l_tdung as 'Phân loại', ngay_de_nghi as 'Đề nghị', ngay_hoan_thanh as 'Nghiệm thu', t_tthai as 'Trạng thái', tieu_dung.id from tieu_dung, nguoi_dung, loai_tieu_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and tieu_dung.id_tdung = loai_tieu_dung.id and tieu_dung.t_thai = trang_thai.id and nguoi_dung.id_phong = phong.id and id_phong = " + id_phong + " and t_thai =4";
                     Console.WriteLine(sql);
                 }
                 try
@@ -112,7 +112,6 @@ namespace quanLyTieuDungDn.Model
             if (id_tthai == 4)
             {
                 sql = "select * from tieu_dung where id_nguoidung in (select id from nguoi_dung where id_phong=" + id_phong + ") and t_thai =4 ";
-                Console.WriteLine(sql);
             }
             try
             {
@@ -140,11 +139,13 @@ namespace quanLyTieuDungDn.Model
             dr["t_thai"] = tieuDung.T_thai;
             dr["ghi_chu"] = tieuDung.Ghi_chu;
             dr["id_qly"] = tieuDung.Id_qly;
+            dr["ngay_hoan_thanh"] = tieuDung.Ngay_hoan_thanh;
             UpdateDatabaseTieuDung();
             DataRow vdr = quanLy.Tables["VIEWTIEUDUNG"].Rows[row];
             vdr["Trạng thái"] = tieuDung.T_tthai;
             vdr["Giá"] = tieuDung.Gia;
-            
+            vdr[5] = tieuDung.Ngay_hoan_thanh;
+
         }
 
         public void UpdateDatabaseTieuDung()
@@ -161,6 +162,7 @@ namespace quanLyTieuDungDn.Model
             }
         }
         //Phòng
+        
         public QuanLyModel(int id_phong)
         {
             this.id_phong = id_phong;
@@ -177,6 +179,7 @@ namespace quanLyTieuDungDn.Model
             GetTableViewPhong();
             GetTablePhong();
         }
+        
         private void GetTableNhanVien()
         {
             string sql = "select * from nguoi_dung";
@@ -217,8 +220,6 @@ namespace quanLyTieuDungDn.Model
                 {
                     sql = "select t_khoan as 'Tài khoản', m_khau as 'Mật khẩu', tn_dung as 'Nhân viên', que_quan as 'Quê quán', ngay_lam as 'Ngày làm', c_vu as 'Chức vụ', phong.t_phong as 'Phòng'  from nguoi_dung, phong where phong.id = nguoi_dung.id_phong and id_phong = " + this.id_phong + "";
                 }
-                
-                Console.WriteLine(sql);
                 try
                 {
                     MoKetNoi();
@@ -368,6 +369,48 @@ namespace quanLyTieuDungDn.Model
             catch
             {
                 MessageBox.Show("Lỗi không thể lưu dữ liệu, xảy ra xung đột khi xóa phòng");
+            }
+        }
+
+        //Thống kê
+        public DataTable viewThongKeChi;
+        public SqlDataAdapter adViewThongKeChi;
+        private DateTime date;
+        public QuanLyModel(int id_phong, DateTime ngay)
+        {
+            this.id_phong = id_phong;
+            this.date = ngay;
+            conn = new SqlConnection(sqlConnect);
+            quanLy = new DataSet();
+            GetTableViewThongKeChi();
+        }
+        void GetTableViewThongKeChi()
+        {
+            if (viewThongKeChi != null)
+            {
+                viewThongKeChi.Clear();
+            }
+            else
+            {
+                string sql = "select nguoi_dung.tn_dung as 'Nhân viên', t_tdung as 'Tiêu dùng', gia as 'Giá', trang_thai.t_tthai as 'Trạng thái' from tieu_dung, nguoi_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and trang_thai.id = tieu_dung.t_thai and phong.id = nguoi_dung.id_phong and tieu_dung.t_thai = 4 and phong.id = "+id_phong+" and ngay_hoan_thanh ='"+date+"' ";
+                Console.WriteLine(sql);
+                try
+                {
+                    MoKetNoi();
+                    adViewThongKeChi = new SqlDataAdapter(sql, conn);
+                    adViewThongKeChi.FillSchema(quanLy, SchemaType.Source, "VIEWTHONGKECHI");
+                    adViewThongKeChi.Fill(quanLy, "VIEWTHONGKECHI");
+                    this.viewThongKeChi = quanLy.Tables["VIEWTHONGKECHI"];
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Lỗi lấy data");
+                    this.viewThongKeChi = null;
+                }
+                finally
+                {
+                    conn.Close();
+                }
             }
         }
     }
