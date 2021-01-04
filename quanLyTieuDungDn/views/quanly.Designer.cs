@@ -132,15 +132,16 @@
             // kiểmDuyệtToolStripMenuItem
             // 
             this.kiểmDuyệtToolStripMenuItem.Name = "kiểmDuyệtToolStripMenuItem";
-            this.kiểmDuyệtToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.kiểmDuyệtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.kiểmDuyệtToolStripMenuItem.Text = "Thống kê chi";
             this.kiểmDuyệtToolStripMenuItem.Click += new System.EventHandler(this.kiểmDuyệtToolStripMenuItem_Click);
             // 
             // thooToolStripMenuItem
             // 
             this.thooToolStripMenuItem.Name = "thooToolStripMenuItem";
-            this.thooToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.thooToolStripMenuItem.Text = "Thống kê nghiệm thu";
+            this.thooToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.thooToolStripMenuItem.Text = "Tất cả thống kê";
+            this.thooToolStripMenuItem.Click += new System.EventHandler(this.thooToolStripMenuItem_Click);
             // 
             // userToolStripMenuItem
             // 

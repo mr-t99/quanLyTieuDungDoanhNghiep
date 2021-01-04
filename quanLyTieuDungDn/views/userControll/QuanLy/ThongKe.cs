@@ -32,6 +32,7 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
             data = quanLy.viewThongKeChi;
             tbViewThongKeChi.DataSource = data; 
             tbViewThongKeChi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tbViewThongKeChi.Columns["Kế toán"].Visible = false;
         }
         private void LoadComboxPhong()
         {
@@ -54,6 +55,11 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
             data = quanLy.viewThongKeChi;
             tbViewThongKeChi.DataSource = data;
             tbViewThongKeChi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void dateTime_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

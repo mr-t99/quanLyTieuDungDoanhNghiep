@@ -118,6 +118,12 @@
     <Compile Include="views\quanly.Designer.cs">
       <DependentUpon>quanly.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\rpXemAllThongKe.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpXemAllThongKe.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="views\ThongKeChiTheoNgay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,12 @@
     <Compile Include="views\userControll\QuanLy\ThongKe.Designer.cs">
       <DependentUpon>ThongKe.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\XemAllThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\XemAllThongKe.Designer.cs">
+      <DependentUpon>XemAllThongKe.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,6 +219,10 @@
     <EmbeddedResource Include="views\quanly.resx">
       <DependentUpon>quanly.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="views\rpXemAllThongKe.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpXemAllThongKe.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\ThongKeChiTheoNgay.resx">
       <DependentUpon>ThongKeChiTheoNgay.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\userControll\QuanLy\ThongKe.resx">
       <DependentUpon>ThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\XemAllThongKe.resx">
+      <DependentUpon>XemAllThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

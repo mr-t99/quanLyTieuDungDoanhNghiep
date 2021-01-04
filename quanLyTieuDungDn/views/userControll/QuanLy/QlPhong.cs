@@ -91,7 +91,7 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
             tbTieuDungPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbTieuDungPhong.Columns["Giá"].Visible = false;
             tbTieuDungPhong.Columns["Đề nghị"].Visible = false;
-            tbTieuDungPhong.Columns["Giao tiền"].Visible = false;
+            tbTieuDungPhong.Columns["Chấp nhận"].Visible = false;
             tbTieuDungPhong.Columns["Trạng thái"].Visible = false;
             tbTieuDungPhong.Columns["id"].Visible = false;
         }

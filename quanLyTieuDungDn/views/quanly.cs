@@ -102,5 +102,11 @@ namespace quanLyTieuDungDn.views
             urNghiemThu.SetViewNghiemThu(this.nguoiDung);
             thongKe1.Visible = false;
         }
+
+        private void thooToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            XemAllThongKe xem = new XemAllThongKe();
+            xem.Show();
+        }
     }
 }
