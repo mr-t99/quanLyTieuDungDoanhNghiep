@@ -87,6 +87,7 @@ D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieu
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.ketoan.resources
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.nhanvien.resources
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.quanly.resources
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.ThongKeChiTheoNgay.resources
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.userControll.ketoan.HoaDon.resources
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.userControll.ketoan.ThongTin.resources
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.userControll.NhanVien.ThemTieuDung.resources
@@ -94,12 +95,10 @@ D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieu
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.userControll.QuanLy.QLKiemDuyet.resources
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.userControll.QuanLy.QlNhanVien.resources
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.userControll.QuanLy.QlPhong.resources
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.userControll.QuanLy.ThongKe.resources
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.XemAllThongKe.resources
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.csproj.GenerateResource.cache
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.csproj.CoreCompileInputs.cache
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.csproj.CopyComplete
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.exe
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.pdb
-D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.csprojAssemblyReference.cache
-D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.userControll.QuanLy.ThongKe.resources
-D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.ThongKeChiTheoNgay.resources
-D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.XemAllThongKe.resources

@@ -373,8 +373,8 @@ namespace quanLyTieuDungDn.Model
         }
 
         //Thống kê
-        public DataTable viewThongKeChi;
-        public SqlDataAdapter adViewThongKeChi;
+        public DataTable viewThongKeChi,allThongKe;
+        public SqlDataAdapter adViewThongKeChi, adAllThongKe;
         private DateTime date;
         public QuanLyModel(int id_phong, DateTime ngay)
         {
@@ -384,6 +384,31 @@ namespace quanLyTieuDungDn.Model
             quanLy = new DataSet();
             GetTableViewThongKeChi();
         }
+
+        public DataTable GetTableViewAllThongKeChi()
+        {
+            string sql = "select nguoi_dung.tn_dung as 'Nhân viên', t_tdung as 'Tiêu dùng', gia as 'Giá', trang_thai.t_tthai as 'Trạng thái', 'Kế toán'=(select tn_dung from nguoi_dung where id = tieu_dung.id_ktoan), phong.t_phong, tieu_dung.ngay_hoan_thanh from tieu_dung, nguoi_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and trang_thai.id = tieu_dung.t_thai and phong.id = nguoi_dung.id_phong";
+            Console.WriteLine(sql);
+            try
+            {
+                MoKetNoi();
+                adViewThongKeChi = new SqlDataAdapter(sql, conn);
+                adViewThongKeChi.FillSchema(quanLy, SchemaType.Source, "VIEWTHONGKECHI");
+                adViewThongKeChi.Fill(quanLy, "VIEWTHONGKECHI");
+                this.viewThongKeChi = quanLy.Tables["VIEWTHONGKECHI"];
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi lấy data");
+                this.viewThongKeChi = null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return viewThongKeChi;
+        }
+
         void GetTableViewThongKeChi()
         {
             if (viewThongKeChi != null)
@@ -392,7 +417,7 @@ namespace quanLyTieuDungDn.Model
             }
             else
             {
-                string sql = "select nguoi_dung.tn_dung as 'Nhân viên', t_tdung as 'Tiêu dùng', gia as 'Giá', trang_thai.t_tthai as 'Trạng thái', 'Kế toán'=(select tn_dung from nguoi_dung where id = tieu_dung.id_ktoan) from tieu_dung, nguoi_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and trang_thai.id = tieu_dung.t_thai and phong.id = nguoi_dung.id_phong and tieu_dung.t_thai = 4 and phong.id = " + id_phong+" and ngay_hoan_thanh ='"+date+"' ";
+                string sql = "select nguoi_dung.tn_dung as 'Nhân viên', t_tdung as 'Tiêu dùng', gia as 'Giá', trang_thai.t_tthai as 'Trạng thái', 'Kế toán'=(select tn_dung from nguoi_dung where id = tieu_dung.id_ktoan), phong.t_phong, tieu_dung.ngay_hoan_thanh from tieu_dung, nguoi_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and trang_thai.id = tieu_dung.t_thai and phong.id = nguoi_dung.id_phong and tieu_dung.t_thai = 4 and phong.id = " + id_phong+" and ngay_hoan_thanh ='"+date+"' ";
                 Console.WriteLine(sql);
                 try
                 {

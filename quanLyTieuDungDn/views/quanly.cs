@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using quanLyTieuDungDn.Model.Object;
+using quanLyTieuDungDn.Model;
 
 namespace quanLyTieuDungDn.views
 {
@@ -105,7 +106,8 @@ namespace quanLyTieuDungDn.views
 
         private void thooToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            XemAllThongKe xem = new XemAllThongKe();
+            QuanLyModel ql = new QuanLyModel();
+            XemAllThongKe xem = new XemAllThongKe(ql.GetTableViewAllThongKeChi());
             xem.Show();
         }
     }
