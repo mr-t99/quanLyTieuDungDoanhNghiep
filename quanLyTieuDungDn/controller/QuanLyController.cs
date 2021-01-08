@@ -77,6 +77,24 @@ namespace quanLyTieuDungDn.controller
                 MessageBox.Show("Bạn phải chọn dòng");
             }
         }
+        public void CapNhatDataNghiemThuTieuDung(int row, TieuDung td)
+        {
+            if (row != -1)
+            {
+                if (td.Gia == 0)
+                {
+                    MessageBox.Show("Giá không hợp lệ");
+                }
+                else
+                {
+                    quanLy.NghiemThuTieuDung(row, td);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải chọn dòng");
+            }
+        }
         //Phòng
         public QuanLyController(int id_phong)
         {

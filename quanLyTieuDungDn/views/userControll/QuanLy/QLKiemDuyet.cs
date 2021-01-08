@@ -136,7 +136,7 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
             tieuDung.Ghi_chu = rtxtGhiChu.Text;
             tieuDung.Id_qly = nguoiDung.Id_nguoi_dung;
             tieuDung.Ngay_hoan_thanh = DateTime.Now;
-            this.quanLy.CapNhatDataTieuDung(row, tieuDung);
+            this.quanLy.CapNhatDataNghiemThuTieuDung(row, tieuDung);
         }
 
         //Nghiem Thu

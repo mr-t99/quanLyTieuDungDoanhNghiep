@@ -106,7 +106,7 @@ namespace quanLyTieuDungDn.Model
             }
             else
             {
-                string sql = "select  tn_dung as 'Nhân viên',tieu_dung.t_tdung as 'Mua', gia as 'Giá', loai_tieu_dung.l_tdung as 'Phân loại', ngay_de_nghi as 'Đề nghị', ngay_hoan_thanh as 'Giao tiền', t_tthai as 'Trạng thái', tieu_dung.id from tieu_dung, nguoi_dung, loai_tieu_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and tieu_dung.id_tdung = loai_tieu_dung.id and tieu_dung.t_thai = trang_thai.id and nguoi_dung.id_phong = phong.id and id_phong = " + this.id_phong + " and t_thai = "+this.id_tthai+"";
+                string sql = "select  tn_dung as 'Nhân viên',tieu_dung.t_tdung as 'Mua', gia as 'Giá', loai_tieu_dung.l_tdung as 'Phân loại', ngay_de_nghi as 'Đề nghị', ngay_hoan_thanh as 'Ngày giao', t_tthai as 'Trạng thái', tieu_dung.id from tieu_dung, nguoi_dung, loai_tieu_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and tieu_dung.id_tdung = loai_tieu_dung.id and tieu_dung.t_thai = trang_thai.id and nguoi_dung.id_phong = phong.id and id_phong = " + this.id_phong + " and t_thai = "+this.id_tthai+"";
                 try
                 {
                     MoKetNoi();
@@ -155,12 +155,13 @@ namespace quanLyTieuDungDn.Model
             try
             {
                 DataRow dr = keToan.Tables["TIEUDUNG"].Rows[row];
-                dr["ngay_hoan_thanh"] = td.Ngay_hoan_thanh;
+                dr["ngay_giao_tien"] = td.Ngay_hoan_thanh;
                 dr["id_ktoan"] = td.Id_ktoan;
                 dr["t_thai"] = 4;
                 CapNhatDatabase();
                 DataRow tk = keToan.Tables["THONGKE"].Rows[row];
                 tk["Trạng thái"] = "Đã nhận tiền";
+                tk["Ngày giao"] = td.Ngay_hoan_thanh;
                 return 1;
             }
             catch(Exception e)
@@ -215,8 +216,7 @@ namespace quanLyTieuDungDn.Model
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                MessageBox.Show("Lỗi lấy hạn mức");
+                Console.WriteLine(e);                
                 return null;
             }
             finally

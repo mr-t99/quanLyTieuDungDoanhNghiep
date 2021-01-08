@@ -139,6 +139,21 @@ namespace quanLyTieuDungDn.Model
             dr["t_thai"] = tieuDung.T_thai;
             dr["ghi_chu"] = tieuDung.Ghi_chu;
             dr["id_qly"] = tieuDung.Id_qly;
+            dr["ngay_duyet"] = tieuDung.Ngay_hoan_thanh;
+            UpdateDatabaseTieuDung();
+            DataRow vdr = quanLy.Tables["VIEWTIEUDUNG"].Rows[row];
+            vdr["Trạng thái"] = tieuDung.T_tthai;
+            vdr["Giá"] = tieuDung.Gia;
+            vdr[5] = tieuDung.Ngay_hoan_thanh;
+
+        }
+        public void NghiemThuTieuDung(int row, TieuDung tieuDung)
+        {
+            DataRow dr = quanLy.Tables["TIEUDUNG"].Rows[row];
+            dr["gia"] = tieuDung.Gia;
+            dr["t_thai"] = tieuDung.T_thai;
+            dr["ghi_chu"] = tieuDung.Ghi_chu;
+            dr["id_qly"] = tieuDung.Id_qly;
             dr["ngay_hoan_thanh"] = tieuDung.Ngay_hoan_thanh;
             UpdateDatabaseTieuDung();
             DataRow vdr = quanLy.Tables["VIEWTIEUDUNG"].Rows[row];
