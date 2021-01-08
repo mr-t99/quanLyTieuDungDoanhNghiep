@@ -174,6 +174,7 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
             else
             {
                 this.quanLy.ThemNhanVien(SetNguoiDung());
+                ClearConten();
             }
         }
 

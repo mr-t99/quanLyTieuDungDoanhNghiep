@@ -133,6 +133,7 @@ namespace quanLyTieuDungDn.views.userControll.QuanLy
                 p.H_muc = Int32.Parse(txtHanMuc.Text);
                 p.T_phong = txtPhong.Text;
                 quanLyPhong.ThemPhong(p);
+
             }
         }
 

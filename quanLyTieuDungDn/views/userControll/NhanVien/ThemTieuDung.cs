@@ -107,6 +107,7 @@ namespace quanLyTieuDungDn.views.userControll.NhanVien
                 LoaiTieuDung ltd = new LoaiTieuDung();
                 ltd = (LoaiTieuDung)cbLoaiTieuDung.SelectedItem;
                 nhanVien.ThemTieuDung(SetTieuDung(), ltd);
+                XoaTextBox();
             }
         }
         private void setCbTieuDung()

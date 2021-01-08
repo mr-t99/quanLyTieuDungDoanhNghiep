@@ -17,7 +17,7 @@ namespace quanLyTieuDungDn
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Environment.SetEnvironmentVariable("sqlString", @"Data Source=DESKTOP-693KNU1\SQLEXPRESS;Initial Catalog=quanLyTieuDung;Integrated Security=True");
+            Environment.SetEnvironmentVariable("sqlString", @"Data Source=192.168.0.127;Initial Catalog=quanLyTieuDung;Persist Security Info=True;User ID=admin;Password=12345");
             Application.Run(new dangnhap());
         }
     }
