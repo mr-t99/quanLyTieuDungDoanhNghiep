@@ -19,18 +19,9 @@ namespace quanLyTieuDungDn.views
         {
             this.nguoiDung = ng;
             InitializeComponent();
-            thongKe1.Visible = true;
-            thongKe1.setNguoiDung(this.nguoiDung);
-            themTieuDung1.Visible = false;
+            themTieuDung1.Visible = true;
+            themTieuDung1.setNguoiDung(this.nguoiDung);
         }
-
-        private void đáToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            thongKe1.Visible = true;
-            thongKe1.setNguoiDung(this.nguoiDung);
-            themTieuDung1.Visible = false;
-        }
-
         private void nhanvien_Load(object sender, EventArgs e)
         {
             lbNgay.Text = "Hôm nay: "+DateTime.Now.ToString("dd/MM/yyyy");
@@ -40,7 +31,6 @@ namespace quanLyTieuDungDn.views
 
         private void dấdádsaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            thongKe1.Visible = false;
             themTieuDung1.Visible = true;
             themTieuDung1.setNguoiDung(this.nguoiDung);
         }
@@ -54,6 +44,16 @@ namespace quanLyTieuDungDn.views
                 dangnhap dn = new dangnhap();
                 dn.Visible = true;
             }
+        }
+
+        private void option_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void themTieuDung1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -176,5 +176,9 @@ namespace quanLyTieuDungDn.controller
                 MessageBox.Show("Bạn phải chọn phòng để xóa!!!");
             }
         }
+        public void CapNhatDatabase()
+        {
+            this.nhanVien.CapNhatDatabase();
+        }
     }
 }

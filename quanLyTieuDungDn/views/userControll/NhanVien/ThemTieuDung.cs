@@ -51,8 +51,9 @@ namespace quanLyTieuDungDn.views.userControll.NhanVien
         {
             if(tbTieuDung.Rows.Count > 1)
             {
-                DataGridViewRow cRow = tbTieuDung.CurrentRow;
-                cRow.ReadOnly = true;
+                Console.WriteLine(tbTieuDung.Rows[0].Cells[1].Value.ToString());
+                DataGridViewRow cRow = tbTieuDung.Rows[0];
+                tbTieuDung.ReadOnly = true;
                 FillView(cRow);
             }
             tbTieuDung.ReadOnly = true;
@@ -78,7 +79,6 @@ namespace quanLyTieuDungDn.views.userControll.NhanVien
         public ThemTieuDung()
         {
             InitializeComponent();
-            TT = TrangThai.isViewing;
         }
 
         public void setNguoiDung(NguoiDung ng)
@@ -158,13 +158,23 @@ namespace quanLyTieuDungDn.views.userControll.NhanVien
 
         private void txtThemPhanLoai_Click(object sender, EventArgs e)
         {
-            if(TT.ToString()!= "IsEditing")
+            int row = 0;
+            foreach (DataGridViewRow dr in tbTieuDung.Rows)
             {
-                TT = TrangThai.isEditingTD;
+                dr.Selected = false;
+                if (dr.Cells[0].Value != null && dr.Cells[1].Value.ToString().Equals(txtThemTieuDung.Text))
+                {
+                    dr.Selected = true;
+                    row++;
+                }
+            }
+            if (row == 0)
+            {
+                MessageBox.Show("Không tìm thấy tiêu dùng này");
             }
             else
             {
-                //Thêm phan loai tieu dung
+                MessageBox.Show("Có " + row + " tiêu dùng được tìm thấy");
             }
         }
 
@@ -208,6 +218,11 @@ namespace quanLyTieuDungDn.views.userControll.NhanVien
             {
                     nhanVien.XoaTieuDung(SetTieuDung(), selectIndexRow);
             }
+        }
+
+        private void btLuu_Click(object sender, EventArgs e)
+        {
+            nhanVien.CapNhatDatabase(); 
         }
     }
 }

@@ -169,9 +169,6 @@ namespace quanLyTieuDungDn.Model
             newTd["id_tdung"] = td.Id_tieu_dung;
             newTd["t_thai"] = 1;
             nhanVien.Tables["TIEUDUNG"].Rows.Add(newTd);
-
-            CapNhatDatabase();
-
             DataRow dr = this.thongKeCaNhan.NewRow();
             dr["Nhân viên"] = nguoiDung.Tn_dung;
             dr["Mua"] = td.T_tdung;
@@ -198,13 +195,12 @@ namespace quanLyTieuDungDn.Model
             dr["Giá"] = td.Gia;
             dr["Phân loại"] = ltd.L_tdung;
             dr["Đề nghị"] = DateTime.Now.ToString("yyyy/MM/dd");
-            CapNhatDatabase();
+            
         }
         public void XoaTieuDung(int row)
         {
             nhanVien.Tables["TIEUDUNG"].Rows[row].Delete();
             nhanVien.Tables["THONGKECANHAN"].Rows[row].Delete();
-            CapNhatDatabase();
         }
         public void CapNhatDatabase()
         {
