@@ -74,10 +74,13 @@ namespace quanLyTieuDungDn.views.userControll.ketoan
       
         private void loadView()
         {
+            //LoadTable
             tbTieuDung.DataSource = keToan.hoaDonNhanTien;
             tbTieuDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbTieuDung.ReadOnly = true;
             tbTieuDung.Columns[7].Visible = false;
+            //Load ten
+            lbTen.Text = nguoiDung.Tn_dung;
         }
 
         private void tbTieuDung_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -39,7 +39,7 @@
             this.phòngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comBoxPhong = new System.Windows.Forms.ToolStripComboBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lbTen = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.InHoaDon = new quanLyTieuDungDn.views.userControll.ketoan.HoaDon();
             this.menuStrip1.SuspendLayout();
@@ -121,7 +121,7 @@
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
+            this.lbTen,
             this.toolStripStatusLabel2});
             this.statusStrip1.Location = new System.Drawing.Point(0, 731);
             this.statusStrip1.Name = "statusStrip1";
@@ -129,11 +129,11 @@
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // lbTen
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(157, 17);
-            this.toolStripStatusLabel1.Text = "Nhân viên: Trần Ngọc Thăng";
+            this.lbTen.Name = "lbTen";
+            this.lbTen.Size = new System.Drawing.Size(157, 17);
+            this.lbTen.Text = "Nhân viên: Trần Ngọc Thăng";
             // 
             // toolStripStatusLabel2
             // 
@@ -150,7 +150,7 @@
             this.InHoaDon.Name = "InHoaDon";
             this.InHoaDon.Size = new System.Drawing.Size(1258, 691);
             this.InHoaDon.TabIndex = 3;
-            this.InHoaDon.Load += new System.EventHandler(this.hoaDon1_Load);
+            
             // 
             // ketoan
             // 
@@ -178,7 +178,7 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel lbTen;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripMenuItem lựaChọnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thốngKêToolStripMenuItem;

@@ -82,6 +82,7 @@ D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\bin\Debug\stdole.dll
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.Form1.resources
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.Properties.Resources.resources
+D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.ChonThangNam.resources
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.dangnhap.resources
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.HoaDonNhanTien.resources
 D:\HK-II-Nam4\C#\quanLyTieuDungDoanhNghiep\quanLyTieuDungDn\obj\Debug\quanLyTieuDungDn.views.ketoan.resources

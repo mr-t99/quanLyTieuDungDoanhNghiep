@@ -77,6 +77,12 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="views\ChonThangNam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\ChonThangNam.Designer.cs">
+      <DependentUpon>ChonThangNam.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\cpHoaDonNhanTien.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -129,6 +135,12 @@
     </Compile>
     <Compile Include="views\ThongKeChiTheoNgay.Designer.cs">
       <DependentUpon>ThongKeChiTheoNgay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\ThongTinTieuDung.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThongTinTieuDung.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="views\userControll\ketoan\HoaDon.cs">
       <SubType>UserControl</SubType>
@@ -196,6 +208,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="views\ChonThangNam.resx">
+      <DependentUpon>ChonThangNam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\cpHoaDonNhanTien.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cpHoaDonNhanTien.cs</LastGenOutput>
@@ -225,6 +240,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\ThongKeChiTheoNgay.resx">
       <DependentUpon>ThongKeChiTheoNgay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\ThongTinTieuDung.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ThongTinTieuDung.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="views\userControll\ketoan\HoaDon.resx">
       <DependentUpon>HoaDon.cs</DependentUpon>

@@ -128,6 +128,7 @@
             this.tiêuDùngToolStripMenuItem.Name = "tiêuDùngToolStripMenuItem";
             this.tiêuDùngToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.tiêuDùngToolStripMenuItem.Text = "Theo dõi";
+            this.tiêuDùngToolStripMenuItem.Click += new System.EventHandler(this.tiêuDùngToolStripMenuItem_Click);
             // 
             // kiểmDuyệtToolStripMenuItem
             // 

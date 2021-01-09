@@ -92,29 +92,29 @@ namespace quanLyTieuDungDn.controller
                 MessageBox.Show("Lỗi phòng");
             }
             //Lay tong phong
-            if (thongKe.Rows.Count != 0)
-            {
-                foreach(DataRow dr in thongKe.Rows)
-                {
-                    this.t_phong = t_phong + (int)dr["Giá"];
-                }
-                v_muc = t_phong - h_muc;
-                if (h_muc >= t_phong)
-                {
-                    v_muc = 0;
-                }
-                foreach (DataRow dr in thongKe.Rows)
-                {
-                    if (dr["Nhân viên"].ToString() == nguoiDung.Tn_dung)
-                    {
-                        c_nhan += (int)dr["Giá"];
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Lỗi thong ke");
-            }
+            //if (thongKe.Rows.Count != 0)
+            //{
+            //    foreach(DataRow dr in thongKe.Rows)
+            //    {
+            //        this.t_phong = t_phong + (int)dr["Giá"];
+            //    }
+            //    v_muc = t_phong - h_muc;
+            //    if (h_muc >= t_phong)
+            //    {
+            //        v_muc = 0;
+            //    }
+            //    foreach (DataRow dr in thongKe.Rows)
+            //    {
+            //        if (dr["Nhân viên"].ToString() == nguoiDung.Tn_dung)
+            //        {
+            //            c_nhan += (int)dr["Giá"];
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Lỗi thong ke");
+            //}
         }
         private void getTieuDung()
         {

@@ -106,9 +106,16 @@ namespace quanLyTieuDungDn.views
 
         private void thooToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            QuanLyModel ql = new QuanLyModel();
-            XemAllThongKe xem = new XemAllThongKe(ql.GetTableViewAllThongKeChi());
-            xem.Show();
+            //QuanLyModel ql = new QuanLyModel();
+            //XemAllThongKe xem = new XemAllThongKe(ql.GetTableViewAllThongKeChi());
+            //xem.Show();
+            ChonThangNam date = new ChonThangNam();
+            date.Show();
+        }
+
+        private void tiêuDùngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

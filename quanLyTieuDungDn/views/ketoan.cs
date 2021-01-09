@@ -30,6 +30,7 @@ namespace quanLyTieuDungDn.views
             keToan = new KeToanController(this.nguoiDung, p, 2);
             p = (Phong)comBoxPhong.ComboBox.SelectedItem;
             InHoaDon.setNguoiDung(nguoiDung, p);
+            lbTen.Text = "Nhân viên: " + nguoiDung.Tn_dung;
         }
 
         private void setComBox()
@@ -46,11 +47,6 @@ namespace quanLyTieuDungDn.views
             p = (Phong)comBoxPhong.ComboBox.SelectedItem;
             keToan = new KeToanController(this.nguoiDung, p, 2);
             InHoaDon.setNguoiDung(nguoiDung, p);            
-        }
-
-        private void hoaDon1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void thêmTiêuDùngToolStripMenuItem_Click(object sender, EventArgs e)

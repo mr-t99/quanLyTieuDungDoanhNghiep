@@ -12,9 +12,21 @@ namespace quanLyTieuDungDn.views
 {
     public partial class XemAllThongKe : Form
     {
+        private DataTable data;
         public XemAllThongKe(DataTable data)
         {
             InitializeComponent();
+            this.data = data;
+        }
+
+        public void FThongTinTieuDung()
+        {
+            ThongTinTieuDung thongTin = new ThongTinTieuDung();
+            thongTin.SetDataSource(this.data);
+            rpAll.ReportSource = thongTin;
+        }
+        public void ChiTietTieuDung()
+        {
             rpXemAllThongKe rp = new rpXemAllThongKe();
             rp.SetDataSource(data);
             rpAll.ReportSource = rp;

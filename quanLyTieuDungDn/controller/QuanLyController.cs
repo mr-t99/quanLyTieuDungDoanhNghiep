@@ -14,12 +14,20 @@ namespace quanLyTieuDungDn.controller
     class QuanLyController
     {
         private QuanLyModel quanLy;
-        public DataTable phong, viewTieuDung, viewNhanVien;
+        public DataTable phong, viewTieuDung, viewNhanVien,allThongKe;
         private int id_phong, id_tthai;
         public QuanLyController()
         {
             quanLy = new QuanLyModel();
             this.phong = quanLy.viewPhong;
+        }
+        public DataTable AllThongKe(DateTime MM)
+        {
+            return quanLy.GetTableViewAllThongKeChi(MM);
+        }
+        public DataTable ThongTinTD(DateTime MM)
+        {
+            return quanLy.GetTableThongTinTD(MM);
         }
         //Kiểm duyệt
         public ArrayList ArrPhong()
@@ -242,6 +250,7 @@ namespace quanLyTieuDungDn.controller
             quanLy = new QuanLyModel(id_phong, date);
             viewThongKeChi = quanLy.viewThongKeChi;
         }
+        
     }
 
 }

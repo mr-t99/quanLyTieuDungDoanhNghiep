@@ -80,10 +80,10 @@ namespace quanLyTieuDungDn.Model
             else
             {
                 Console.WriteLine(id_tthai);
-                string sql = "select  tn_dung as 'Nhân viên',tieu_dung.t_tdung as 'Mua', gia as 'Giá', loai_tieu_dung.l_tdung as 'Phân loại', ngay_de_nghi as 'Đề nghị', ngay_hoan_thanh as 'Chấp nhận', t_tthai as 'Trạng thái', tieu_dung.id from tieu_dung, nguoi_dung, loai_tieu_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and tieu_dung.id_tdung = loai_tieu_dung.id and tieu_dung.t_thai = trang_thai.id and nguoi_dung.id_phong = phong.id and id_phong = "+id_phong+" and (t_thai =1 or t_thai=2 or t_thai=3 )";
+                string sql = "select  tn_dung as 'Nhân viên',tieu_dung.t_tdung as 'Mua', gia as 'Giá', loai_tieu_dung.l_tdung as 'Phân loại', ngay_de_nghi as 'Đề nghị', ngay_duyet as 'Ngày duyệt', t_tthai as 'Trạng thái', tieu_dung.id from tieu_dung, nguoi_dung, loai_tieu_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and tieu_dung.id_tdung = loai_tieu_dung.id and tieu_dung.t_thai = trang_thai.id and nguoi_dung.id_phong = phong.id and id_phong = "+id_phong+" and (t_thai =1 or t_thai=2 or t_thai=3 )";
                 if(id_tthai == 4)
                 {
-                    sql = "select  tn_dung as 'Nhân viên',tieu_dung.t_tdung as 'Mua', gia as 'Giá', loai_tieu_dung.l_tdung as 'Phân loại', ngay_de_nghi as 'Đề nghị', ngay_hoan_thanh as 'Nghiệm thu', t_tthai as 'Trạng thái', tieu_dung.id from tieu_dung, nguoi_dung, loai_tieu_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and tieu_dung.id_tdung = loai_tieu_dung.id and tieu_dung.t_thai = trang_thai.id and nguoi_dung.id_phong = phong.id and id_phong = " + id_phong + " and t_thai =4";
+                    sql = "select  tn_dung as 'Nhân viên',tieu_dung.t_tdung as 'Mua', gia as 'Giá', loai_tieu_dung.l_tdung as 'Phân loại', ngay_de_nghi as 'Đề nghị', ngay_hoan_thanh as 'Ngày nghiệm thu', t_tthai as 'Trạng thái', tieu_dung.id from tieu_dung, nguoi_dung, loai_tieu_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and tieu_dung.id_tdung = loai_tieu_dung.id and tieu_dung.t_thai = trang_thai.id and nguoi_dung.id_phong = phong.id and id_phong = " + id_phong + " and t_thai =4";
                     Console.WriteLine(sql);
                 }
                 try
@@ -400,9 +400,9 @@ namespace quanLyTieuDungDn.Model
             GetTableViewThongKeChi();
         }
 
-        public DataTable GetTableViewAllThongKeChi()
+        public DataTable GetTableViewAllThongKeChi(DateTime MM)
         {
-            string sql = "select nguoi_dung.tn_dung as 'Nhân viên', t_tdung as 'Tiêu dùng', gia as 'Giá', trang_thai.t_tthai as 'Trạng thái', 'Kế toán'=(select tn_dung from nguoi_dung where id = tieu_dung.id_ktoan), phong.t_phong, tieu_dung.ngay_hoan_thanh from tieu_dung, nguoi_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and trang_thai.id = tieu_dung.t_thai and phong.id = nguoi_dung.id_phong";
+            string sql = "select nguoi_dung.tn_dung as 'Nhân viên', t_tdung as 'Tiêu dùng', gia as 'Giá', trang_thai.t_tthai as 'Trạng thái', 'Kế toán'=(select tn_dung from nguoi_dung where id = tieu_dung.id_ktoan), phong.t_phong, tieu_dung.ngay_giao_tien, phong.h_muc from tieu_dung, nguoi_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and trang_thai.id = tieu_dung.t_thai and phong.id = nguoi_dung.id_phong and FORMAT (tieu_dung.ngay_de_nghi, 'MM')=" + MM.ToString("MM")+"";
             Console.WriteLine(sql);
             try
             {
@@ -423,7 +423,28 @@ namespace quanLyTieuDungDn.Model
             }
             return viewThongKeChi;
         }
-
+        public DataTable GetTableThongTinTD(DateTime MM)
+        {
+            string sql = "select tieu_dung.t_tdung, 'Kế toán' = (select tn_dung from nguoi_dung where id = tieu_dung.id_ktoan), 'Quản lý' = (select tn_dung from nguoi_dung where id = tieu_dung.id_qly), tieu_dung.ngay_de_nghi, tieu_dung.ngay_duyet, tieu_dung.ngay_giao_tien, tieu_dung.ngay_hoan_thanh, thang = FORMAT (tieu_dung.ngay_de_nghi, 'MM') from tieu_dung, nguoi_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and trang_thai.id = tieu_dung.t_thai and phong.id = nguoi_dung.id_phong and ngay_giao_tien is not null and FORMAT (tieu_dung.ngay_de_nghi, 'MM')="+MM.ToString("MM")+"";
+            try
+            {
+                MoKetNoi();
+                adViewThongKeChi = new SqlDataAdapter(sql, conn);
+                adViewThongKeChi.FillSchema(quanLy, SchemaType.Source, "VIEWTHONGKECHI");
+                adViewThongKeChi.Fill(quanLy, "VIEWTHONGKECHI");
+                this.viewThongKeChi = quanLy.Tables["VIEWTHONGKECHI"];
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi lấy data");
+                this.viewThongKeChi = null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return viewThongKeChi;
+        }
         void GetTableViewThongKeChi()
         {
             if (viewThongKeChi != null)
@@ -432,7 +453,7 @@ namespace quanLyTieuDungDn.Model
             }
             else
             {
-                string sql = "select nguoi_dung.tn_dung as 'Nhân viên', t_tdung as 'Tiêu dùng', gia as 'Giá', trang_thai.t_tthai as 'Trạng thái', 'Kế toán'=(select tn_dung from nguoi_dung where id = tieu_dung.id_ktoan), phong.t_phong, tieu_dung.ngay_hoan_thanh from tieu_dung, nguoi_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and trang_thai.id = tieu_dung.t_thai and phong.id = nguoi_dung.id_phong and tieu_dung.t_thai = 4 and phong.id = " + id_phong+" and ngay_hoan_thanh ='"+date+"' ";
+                string sql = "select nguoi_dung.tn_dung as 'Nhân viên', t_tdung as 'Tiêu dùng', gia as 'Giá', trang_thai.t_tthai as 'Trạng thái', 'Kế toán'=(select tn_dung from nguoi_dung where id = tieu_dung.id_ktoan), phong.t_phong, tieu_dung.ngay_giao_tien, h_muc = (select h_muc from phong where id = "+id_phong+") from tieu_dung, nguoi_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and trang_thai.id = tieu_dung.t_thai and phong.id = nguoi_dung.id_phong and tieu_dung.t_thai = 4 and phong.id = " + id_phong+" and ngay_giao_tien ='"+date+"' ";
                 Console.WriteLine(sql);
                 try
                 {
