@@ -425,7 +425,7 @@ namespace quanLyTieuDungDn.Model
         }
         public DataTable GetTableThongTinTD(DateTime MM)
         {
-            string sql = "select tieu_dung.t_tdung, 'Kế toán' = (select tn_dung from nguoi_dung where id = tieu_dung.id_ktoan), 'Quản lý' = (select tn_dung from nguoi_dung where id = tieu_dung.id_qly), tieu_dung.ngay_de_nghi, tieu_dung.ngay_duyet, tieu_dung.ngay_giao_tien, tieu_dung.ngay_hoan_thanh, thang = FORMAT (tieu_dung.ngay_de_nghi, 'MM') from tieu_dung, nguoi_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and trang_thai.id = tieu_dung.t_thai and phong.id = nguoi_dung.id_phong and ngay_giao_tien is not null and FORMAT (tieu_dung.ngay_de_nghi, 'MM')="+MM.ToString("MM")+"";
+            string sql = "select tieu_dung.t_tdung, 'Kế toán' = (select tn_dung from nguoi_dung where id = tieu_dung.id_ktoan), 'Quản lý' = (select tn_dung from nguoi_dung where id = tieu_dung.id_qly), CONVERT(varchar, tieu_dung.ngay_de_nghi, 103) as 'ngay_de_nghi',CONVERT(varchar, tieu_dung.ngay_duyet, 103) as 'ngay_duyet' ,CONVERT(varchar, tieu_dung.ngay_giao_tien, 103) as 'ngay_giao_tien',CONVERT(varchar, tieu_dung.ngay_hoan_thanh, 103) as 'ngay_hoan_thanh', thang = FORMAT (tieu_dung.ngay_de_nghi, 'MM') from tieu_dung, nguoi_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and trang_thai.id = tieu_dung.t_thai and phong.id = nguoi_dung.id_phong and ngay_giao_tien is not null and FORMAT (tieu_dung.ngay_de_nghi, 'MM')=" + MM.ToString("MM")+"";
             try
             {
                 MoKetNoi();
@@ -453,7 +453,7 @@ namespace quanLyTieuDungDn.Model
             }
             else
             {
-                string sql = "select nguoi_dung.tn_dung as 'Nhân viên', t_tdung as 'Tiêu dùng', gia as 'Giá', trang_thai.t_tthai as 'Trạng thái', 'Kế toán'=(select tn_dung from nguoi_dung where id = tieu_dung.id_ktoan), phong.t_phong, tieu_dung.ngay_giao_tien, h_muc = (select h_muc from phong where id = "+id_phong+") from tieu_dung, nguoi_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and trang_thai.id = tieu_dung.t_thai and phong.id = nguoi_dung.id_phong and tieu_dung.t_thai = 4 and phong.id = " + id_phong+" and ngay_giao_tien ='"+date+"' ";
+                string sql = "select nguoi_dung.tn_dung as 'Nhân viên', t_tdung as 'Tiêu dùng', gia as 'Giá', trang_thai.t_tthai as 'Trạng thái', 'Kế toán'=(select tn_dung from nguoi_dung where id = tieu_dung.id_ktoan), phong.t_phong ,CONVERT(varchar, tieu_dung.ngay_giao_tien, 103) as 'ngay_giao_tien', h_muc = (select h_muc from phong where id = " + id_phong+") from tieu_dung, nguoi_dung, trang_thai, phong where tieu_dung.id_nguoidung = nguoi_dung.id and trang_thai.id = tieu_dung.t_thai and phong.id = nguoi_dung.id_phong and tieu_dung.t_thai = 4 and phong.id = " + id_phong+" and ngay_giao_tien ='"+date+"' ";
                 Console.WriteLine(sql);
                 try
                 {

@@ -21,7 +21,7 @@ namespace quanLyTieuDungDn.views
 
         private void dangnhap_Load(object sender, EventArgs e)
         {
-
+            txtPassword.PasswordChar = '*';
         }
 
         private void button1_Click(object sender, EventArgs e)
